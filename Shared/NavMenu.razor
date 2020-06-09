@@ -1,0 +1,73 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Мед.учреждения</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Главная
+            </NavLink>
+        </li>
+        <AuthorizeView Roles="Admin, Normal">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="/hospitals/index">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Учреждения
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="categorypage">
+                    <span class="oi oi-grid-two-up" aria-hidden="true"></span> Категории
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="productpage">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Ресурсы
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="userlist">
+                    <span class="oi oi-people" aria-hidden="true"></span> Пользователи
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="positionpage">
+                    <span class="oi oi-fork" aria-hidden="true"></span> Должности
+                </NavLink>
+            </li>
+        </AuthorizeView>
+
+        <AuthorizeView Roles="Manager">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="departmentpage">
+                    <span class="oi oi-credit-card" aria-hidden="true"></span> Отделения
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="productcntpage">
+                    <span class="oi oi-aperture" aria-hidden="true"></span> Ресурсы
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="/emppage">
+                    <span class="oi oi-people" aria-hidden="true"></span> Сотрудники
+                </NavLink>
+            </li>
+
+        </AuthorizeView>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

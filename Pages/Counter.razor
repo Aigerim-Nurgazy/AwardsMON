@@ -1,0 +1,27 @@
+﻿@page "/counter"
+
+@attribute [Authorize]
+@*@attribute [Authorize(Roles = "finance")]*@
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    //[Inject]
+    //protected NavigationManager NavigationManager { get; set; }
+
+    //protected override void OnInitialized()
+    //{
+    //    NavigationManager.NavigateTo("/");
+    //}
+
+}

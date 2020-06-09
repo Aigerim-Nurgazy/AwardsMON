@@ -1,0 +1,199 @@
+﻿@page "/productpage"
+
+@using HospitalsBlz.Data
+@using HospitalsBlz.Models
+
+@inject ApplicationDbContext db
+
+ 
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Список ресурса </h4></div>
+    <div class="col-md-4"></div>
+</div>
+
+<button class="btn btn-success" @onclick="AddNewUser">Добавить новый</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Наименование</th>
+            <th>Категория</th>
+            <th>Примечание</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in products)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Category.Name</td>
+                <td>@item.Desc</td>
+                <td>
+                    <!-- Edit the current forecast -->
+                    <button class="btn btn-primary"
+                            @onclick="(() => EditUser(item))">
+                        Редактировать
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@if (ShowPopup)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Редактирование</h3>
+                    <button type="button" class="close"
+                            @onclick="ClosePopup">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span style="color:red">@strError</span>
+                    <table class="table">
+                        <tr>
+                            <td>Наименование</td>
+                            <td><input type="text" class="form-control" @bind="@product.Name" /></td>
+                        </tr>
+                        <tr>
+                            <td>Категория</td>
+                            <td>
+                                <select class="form-control" @bind="@product.CategoryId">
+                                    @foreach (var cnt in categories)
+                                    {
+                                        <option value="@cnt.Id">@cnt.Name</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Примечание</td>
+                            <td><input type="text" class="form-control" @bind="@product.Desc" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @if (product.Id != 0)
+                                {
+                                    <!-- Button to delete the forecast -->
+                                    <button class="btn btn-danger" @onclick="DeleteUser">
+                                        Удалить
+                                    </button>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="SaveUser">
+                                    Сохранить
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+
+
+@code {
+
+    private List<Product> products;
+    private List<Category> categories;
+    private Product product = new Product();
+
+    private async Task InsertHospitals()
+    {
+        db.Products.Add(product);
+        await db.SaveChangesAsync();
+        products.Add(product);
+        product = new Product();
+    }
+    string strError = "";
+    bool ShowPopup = false;
+
+
+
+    void AddNewUser()
+    {
+        product = new Product();
+        product.Id = 0;
+        ShowPopup = true;
+    }
+    async Task SaveUser()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (product.Id != 0)
+            {
+                // Get the user
+                Product pos = await db.Products.FindAsync(product.Id);
+                pos.Name = product.Name;
+                pos.CategoryId = product.CategoryId;
+                pos.Desc = product.Desc;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                db.Products.Add(product);
+                await db.SaveChangesAsync();
+            }
+
+            // Close the Popup
+            ShowPopup = false;
+            // Refresh Users
+            LoadData();
+            product = new Product();
+        }
+        catch (Exception ex)
+        {
+            strError = ex.GetBaseException().Message;
+        }
+    }
+    async Task EditUser(Product rc)
+    {
+        product = rc;
+        //products = db.Products.Where(x => x.CategoryId == ).ToList();
+        ShowPopup = true;
+    }
+    async Task DeleteUser()
+    {
+        // Close the Popup
+        ShowPopup = false;
+        // Get the user
+        var rc = await db.Products.FindAsync(product.Id);
+        if (rc != null)
+        {
+            db.Products.Remove(rc);
+            await db.SaveChangesAsync();
+        }
+        LoadData();
+    }
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadData();
+    }
+
+    public void LoadData()
+    {
+        categories = db.Categories.ToList();
+        products = db.Products.ToList();
+    }
+}

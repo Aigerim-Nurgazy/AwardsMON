@@ -1,0 +1,237 @@
+﻿@page "/productcntpage"
+
+@using Microsoft.AspNetCore.Identity;
+@using HospitalsBlz.Data
+@using HospitalsBlz.Models
+@inject UserManager<ApplicationUser> _userManager;
+
+
+@inject ApplicationDbContext db
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Список ресурсов </h4></div>
+    <div class="col-md-4"></div>
+</div>
+<button class="btn btn-success" @onclick="AddNewUser">Добавить новый</button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Отделение</th>
+            <th>Ресурс</th>
+            <th>Дата</th>
+            <th>Кол-во</th>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in productCounts)
+        {
+        <tr>
+            <td>@item.Departments.Name</td>
+            <td>@item.Product.Name</td>
+            <td>@item.CreateDate</td>
+            <td>@item.Qty</td>
+            <td>
+                <!-- Edit the current forecast -->
+                <button class="btn btn-primary"
+                        @onclick="(() => EditUser(item))">
+                    Редактировать
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@if (ShowPopup)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Редактирование</h3>
+                    <button type="button" class="close"
+                            @onclick="ClosePopup">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span style="color:red">@strError</span>
+                    <table class="table">
+                        <tr>
+                            <td>Отделение</td>
+                            <td>
+                                <select class="form-control" @bind="@productCnt.DepartmentsId">
+                                    @foreach (var cnt in departments)
+                                    {
+                                        <option value="@cnt.Id">@cnt.Name</option>
+                                    }
+                                </select>                            
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Категория</td>
+                            <td>
+                                <select class="form-control" @bind="@CategoryId">
+                                    <option value="">--Категория--</option>
+                                    @foreach (var cnt in categories)
+                                    {
+                                        <option value="@cnt.Id">@cnt.Name</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ресурс</td>
+                            <td>
+                                <select class="form-control" @bind="@productCnt.ProductId">
+                                    <option value="">--Выбрать--</option>
+                                    @foreach (var cnt in products)
+                                    {
+                                        <option value="@cnt.Id">@cnt.Name</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Кол-во</td>
+                            <td><input type="text" placeholder="Пациенты с Covid" class="form-control" @bind="@productCnt.Qty" /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @if (productCnt.Id != 0)
+                                {
+                                    <!-- Button to delete the forecast -->
+                                    <button class="btn btn-danger" @onclick="DeleteUser">
+                                        Удалить
+                                    </button>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="SaveUser">
+                                    Сохранить
+                                </button>
+                            </td>
+                        </tr> 
+                    </table> 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+}
+
+
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    ApplicationUser objUser;
+    string strError = "";
+    bool ShowPopup = false;
+
+    private List<ProductCount> productCounts= new List<ProductCount>();
+    private List<Product> products=new List<Product>();
+    private List<Category> categories = new List<Category>();
+    private List<Departments> departments=new List<Departments>();
+    private ProductCount productCnt = new ProductCount();
+
+    private int? catId = null;
+    private int? CategoryId
+    {
+        get { return catId; }
+        set { catId = value; SelectResource(); }
+    }
+
+    void AddNewUser()
+    {
+        productCnt = new ProductCount();
+        productCnt.CreateDate = DateTime.Now;
+        productCnt.ApplicationUserId = objUser.Id;
+        productCnt.Id = 0;
+        ShowPopup = true;
+    }
+    async Task SaveUser()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (productCnt.Id != 0)
+            {
+                // Get the user
+                ProductCount rc = await db.ProductCounts.FindAsync(productCnt.Id);
+                rc.DepartmentsId = productCnt.DepartmentsId;
+                rc.ProductId = productCnt.ProductId;
+                rc.Qty = productCnt.Qty;
+                //Insert history;
+
+                //db.ProductCounts.Update(rc);
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                db.ProductCounts.Add(productCnt);
+                await db.SaveChangesAsync();
+            }
+
+            // Close the Popup
+            ShowPopup = false;
+            // Refresh Users
+            LoadData();
+            productCnt = new ProductCount();
+        }
+        catch (Exception ex)
+        {
+            strError = ex.GetBaseException().Message;
+        }
+    }
+    async Task EditUser(ProductCount rc)
+    {
+        productCnt = rc;
+        //products = db.Products.Where(x => x.CategoryId == ).ToList();
+        ShowPopup = true;
+    }
+    async Task DeleteUser()
+    {
+        // Close the Popup
+        ShowPopup = false;
+        // Get the user
+        var rc = await db.ProductCounts.FindAsync(productCnt.Id);
+        if (rc != null)
+        {
+            db.ProductCounts.Remove(rc);
+            await db.SaveChangesAsync();
+        }
+        LoadData();
+    }
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+
+    void SelectResource()
+    {
+        products = db.Products.Where(x => x.CategoryId == catId).ToList();
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentUser = (await authenticationStateTask).User;
+        objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
+        categories = db.Categories.ToList();
+        products = db.Products.ToList();
+        LoadData();
+    }
+
+    public void LoadData()
+    {
+        productCounts = db.ProductCounts.Where(x => x.ApplicationUserId == objUser.Id).ToList();
+        departments = db.Departments.Where(x => x.ApplicationUserId == objUser.Id).ToList();
+    }
+}

@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/ApplicationUser.cs">
+    <Files>
+      <File FileName="Startup.cs" Line="124" Column="31" />
+      <File FileName="Data/ApplicationDbContext.cs" Line="1" Column="1" />
+      <File FileName="Models/ApplicationUser.cs" Line="99" Column="6" />
+      <File FileName="Pages/Hospitalas/Index.razor" />
+      <File FileName="Pages/_Host.cshtml" />
+      <File FileName="Pages/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="Pages/CategoryPage.razor" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HospitalsBlz" expanded="True">
+            <Node name="HospitalsBlz" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ApplicationUser.cs" selected="True" />
+              </Node>
+              <Node name="Pages" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.HospitalsBlz PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

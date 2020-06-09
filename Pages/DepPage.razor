@@ -1,0 +1,260 @@
+﻿@page "/departmentpage"
+@using Microsoft.AspNetCore.Identity;
+@using HospitalsBlz.Data
+@using HospitalsBlz.Models
+@inject UserManager<ApplicationUser> _userManager;
+
+@inject ApplicationDbContext db
+
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6"><h4>Список отделений с койка-место </h4></div>
+    <div class="col-md-3"></div>
+</div>
+<button class="btn btn-success" @onclick="AddNewUser">Добавить новый</button>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Наименование</th>
+            <th>Контактное лицо</th>
+            <th>Телефон</th>
+            <th>Общее кол-во мест</th>
+            <th>Место для Covid</th>
+            <th>Общее кол-во пациентов</th>
+            <th>Пациенты с Covid</th>
+            <th>Кол-во свободныx мест</th>
+            <th>Кол-во свободых для Covid</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in departments)
+        {
+            <tr>
+                <td>
+                    <button class="btn btn-primary"
+                            @onclick="(() => EditUser(item))">
+                        @item.Name
+                    </button>
+
+                </td>
+                <td>@item.Contacts</td>
+                <td>@item.Phone</td>
+                <td>@item.TotalPlaceQty</td>
+                <td>@item.PlaceCovidQty</td>
+                <td>@item.TotalPasients</td>
+                <td>@item.CovidQtyPasients</td>
+                <td>@item.TotalFreePlace</td>
+                <td>@item.TotalFreeCovidPlace</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (ShowPopup)
+{
+    <!-- This is the popup to create or edit a user -->
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog">
+            @*<EditForm Model="@department" OnValidSubmit="@SaveUser">*@
+                @*<DataAnnotationsValidator />
+                <ValidationSummary />*@
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Редактирование</h3>
+                        <!-- Button to close the popup -->
+                        <button type="button" class="close"
+                                @onclick="ClosePopup">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>
+                    <!-- Edit form for the current user -->
+                    <div class="modal-body">
+                        <span style="color:red">@strError</span>
+
+                        <table class="table">
+
+                            <tr>
+                                <td colspan="2"><input type="text" placeholder="Наименование" class="form-control" @bind="@department.Name" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" placeholder="ФИО" class="form-control" @bind="@department.Contacts" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="text" placeholder="Телефон" class="form-control" @bind="@department.Phone" /></td>
+                            </tr>
+                            <tr>
+                                <td>Общее кол-во мест</td>
+                                <td><input type="text" placeholder="Общее кол-во мест" class="form-control" @bind="@department.TotalPlaceQty" /></td>
+                            </tr>
+                            <tr>
+                                <td>Место для Covid</td>
+                                <td><input type="text" placeholder="Место для Covid" class="form-control" @bind="@department.PlaceCovidQty" /></td>
+                            </tr>
+                            <tr>
+                                <td>Общее кол-во пациентов</td>
+                                <td><input type="text" placeholder="Общее кол-во пациентов" class="form-control" @bind="@department.TotalPasients" /></td>
+                            </tr>
+                            <tr>
+                                <td>Пациенты с Covid</td>
+                                <td><input type="text" placeholder="Пациенты с Covid" class="form-control" @bind="@department.CovidQtyPasients" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @if (department.Id != 0)
+                                    {
+                                        <!-- Button to delete the forecast -->
+                                        <button class="btn btn-danger" @onclick="DeleteUser">
+                                            Удалить
+                                        </button>
+                                    }
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary" @onclick="SaveUser">
+                                        Сохранить
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </table>
+
+
+                    </div>
+                </div>
+                @*</EditForm>*@
+        </div>
+    </div>
+}
+
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    ApplicationUser objUser;
+    string strError = "";
+    bool ShowPopup = false;
+
+    private List<Departments> departments = new List<Departments>();
+    private Departments department = new Departments();
+
+
+    void AddNewUser()
+    {
+        department = new Departments();
+        department.CreateDate = DateTime.Now;
+        department.ApplicationUserId = objUser.Id;
+        department.HospitalsId = objUser.HospitalsId;
+        department.Id = 0;
+        ShowPopup = true;
+    }
+    async Task SaveUser()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (department.Id != 0)
+            {
+                // Get the user
+                Departments dep = await db.Departments.FindAsync(department.Id);
+                dep.Contacts = department.Contacts;
+                dep.CovidQtyPasients = department.CovidQtyPasients;
+                dep.CreateDate = DateTime.Now;
+                dep.HospitalsId = department.HospitalsId;
+                dep.Name = department.Name;
+                dep.Phone = department.Phone;
+                dep.PlaceCovidQty = department.PlaceCovidQty;
+                dep.TotalFreeCovidPlace = department.TotalFreeCovidPlace;
+                dep.TotalFreePlace = department.TotalFreePlace;
+                dep.TotalPasients = dep.TotalPasients;
+                dep.TotalPlaceQty = dep.TotalPlaceQty;
+                //Insert history;
+
+                await db.SaveChangesAsync();
+                await InsertLog(dep, "Update");
+            }
+            else
+            {
+                db.Departments.Add(department);
+                await db.SaveChangesAsync();
+                await InsertLog(department, "Insert");
+            }
+            department = new Departments();
+            // Close the Popup
+            ShowPopup = false;
+            // Refresh Users
+            LoadData();
+        }
+        catch (Exception ex)
+        {
+            strError = ex.GetBaseException().Message;
+        }
+    }
+    async Task EditUser(Departments dep)
+    {
+        // Set the selected user as the current user
+        department = dep;
+        ShowPopup = true;
+    }
+    async Task DeleteUser()
+    {
+        // Close the Popup
+        ShowPopup = false;
+        // Get the user
+        var dep = await db.Departments.FindAsync(department.Id);
+        if (dep != null)
+        {
+            db.Departments.Remove(dep);
+            await InsertLog(dep, "Remove");
+            //History insert
+        }
+        LoadData();
+    }
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+    async Task InsertLog(Departments department, string action)
+    {
+        DepartmentsHistory dep = new DepartmentsHistory();
+        dep.Contacts = department.Contacts;
+        dep.CovidQtyPasients = department.CovidQtyPasients;
+        dep.CreateDate = DateTime.Now;
+        dep.HospitalsId = department.HospitalsId;
+        dep.Name = department.Name;
+        dep.Phone = department.Phone;
+        dep.PlaceCovidQty = department.PlaceCovidQty;
+        dep.TotalFreeCovidPlace = department.TotalFreeCovidPlace;
+        dep.TotalFreePlace = department.TotalFreePlace;
+        dep.TotalPasients = dep.TotalPasients;
+        dep.TotalPlaceQty = dep.TotalPlaceQty;
+        dep.Action = action;
+        dep.OldId = department.Id;
+        dep.ApplicationUserId = department.ApplicationUserId;
+        db.DepartmentsHistory.Add(dep);
+        await db.SaveChangesAsync();
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentUser = (await authenticationStateTask).User;
+        objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
+        LoadData();
+    }
+
+    public void LoadData()
+    {
+        departments = db.Departments.Where(x => x.ApplicationUserId == objUser.Id).ToList();
+    }
+
+
+}

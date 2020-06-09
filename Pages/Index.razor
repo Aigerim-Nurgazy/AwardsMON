@@ -1,0 +1,13 @@
+﻿@page "/"
+
+<h1>Доброе пожаловать!</h1>
+<AuthorizeView>
+    <NotAuthorized>
+        Для начало работы пожалуйста авторизуйтесь.
+    </NotAuthorized>
+</AuthorizeView>
+@*<SurveyPrompt Title="How is Blazor working for you?" />
+
+    <AuthorizeView Roles="Admin, Normal">
+        <p>This is admin</p>
+    </AuthorizeView>*@
