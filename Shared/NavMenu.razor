@@ -1,5 +1,5 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Мед.учреждения</a>
+    <a class="navbar-brand" href="">Ведомственные награды</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,25 +7,28 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
+
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Главная
             </NavLink>
         </li>
+
+
         <AuthorizeView Roles="Admin, Normal">
             <li class="nav-item px-3">
-                <NavLink class="nav-link" href="/hospitals/index">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Учреждения
+                <NavLink class="nav-link" href="InitializerPage">
+                    <span class="oi oi-person" aria-hidden="true"></span> Инициаторы
                 </NavLink>
             </li>
             <li class="nav-item px-3">
-                <NavLink class="nav-link" href="categorypage">
-                    <span class="oi oi-grid-two-up" aria-hidden="true"></span> Категории
+                <NavLink class="nav-link" href="SecondDepPage">
+                    <span class="oi oi-flag" aria-hidden="true"></span> Департаменты
                 </NavLink>
             </li>
             <li class="nav-item px-3">
-                <NavLink class="nav-link" href="productpage">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> Ресурсы
+                <NavLink class="nav-link" href="DepartamentPage">
+                    <span class="oi oi-briefcase" aria-hidden="true"></span> Учреждения
                 </NavLink>
             </li>
             <li class="nav-item px-3">
@@ -34,30 +37,68 @@
                 </NavLink>
             </li>
             <li class="nav-item px-3">
-                <NavLink class="nav-link" href="positionpage">
-                    <span class="oi oi-fork" aria-hidden="true"></span> Должности
+                <NavLink class="nav-link" href="OrderPage">
+                    <span class="oi oi-book" aria-hidden="true"></span> Приказы
                 </NavLink>
+
+            </li>
+            <li class="nav-item px-3">
+                <MatNavMenu>
+                    <MatNavSubMenu>
+                        <MatNavSubMenuHeader>
+                            <MatNavItem AllowSelection="false">
+                                <NavLink class="nav-link" href="">
+                                    <span class="oi oi-list-rich" aria-hidden="true"></span> Справочники
+                                </NavLink>
+                            </MatNavItem>
+                        </MatNavSubMenuHeader>
+
+                        <MatNavSubMenuList>
+                            <MatNavItem Href="possitionpage">
+                                <MatIcon>supervised_user_circle</MatIcon>  Должности
+                            </MatNavItem>
+                            <MatNavItem Href="educationpage">
+                                <MatIcon>account_balance</MatIcon>  Образование
+                            </MatNavItem>
+                            <MatNavItem Href="documentspage">
+                                <MatIcon>description</MatIcon>  Документы
+                            </MatNavItem>
+                            <MatNavItem Href="areasspage">
+                                <MatIcon>location_on</MatIcon>  Области
+                            </MatNavItem>
+                            <MatNavItem Href="regionpage">
+                                <MatIcon>filter_hdr</MatIcon>  Районы
+                            </MatNavItem>
+                            <MatNavItem Href="comissionpage">
+                                <MatIcon>people_outline</MatIcon>  Комиссии
+                            </MatNavItem>
+                            <MatNavItem Href="awardspage">
+                                <MatIcon>watch</MatIcon>  Награды
+                            </MatNavItem>
+
+
+                        </MatNavSubMenuList>
+                    </MatNavSubMenu>
+                </MatNavMenu>
             </li>
         </AuthorizeView>
+        @*<li class="nav-item px-3">
+            <NavLink class="nav-link" href="InitializerPage">
+                <span class="oi oi-person" aria-hidden="true"></span> Инициаторы
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="OrderPage">
+                <span class="oi oi-book" aria-hidden="true"></span> Приказы
+            </NavLink>
+
+        </li>
 
         <AuthorizeView Roles="Manager">
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="departmentpage">
-                    <span class="oi oi-credit-card" aria-hidden="true"></span> Отделения
-                </NavLink>
-            </li>
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="productcntpage">
-                    <span class="oi oi-aperture" aria-hidden="true"></span> Ресурсы
-                </NavLink>
-            </li>
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="/emppage">
-                    <span class="oi oi-people" aria-hidden="true"></span> Сотрудники
-                </NavLink>
-            </li>
+
 
         </AuthorizeView>
+        *@
     </ul>
 </div>
 

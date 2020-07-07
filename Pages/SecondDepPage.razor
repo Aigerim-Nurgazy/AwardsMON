@@ -1,0 +1,256 @@
+﻿@page "/SecondDepPage"
+
+@using Microsoft.AspNetCore.Identity;
+@using BlzMON.Data
+@using BlzMON.Models
+@inject UserManager<ApplicationUser> _userManager;
+
+@inject ApplicationDbContext db
+
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Список  Департаментов</h4></div>
+    <div class="col-md-4"></div>
+</div>
+
+<table class="table">
+    <tr>
+        <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
+        <td width="40%"></td>
+        <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+    </tr>
+</table>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Наименование</th>
+            <th>Контактное лицо</th>
+            <th>Телефон</th>
+            <th>Почта</th>
+            <th>Адрес</th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in seconddeps)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.DepName</td>
+                <td>@item.Person</td>
+                <td>@item.DepPhone</td>
+                <td>@item.DepEmail</td>
+                <td>@item.DepAddress</td>
+                <td>
+                    <!-- Edit the current forecast -->
+                    <button class="btn btn-primary"
+                            @onclick="(() => Edit(item))">
+                        Редактировать
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@if (ShowPopup)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Редактирование</h3>
+                    <button type="button" class="close"
+                            @onclick="ClosePopup">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span style="color:red">@strError</span>
+                    <table class="table">
+                        <tr>
+                            <td>Наименование</td>
+                            <td><input type="text" class="form-control" @bind="@seconddep.DepName" /></td>
+                        </tr>
+                    
+                        <tr>
+                            <td>Контактное лицо</td>
+                            <td><input type="text" class="form-control" @bind="@seconddep.Person" /></td>
+                        </tr>
+                        <tr>
+                            <td>Телефон</td>
+                            <td><input type="text" class="form-control" @bind="@seconddep.DepPhone" /></td>
+                        </tr>
+                        <tr>
+                            <td>Почта</td>
+                            <td><input type="text" class="form-control" @bind="@seconddep.DepEmail" /></td>
+                        </tr>
+                        <tr>
+                            <td>Адрес</td>
+                            <td><input type="text" class="form-control" @bind="@seconddep.DepAddress" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                @if (seconddep.Id != 0)
+                                {
+                                    <!-- Button to delete the forecast -->
+                                    <button class="btn btn-danger" @onclick="Delete">
+                                        Удалить
+                                    </button>
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="Save">
+                                    Сохранить
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
+
+@code {
+    private int CurrentValue { get; set; }
+    public string itemValue { get; set; }
+    public string item
+    {
+        get { return itemValue; }
+        set
+        {
+            CurrentValue = seconddeps.Count();
+            if (value.Length > 0)
+            {
+                seconddeps = seconddeps2.Where(x => x.Person.ToLower().Contains(value)).ToList();//wtf
+            }
+            else
+            {
+                seconddeps = seconddeps2;
+            }
+            itemValue = value;
+        }
+    }
+    private List<SecondDeps> seconddeps = new List<SecondDeps>();
+    private List<SecondDeps> seconddeps2;
+    private SecondDeps seconddep= new SecondDeps();
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    ApplicationUser objUser;
+    string strError = "";
+    bool ShowPopup = false;
+
+
+    void AddNew()
+    {
+        seconddep = new SecondDeps();
+        //initializer.Code = "Test";   // What is it? double shit :0
+        seconddep.Id = 0;
+        ShowPopup = true;
+    }
+    async Task Save()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (seconddep.Id != 0)
+            {
+                SecondDeps secdep = await db.SecondDep.FindAsync(seconddep.Id);
+                //...IG dont forget this one
+                secdep.DepName = seconddep.DepName;
+                secdep.Person = seconddep.Person;
+                secdep.DepPhone = seconddep.DepPhone;
+                secdep.DepEmail = seconddep.DepEmail;
+                secdep.DepAddress = seconddep.DepAddress;
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                //int maxId = db.SecondDep.Max(x => x.Id);
+                // seconddep.Id = (maxId + 1);
+                db.SecondDep.Add(seconddep);
+                await db.SaveChangesAsync();
+            }
+
+            // Close the Popup
+            ShowPopup = false;
+            // Refresh Users
+            LoadData();
+            seconddep = new SecondDeps();
+        }
+        catch (Exception ex)
+        {
+            strError = ex.GetBaseException().Message;
+        }
+    }
+    async Task Edit(SecondDeps rc)
+    {
+        seconddep = rc;
+        //products = db.Products.Where(x => x.CategoryId == ).ToList();
+        ShowPopup = true;
+    }
+    async Task Delete()
+    {
+        // Close the Popup
+        ShowPopup = false;
+        // Get the user
+        var rc = await db.SecondDep.FindAsync(seconddep.Id);
+        if (rc != null)
+        {
+            db.SecondDep.Remove(rc);
+            await db.SaveChangesAsync();
+        }
+        LoadData();
+    }
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentUser = (await authenticationStateTask).User;
+        objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
+
+        seconddep = new SecondDeps();
+        LoadData();
+    }
+
+    public void LoadData()
+    {
+
+        //???...
+
+        seconddeps = db.SecondDep.OrderBy(x => x.DepName).ToList();
+        // initializers2 initializer= db.Initializers.OrderBy(x => x.PersonName).ToList(); double shit :)
+    }
+
+
+
+    private async Task Insert()
+    {
+        db.SecondDep.Add(seconddep);
+        await db.SaveChangesAsync();
+        seconddeps.Add(seconddep);
+        seconddep = new SecondDeps();
+    }
+
+
+}

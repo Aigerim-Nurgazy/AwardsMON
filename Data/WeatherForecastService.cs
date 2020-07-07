@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HospitalsBlz.Data
+namespace BlzMON.Data
 {
     public class WeatherForecastService
     {

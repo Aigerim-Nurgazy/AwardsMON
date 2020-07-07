@@ -1,7 +1,7 @@
 ﻿@page "/userlist"
 @using Microsoft.AspNetCore.Identity;
-@using HospitalsBlz.Models;
-@using HospitalsBlz.Data;
+@using BlzMON.Models;
+@using BlzMON.Data;
 @inject ApplicationDbContext db;
 @inject UserManager<ApplicationUser> _userManager;
 
@@ -22,7 +22,7 @@
         {
             <tr>
                 <td>@item.UserName</td>
-                <td>@item.Hospitals.Name</td>
+                <td>@item.</td>
                 <td>
                     <!-- Edit the current forecast -->
                     <button class="btn btn-primary"
@@ -71,12 +71,7 @@
                     <br />
                     <input class="form-control" type="password" placeholder="Password" @bind="objUser.PasswordHash" />
                     <br />
-                    <select class="form-control" @bind="@HospitalId">
-                        @foreach (var cnt in hospitals)
-                        {
-                            <option value="@cnt.Id">@cnt.Name</option>
-                        }
-                    </select>
+                    
                     <br /><br />
                     <!-- Button to save the user -->
                     <button class="btn btn-primary" @onclick="SaveUser">
@@ -99,152 +94,153 @@
 }
  
 @code {
-            [CascadingParameter]
-            private Task<AuthenticationState> authenticationStateTask { get; set; }
-            string ADMINISTRATION_ROLE = "Admin";
-            System.Security.Claims.ClaimsPrincipal CurrentUser;
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    string ADMINISTRATION_ROLE = "Admin";
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
 
-            IdentityUser objUser = new IdentityUser();
-            // Tracks the selected role for the currently selected user
-            string CurrentUserRole { get; set; } = "Manager";
-            int HospitalId = 0;
-            // Collection to display the existing users
-            // Options to display in the roles dropdown when editing a user
-            //List<string> Options = new List<string>() { "Manager", "Member" };
-            // To hold any possible errors
-            string strError = "";
-            // To enable showing the Popup
-            bool ShowPopup = false;
-            List<ApplicationUser> users = new List<ApplicationUser>();
-            List<Hospitals> hospitals = new List<Hospitals>();
+    IdentityUser objUser = new IdentityUser();
+    // Tracks the selected role for the currently selected user
+    string CurrentUserRole { get; set; } = "Manager";
+    int InitializerId = 0;
+    // Collection to display the existing users
+    // Options to display in the roles dropdown when editing a user
+    //List<string> Options = new List<string>() { "Manager", "Member" };
+    // To hold any possible errors
+    string strError = "";
+    // To enable showing the Popup
+    bool ShowPopup = false;
+    List<ApplicationUser> users = new List<ApplicationUser>();
+    List<Initializers> initializers = new List<Initializers>();
 
-            public void GetUsers()
-            {
-                // Collection to hold users
-                users = new List<ApplicationUser>();
-                // get users from _UserManager
-                var user = _userManager.Users.Select(x => new ApplicationUser
-                {
-                    Id = x.Id,
-                    UserName = x.UserName,
-                    Hospitals = x.Hospitals,
-                    PasswordHash = "*****"
-                });
-                foreach (var item in user)
-                {
-                    users.Add(item);
-                }
-            }
+    public void GetUsers()
+    {
+        // Collection to hold users
+        users = new List<ApplicationUser>();
+        // get users from _UserManager
+        var user = _userManager.Users.Select(x => new ApplicationUser
+        {
+            Id = x.Id,
+            UserName = x.UserName,
+            //InitializerlsId = x.InitializerlsId,
+            PasswordHash = "*****"
+        });
+        foreach (var item in user)
+        {
+            users.Add(item);
+        }
+    }
 
-            void AddNewUser()
+    void AddNewUser()
+    {
+        // Make new user
+        objUser = new ApplicationUser();
+        objUser.PasswordHash = "*****";
+        // Set Id to blank so we know it is a new record
+        objUser.Id = "";
+        // Open the Popup
+        ShowPopup = true;
+    }
+    async Task SaveUser()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (objUser.Id != "")
             {
-                // Make new user
-                objUser = new ApplicationUser();
-                objUser.PasswordHash = "*****";
-                // Set Id to blank so we know it is a new record
-                objUser.Id = "";
-                // Open the Popup
-                ShowPopup = true;
-            }
-            async Task SaveUser()
-            {
-                try
+                // Get the user
+                var user = await _userManager.FindByIdAsync(objUser.Id);
+                // Update Email
+                user.Email = objUser.Email;
+                //user.HospitalsId = HospitalId;//  HospitalId???
+                //user.InitializerlsId = InitializerId;
+                // Update the user
+                await _userManager.UpdateAsync(user);
+                // Only update password if the current value
+                // is not the default value
+                if (objUser.PasswordHash != "*****")
                 {
-                    // Is this an existing user?
-                    if (objUser.Id != "")
+                    var resetToken =await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var passworduser =await _userManager.ResetPasswordAsync(
+                            user,
+                            resetToken,
+                            objUser.PasswordHash);
+                    if (!passworduser.Succeeded)
                     {
-                        // Get the user
-                        var user = await _userManager.FindByIdAsync(objUser.Id);
-                        // Update Email
-                        user.Email = objUser.Email;
-                        user.HospitalsId = HospitalId;
-                        // Update the user
-                        await _userManager.UpdateAsync(user);
-                        // Only update password if the current value
-                        // is not the default value
-                        if (objUser.PasswordHash != "*****")
+                        if (passworduser.Errors.FirstOrDefault() != null)
                         {
-                            var resetToken =await _userManager.GeneratePasswordResetTokenAsync(user);
-                            var passworduser =await _userManager.ResetPasswordAsync(
-                                    user,
-                                    resetToken,
-                                    objUser.PasswordHash);
-                            if (!passworduser.Succeeded)
-                            {
-                                if (passworduser.Errors.FirstOrDefault() != null)
-                                {
-                                    strError =passworduser.Errors.FirstOrDefault().Description;
-                                }
-                                else
-                                {
-                                    strError = "Pasword error";
-                                }
-                                // Keep the popup opened
-                                return;
-                            }
-                        }
-                        // Handle Roles // Is user in administrator role?
-                        var UserResult = await _userManager.IsInRoleAsync(user, ADMINISTRATION_ROLE);
-                        // Is Administrator role selected // but user is not an Administrator?
-                        if ((CurrentUserRole == ADMINISTRATION_ROLE) & (!UserResult))
-                        {
-                            // Put admin in Administrator role
-                            await _userManager.AddToRoleAsync(user, ADMINISTRATION_ROLE);
+                            strError =passworduser.Errors.FirstOrDefault().Description;
                         }
                         else
                         {
-                            await _userManager.AddToRoleAsync(user, CurrentUserRole);
-                            //// Is Administrator role not selected // but user is an Administrator?
-                            //if ((CurrentUserRole != ADMINISTRATION_ROLE) & (UserResult))
-                            //{
-                            //    // Remove user from Administrator role
-                            //    await _userManager.RemoveFromRoleAsync(user, ADMINISTRATION_ROLE);
-                            //}
+                            strError = "Pasword error";
                         }
+                        // Keep the popup opened
+                        return;
+                    }
+                }
+                // Handle Roles // Is user in administrator role?
+                var UserResult = await _userManager.IsInRoleAsync(user, ADMINISTRATION_ROLE);
+                // Is Administrator role selected // but user is not an Administrator?
+                if ((CurrentUserRole == ADMINISTRATION_ROLE) & (!UserResult))
+                {
+                    // Put admin in Administrator role
+                    await _userManager.AddToRoleAsync(user, ADMINISTRATION_ROLE);
+                }
+                else
+                {
+                    await _userManager.AddToRoleAsync(user, CurrentUserRole);
+                    //// Is Administrator role not selected // but user is an Administrator?
+                    //if ((CurrentUserRole != ADMINISTRATION_ROLE) & (UserResult))
+                    //{
+                    //    // Remove user from Administrator role
+                    //    await _userManager.RemoveFromRoleAsync(user, ADMINISTRATION_ROLE);
+                    //}
+                }
+            }
+            else
+            {
+                // Insert new user
+                var NewUser = new ApplicationUser
+                {
+                    UserName = objUser.UserName,
+                    Email = objUser.Email,
+                   // InitializerlsId = InitializerId
+                };
+                var CreateResult = await _userManager.CreateAsync(NewUser, objUser.PasswordHash);
+                if (!CreateResult.Succeeded)
+                {
+                    if (CreateResult.Errors.FirstOrDefault() != null)
+                    {
+                        strError =CreateResult.Errors.FirstOrDefault().Description;
                     }
                     else
                     {
-                        // Insert new user
-                        var NewUser = new ApplicationUser
-                        {
-                            UserName = objUser.UserName,
-                            Email = objUser.Email,
-                            HospitalsId=HospitalId
-                        };
-                        var CreateResult = await _userManager.CreateAsync(NewUser, objUser.PasswordHash);
-                        if (!CreateResult.Succeeded)
-                        {
-                            if (CreateResult.Errors.FirstOrDefault() != null)
-                            {
-                                strError =CreateResult.Errors.FirstOrDefault().Description;
-                            }
-                            else
-                            {
-                                strError = "Create error";
-                            }
-                            // Keep the popup opened
-                            return;
-                        }
-                        else
-                        {
-                            // Handle Roles
-                            //if (CurrentUserRole == ADMINISTRATION_ROLE)
-                            //{
-                            // Put admin in Administrator role
-                            await _userManager.AddToRoleAsync(NewUser, CurrentUserRole);
-                        //}
+                        strError = "Create error";
                     }
+                    // Keep the popup opened
+                    return;
                 }
+                else
+                {
+                    // Handle Roles
+                    //if (CurrentUserRole == ADMINISTRATION_ROLE)
+                    //{
+                    // Put admin in Administrator role
+                    await _userManager.AddToRoleAsync(NewUser, CurrentUserRole);
+                    //}
+                }
+            }
             // Close the Popup
             ShowPopup = false;
-                // Refresh Users
-                GetUsers();
-            }
+            // Refresh Users
+            GetUsers();
+        }
         catch (Exception ex)
         {
             strError = ex.GetBaseException().Message;
         }
-             }
+    }
     async Task EditUser(ApplicationUser _IdentityUser)
     {
         // Set the selected user as the current user
@@ -291,7 +287,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        hospitals = db.Hospitals.ToList();
+        initializers = db.Initializers.ToList();
         GetUsers();
     }
 

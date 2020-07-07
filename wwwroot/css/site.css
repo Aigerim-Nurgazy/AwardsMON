@@ -8,6 +8,16 @@ a, .btn-link {
     color: #0366d6;
 }
 
+
+/* Important part */
+.modal-dialog {
+    overflow-y: initial !important
+}
+
+.modal-body {
+    height: 500px;
+    overflow-y: auto;
+}
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

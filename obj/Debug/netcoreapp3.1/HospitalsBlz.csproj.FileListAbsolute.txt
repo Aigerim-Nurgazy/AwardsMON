@@ -212,8 +212,14 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.pdb
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.Views.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.Views.pdb
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/BlazorInputFile.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Console.exe
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/CsvHelper.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/MatBlazor.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -221,6 +227,7 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Razor.Language.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
@@ -251,6 +258,7 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.JSInterop.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -263,6 +271,7 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Npgsql.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/NuGet.Frameworks.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/Radzen.Blazor.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Collections.Immutable.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.AttributedModel.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Convention.dll
@@ -271,6 +280,7 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.TypedParts.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
+/Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Linq.Dynamic.Core.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.resources.dll
@@ -333,6 +343,7 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/aigerim/Downloads/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csprojAssemblyReference.cache
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.AssemblyInfoInputs.cache
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.AssemblyInfo.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csproj.CoreCompileInputs.cache
@@ -340,18 +351,20 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.MvcApplicationPartsAssemblyInfo.cache
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorComponent.input.cache
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/CategoryPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Counter.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/DepPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/EmpPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/DepartamentPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/AreassPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/AwardsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/ComissionsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/DocumentsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/EducationsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/PossitionsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/RegionsName.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Error.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/FetchData.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Hospitalas/Index.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/InitializerPage.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Login.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/PositionPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/ProductCountPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/ProductPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/OrderPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SecondDepPage.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/UserPage.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LoginDisplay.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs
@@ -363,18 +376,20 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.TagHelpers.output.cache
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorCoreGenerate.cache
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/CategoryPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Counter.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/DepPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/EmpPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/DepartamentPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/AreassPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/AwardsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/ComissionsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/DocumentsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/EducationsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/PossitionsPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/RegionsName.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Error.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/FetchData.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Hospitalas/Index.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/InitializerPage.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Login.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/PositionPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/ProductCountPage.razor.g.cs
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/ProductPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/OrderPage.razor.g.cs
+/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/SecondDepPage.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/UserPage.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/LoginDisplay.razor.g.cs
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs
@@ -405,4 +420,442 @@ C:/Users/AliBekAman/source/repos/BlazorApp1/HospitalsBlz/obj/Debug/netcoreapp3.1
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.dll
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.pdb
 /Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.genruntimeconfig.cache
-/Users/aigerim/Downloads/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csprojAssemblyReference.cache
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/appsettings.Development.json
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/appsettings.json
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.StaticWebAssets.xml
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.exe
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.deps.json
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.runtimeconfig.json
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.runtimeconfig.dev.json
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.pdb
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.Views.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.Views.pdb
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/BlazorInputFile.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Console.exe
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/CsvHelper.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/MatBlazor.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Razor.Language.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Razor.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Relational.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.Abstractions.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.JSInterop.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/dotnet-aspnet-codegenerator-design.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Npgsql.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/NuGet.Frameworks.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/Radzen.Blazor.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Collections.Immutable.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.AttributedModel.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Convention.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Hosting.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Runtime.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.TypedParts.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Linq.Dynamic.Core.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
+C:/games/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csprojAssemblyReference.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.AssemblyInfoInputs.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.AssemblyInfo.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csproj.CoreCompileInputs.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.MvcApplicationPartsAssemblyInfo.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.MvcApplicationPartsAssemblyInfo.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorComponent.input.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/DepartamentPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/AreassPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/AwardsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/ComissionsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/DocumentsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/EducationsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/PossitionsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/RegionsName.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Error.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/InitializerPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Login.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/OrderPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SecondDepPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/UserPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LoginDisplay.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/HospitalsBlz.dll
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.TagHelpers.input.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.TagHelpers.output.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorCoreGenerate.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/DepartamentPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/AreassPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/AwardsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/ComissionsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/DocumentsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/EducationsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/PossitionsPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/RegionsName.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Error.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/InitializerPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Login.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/OrderPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/SecondDepPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/UserPage.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/LoginDisplay.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/NavMenu.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Account/Login.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Account/LogOut.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Account/_ViewImports.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Shared/_LoginPartial.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewImports.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_Layout.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_LoginPartial.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_ValidationScriptsPartial.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/SignIn.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewImports.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewStart.cshtml.g.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorAssemblyInfo.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorAssemblyInfo.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorTargetAssemblyInfo.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorTargetAssemblyInfo.cs
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.Views.pdb
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csproj.CopyComplete
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/staticwebassets/HospitalsBlz.StaticWebAssets.Manifest.cache
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/staticwebassets/HospitalsBlz.StaticWebAssets.xml
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.dll
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.pdb
+C:/games/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.genruntimeconfig.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/appsettings.Development.json
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/appsettings.json
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.StaticWebAssets.xml
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.deps.json
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.runtimeconfig.json
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.runtimeconfig.dev.json
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.pdb
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.Views.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/HospitalsBlz.Views.pdb
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/BlazorInputFile.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Console.exe
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/CsvHelper.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/MatBlazor.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Razor.Language.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Bcl.HashCode.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Razor.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Design.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.Identity.Client.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.JSInterop.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/dotnet-aspnet-codegenerator-design.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Npgsql.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/NuGet.Frameworks.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/Radzen.Blazor.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Collections.Immutable.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.AttributedModel.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Convention.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Hosting.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.Runtime.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Composition.TypedParts.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Configuration.ConfigurationManager.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Linq.Dynamic.Core.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Runtime.Caching.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/System.Security.Cryptography.ProtectedData.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/Microsoft.Data.SqlClient.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csprojAssemblyReference.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.AssemblyInfoInputs.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.AssemblyInfo.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csproj.CoreCompileInputs.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.MvcApplicationPartsAssemblyInfo.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.MvcApplicationPartsAssemblyInfo.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorComponent.input.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/DepartamentPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/AreassPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/AwardsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/ComissionsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/DocumentsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/EducationsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/PossitionsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Dictionary/RegionsName.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Error.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/InitializerPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Login.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/OrderPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SecondDepPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/UserPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LoginDisplay.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavMenu.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/RazorDeclaration/HospitalsBlz.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.TagHelpers.input.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.TagHelpers.output.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorCoreGenerate.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/DepartamentPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/AreassPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/AwardsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/ComissionsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/DocumentsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/EducationsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/PossitionsPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Dictionary/RegionsName.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Error.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/InitializerPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Login.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/OrderPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/SecondDepPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/UserPage.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/LoginDisplay.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/NavMenu.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Account/Login.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Account/LogOut.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Account/_ViewImports.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/Shared/_LoginPartial.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewImports.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Areas/Identity/Pages/_ViewStart.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_Layout.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_LoginPartial.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/Shared/_ValidationScriptsPartial.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/SignIn.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewImports.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/Razor/Pages/_ViewStart.cshtml.g.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorAssemblyInfo.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorAssemblyInfo.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorTargetAssemblyInfo.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.RazorTargetAssemblyInfo.cs
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.Views.pdb
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.csproj.CopyComplete
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/staticwebassets/HospitalsBlz.StaticWebAssets.Manifest.cache
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/staticwebassets/HospitalsBlz.StaticWebAssets.xml
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.dll
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.pdb
+/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/Debug/netcoreapp3.1/HospitalsBlz.genruntimeconfig.cache

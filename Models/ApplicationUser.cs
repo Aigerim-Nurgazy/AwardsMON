@@ -1,135 +1,138 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
-namespace HospitalsBlz.Models
-{
-    public class ApplicationUser: IdentityUser
+    namespace BlzMON.Models
     {
-        public int HospitalsId { get; set; }   // Код департамента
-        public Hospitals Hospitals { get; set; }
-    }
+        public class ApplicationUser : IdentityUser
+        {
+           // public int InitializerlsId { get; set; }
+           // public Initializers Initializer { get; set; }
+        }
 
+
+    public class Initializers
+    {
+           [Key]
+            public int Id { get; set; }
+            //[Required(ErrorMessage = "Фамилия обязательно")]
+            public string PersonSurname { get; set; }
+            //[Required(ErrorMessage = "Имя обязательно")]
+            public string PersonName { get; set; }
+          //  public int Pin { get; set; }
+            public string PersonPatronymic { get; set; }
+            public int PossitionsId { get; set; }
+            public Possitions Possition { get; set; }
+            public int EducationsId { get; set; }
+            public Educations Education { get; set; }
+            public string WorkExpierence { get; set; }
+            public int AreassId { get; set; }
+            public Areass Areak { get; set; }
+           // public int DocumentsId { get; set; }
+          //  public Documents Documents { get; set; }
+            public DateTime DateOfBirth { get; set; }
+            //[Required(ErrorMessage = "Телефон обязателен")]
+            public string CellPhone { get; set; }
+           // [Required(ErrorMessage = "Адресс почты обязателен")]
+            public string EmailAddress { get; set; }
+          //  [Required(ErrorMessage = "Адресс обязателен")]
+            public string PersonAddress { get; set; }
+        }
+        public class Regions
+        {
+            public int Id { get; set; }
+         //   [Required(ErrorMessage = "Поле обязательно")]
+            public string RegName { get; set; }
+        }
+        public class Areass
+        {
+            public int Id { get; set; }
+        //    [Required(ErrorMessage = "Поле обязательно")]
+            public string AreaName { get; set; }
+        }
+        public class Possitions
+        {
+            public int Id { get; set; }
+          //  [Required(ErrorMessage = "Поле обязательно")]
+            public string PossName { get; set; }
+        }
+        public class Educations
+        {
+            public int Id { get; set; }
+           // [Required(ErrorMessage = "Поле обязательно")]
+            public string EduName { get; set; }
+        }
+    public class Departaments
+    {
+            public int Id { get; set; }
+            public string Name{ get; set; }
+            //[Required(ErrorMessage = "ФИО обязателен")]
+            public string Person { get; set; }
+           // [Required(ErrorMessage = "Телефон обязателен")]
+            public string InitPhone { get; set; }
+            //[Required(ErrorMessage = "Адресс почты обязателен")]
+            public string InitEmail { get; set; }
+           // [Required(ErrorMessage = "Адресс обязателен")]
+            public string InitAddress { get; set; }
+            //public DateTime CreateDate { get; set; }
+        }
+
+        public class SecondDeps
+        {
+            public int Id { get; set; }
+            //[Required(ErrorMessage = "Наименование обязательно")]
+            public string DepName { get; set; }
+           // [Required(ErrorMessage = "Название депортамента обязательно")]
+           // public int DepId { get; set; }
+           // [Required(ErrorMessage = "ФИО обязателен")]
+            public string Person { get; set; }
+            //[Required(ErrorMessage = "Телефон обязателен")]
+            public string DepPhone { get; set; }
+           // [Required(ErrorMessage = "Адресс почты обязателен")]
+            public string DepEmail { get; set; }
+            //[Required(ErrorMessage = "Адресс обязателен")]
+            public string DepAddress { get; set; }
+           // public DateTime CreateDate { get; set; }
+        }
+        public class Commissions
+        {
+            public int Id { get; set; }
+           // [Required(ErrorMessage = "Поле обязательно")]
+           // public int SecondDepId { get; set; }
+            public string Person { get; set; }
+        }
+
+        public class Awards
+        {
+            public int Id { get; set; }
+            //[Required(ErrorMessage = "Поле обязательно")]
+            public string AwardName { get; set; }
+        }
+
+        public class Documents
+        {
+            public int Id { get; set; }
+            //[Required(ErrorMessage = "Поле обязательно")]
+            public string DocName { get; set; }
+        }
+    public class Orders
+    {
+        //[Required(ErrorMessage = "Поле обязательно")]
+        public int Id { get; set; }
+        public int InitializersId { get; set; }
+        public Initializers Person { get; set; }
+       // public int ReagionId { get; set; }
+      //  public Regions Region { get; set; }
+        public int AreassId { get; set; }
+        public Areass Areak { get; set; }
+        public int AwardsId { get; set; }
+        public Awards Award { get; set; }
+        public int PossitionsId{get;set;} 
+        public Possitions Possition { get; set; }
+       
+       // public Posi=sition<PossInfo> posInfos { get; set; }
    
-    public class Hospitals
-    {
-        public int Id { get; set; }
-        public string Code { get; set; }
-        [Required(ErrorMessage = "Поле обязательно")]
-        public string Name { get; set; }
-        public string Person { get; set; }
-        public string Address { get; set; }
-        public string Contacts { get; set; }
-        public string Description { get; set; }
-    }
-
-    public class Departments
-    {
-        public int Id { get; set; }
-        [Required(ErrorMessage ="Наименование обязательна")]
-        public string Name { get; set; }
-        [Required(ErrorMessage = "Контактное лицо обязательна")]
-        public string Contacts { get; set; }
-        [Required(ErrorMessage = "Телефон обязательна")]
-        public string Phone { get; set; }
-        public int TotalPlaceQty { get; set; }
-        public int PlaceCovidQty { get; set; }
-        public int TotalPasients { get; set; }
-        public int CovidQtyPasients { get; set; }
-        public int TotalFreePlace { get; set; }
-        public int TotalFreeCovidPlace { get; set; }
-        public int HospitalsId { get; set; }
-        public Hospitals Hospitals { get; set; }
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-        public DateTime CreateDate { get; set; }
-    }
-    public class DepartmentsHistory
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Contacts { get; set; }
-        public string Phone { get; set; }
-        public int TotalPlaceQty { get; set; }
-        public int PlaceCovidQty { get; set; }
-        public int TotalPasients { get; set; }
-        public int CovidQtyPasients { get; set; }
-        public int TotalFreePlace { get; set; }
-        public int TotalFreeCovidPlace { get; set; }
-        public int HospitalsId { get; set; }
-        public Hospitals Hospitals { get; set; }
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-        public DateTime CreateDate { get; set; }
-        public int OldId { get; set; }
-        public string Action { get; set; }
-    }
-    public class Positions
-    {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Поле обязательно")]
-        public string Name { get; set; }
-        public string Desc { get; set; }
-    }
-
-    public class Emp
-    {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Поле обязательно")]
-        public string Name { get; set; }
-        public int PositionsId { get; set; }
-        public Positions Positions { get; set; }
-        public int HospitalsId { get; set; }
-        public Hospitals Hospitals { get; set; }
-        public string Desc { get; set; }
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-        public DateTime CreateDate { get; set; }
-    }
-
-    public class Category
-    {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Поле обязательно")]
-        public string Name { get; set; }
-        public string Desc { get; set; }
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "Поле обязательно")]
-        public string Name { get; set; }
-        public string Desc { get; set; }
-        public int CategoryId { get; set; }
-        public Category  Category { get; set; }
-    }
-
-    public class ProductCount
-    {
-        public int Id { get; set; }
-        public int DepartmentsId { get; set; }
-        public Departments Departments { get; set; }
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
-        public int Qty { get; set; }
-        public DateTime CreateDate { get; set; }
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-    }
-    public class ProductCountHistory
-    {
-        public int Id { get; set; }
-        public int DepartmentsId { get; set; }
-        public Departments Departments { get; set; }
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
-        public int Qty { get; set; }
-        public DateTime CreateDate { get; set; }
-        public string ApplicationUserId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
-        public int OldId { get; set; }
-        public string Action { get; set; }
-    }
-
 }
+    }
+   

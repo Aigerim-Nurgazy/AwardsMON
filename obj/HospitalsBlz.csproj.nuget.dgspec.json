@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aigerim/Downloads/HospitalsBlz/HospitalsBlz.csproj": {}
+    "/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/HospitalsBlz.csproj": {}
   },
   "projects": {
-    "/Users/aigerim/Downloads/HospitalsBlz/HospitalsBlz.csproj": {
+    "/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/HospitalsBlz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aigerim/Downloads/HospitalsBlz/HospitalsBlz.csproj",
+        "projectUniqueName": "/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/HospitalsBlz.csproj",
         "projectName": "HospitalsBlz",
-        "projectPath": "/Users/aigerim/Downloads/HospitalsBlz/HospitalsBlz.csproj",
+        "projectPath": "/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/HospitalsBlz.csproj",
         "packagesPath": "/Users/aigerim/.nuget/packages/",
-        "outputPath": "/Users/aigerim/Downloads/HospitalsBlz/obj/",
+        "outputPath": "/Users/aigerim/Downloads/Proj from telegram/HospitalsBlz/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "/Users/aigerim/.config/NuGet/NuGet.Config"
         ],
@@ -36,6 +39,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "BlazorInputFile": {
+              "target": "Package",
+              "version": "[0.1.0-preview, )"
+            },
             "Console": {
               "target": "Package",
               "version": "[1.0.4, )"
@@ -44,33 +51,37 @@
               "target": "Package",
               "version": "[15.0.5, )"
             },
+            "MatBlazor": {
+              "target": "Package",
+              "version": "[2.6.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -93,6 +104,10 @@
             "NuGet.Frameworks": {
               "target": "Package",
               "version": "[5.6.0, )"
+            },
+            "Radzen.Blazor": {
+              "target": "Package",
+              "version": "[2.10.3, )"
             },
             "System.Console": {
               "target": "Package",
@@ -117,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -13,12 +13,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using HospitalsBlz.Areas.Identity;
-using HospitalsBlz.Data;
-using HospitalsBlz.Models;
+using BlzMON.Areas.Identity;
+using BlzMON.Data;
+using BlzMON.Models;
 using Microsoft.AspNetCore.HttpOverrides;
 
-namespace HospitalsBlz
+namespace BlzMON
 {
     public class Startup
     {
@@ -88,10 +88,11 @@ namespace HospitalsBlz
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapControllers();
             });
-            DataSeeder.SeedCountries(db);
-
-            CreateRoles(serviceProvider, db).Wait();
+          //  DataSeeder.SeedCountries(db);
+          //??wtf
+           CreateRoles(serviceProvider, db).Wait();
         }
 
         private async Task CreateRoles(IServiceProvider serviceProvider, ApplicationDbContext db)
@@ -101,7 +102,7 @@ namespace HospitalsBlz
             var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             string[] roleNames = { "Admin", "Manager", "Member" };
             IdentityResult roleResult;
-
+            
             foreach (var roleName in roleNames)
             {
                 var roleExist = await RoleManager.RoleExistsAsync(roleName);
@@ -111,14 +112,15 @@ namespace HospitalsBlz
                     roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
-
+            
             //Here you could create a super user who will maintain the web app
-            Hospitals hospitals = db.Hospitals.FirstOrDefault();
+            
+            //Initializers initializers = db.Initializers.FirstOrDefault();
             var poweruser = new ApplicationUser
             {
                 UserName = "admin@mail.kg",  //Configuration["AppSettings:UserName"],
-                Email = "admin@mail.kg",  //Configuration["AppSettings:UserEmail"],
-                HospitalsId = hospitals.Id,
+                Email = "admin@mail.kg"  //Configuration["AppSettings:UserEmail"],
+                //InitializerlsId = initializers.Id,
             };
             //Ensure you have these values in your appsettings.json file
             string userPWD = "PwdSup!23";  //Configuration["AppSettings:UserPassword"];

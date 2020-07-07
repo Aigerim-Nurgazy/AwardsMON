@@ -1,6 +1,6 @@
 using System;
 
-namespace HospitalsBlz.Data
+namespace BlzMON.Data
 {
     public class WeatherForecast
     {
