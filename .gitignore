@@ -1,4 +1,6 @@
-
+*.json
+*.caache
+*.xml
 /Migrations
 project.lock.json
 project.fragment.lock.json
