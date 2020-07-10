@@ -1,8 +1,5 @@
 ﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/InitializerPage.razor">
-    <Files>
-      <File FileName="Pages/InitializerPage.razor" Line="3" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
@@ -10,10 +7,9 @@
             <Node name="BlzMON" expanded="True">
               <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
-              <Node name="Pages" expanded="True">
-                <Node name="InitializerPage.razor" selected="True" />
-              </Node>
+              <Node name="Pages" expanded="True" />
               <Node name="Shared" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

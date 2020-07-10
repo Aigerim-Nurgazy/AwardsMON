@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using BlzMON.Models;
+using BlzMON.Pages;
+
 namespace BlzMON.Data
 {
     public class InitializerService

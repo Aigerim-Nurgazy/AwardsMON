@@ -217,3 +217,9 @@
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.pdb
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.genruntimeconfig.cache
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.csprojAssemblyReference.cache
+/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/AddInitializerPage.razor.g.cs
+/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/DeleteInitializerPage.razor.g.cs
+/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/EditInitializerPage.razor.g.cs
+/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/AddInitializerPage.razor.g.cs
+/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/DeleteInitializerPage.razor.g.cs
+/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/EditInitializerPage.razor.g.cs
