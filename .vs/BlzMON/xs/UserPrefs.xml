@@ -1,22 +1,26 @@
 ﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+    <Files>
+      <File FileName="Pages/InitializerPage.razor" Line="7" Column="14" />
+      <File FileName="Pages/DepartamentPage.razor" />
+      <File FileName="Startup.cs" Line="61" Column="42" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
+          <Option id="ShowAllFiles" value="True" />
           <Node name="BlzMON" expanded="True">
             <Node name="BlzMON" expanded="True">
-              <Node name="Data" expanded="True" />
-              <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True" />
               <Node name="Shared" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
+            <Node name="BlzMON.csproj" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.BlzMON PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.ItemProperties.BlzMON PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -29,9 +29,12 @@
     <PackageReference Include="System.Console" Version="4.3.1" />
     <PackageReference Include="NuGet.Frameworks" Version="5.6.0" />
     <PackageReference Include="MatBlazor" Version="2.6.2" />
-    <PackageReference Include="Radzen.Blazor" Version="2.10.10" />
+    <PackageReference Include="Radzen.Blazor" Version="2.10.15" />
         
     <PackageReference Include="BlazorInputFile" Version="0.2.0" />
+    
+        
+    <PackageReference Include="OrchardCore.Localization.Core" Version="1.0.0-beta1-3187" />
   </ItemGroup>
 
   <ItemGroup>

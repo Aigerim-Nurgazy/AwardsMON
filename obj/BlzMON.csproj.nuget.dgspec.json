@@ -105,9 +105,13 @@
               "target": "Package",
               "version": "[5.6.0, )"
             },
+            "OrchardCore.Localization.Core": {
+              "target": "Package",
+              "version": "[1.0.0-beta1-3187, )"
+            },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[2.10.10, )"
+              "version": "[2.10.15, )"
             },
             "System.Console": {
               "target": "Package",

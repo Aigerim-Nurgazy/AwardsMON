@@ -56,49 +56,56 @@ using Microsoft.AspNetCore.Components.Web;
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
-using Microsoft.JSInterop;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 8 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
-using BlzMON;
+using Microsoft.AspNetCore.Localization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
-using BlzMON.Shared;
+using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 10 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
-using MatBlazor;
+using BlzMON;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 11 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
-using Radzen.Blazor;
+using BlzMON.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
-using BlazorInputFile;
+using MatBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 13 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
+using BlazorInputFile;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "/Users/aigerim/Downloads/PFT/BlzMON/_Imports.razor"
 using Radzen;
 
 #line default

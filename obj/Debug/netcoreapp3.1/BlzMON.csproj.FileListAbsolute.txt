@@ -217,9 +217,10 @@
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.pdb
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.genruntimeconfig.cache
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.csprojAssemblyReference.cache
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/AddInitializerPage.razor.g.cs
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/DeleteInitializerPage.razor.g.cs
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/EditInitializerPage.razor.g.cs
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/AddInitializerPage.razor.g.cs
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/DeleteInitializerPage.razor.g.cs
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/EditInitializerPage.razor.g.cs
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/OrchardCore.Localization.Abstractions.dll
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/OrchardCore.Localization.Core.dll

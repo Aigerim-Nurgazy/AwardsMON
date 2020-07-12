@@ -18,6 +18,9 @@ using BlzMON.Data;
 using BlzMON.Models;
 using Microsoft.AspNetCore.HttpOverrides;
 
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+
 namespace BlzMON
 {
     public class Startup
@@ -49,12 +52,37 @@ namespace BlzMON
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddScoped<InitializerService>();
+           
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddSingleton<WeatherForecastService>();
+
+
+            services.AddMvc()
+           // .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
+           .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix);
+                
+            services.AddPortableObjectLocalization();
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("en"),
+                new CultureInfo("ru-RU"),
+                new CultureInfo("ru")
+            };
+
+                options.DefaultRequestCulture = new RequestCulture("ru-RU");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
+
         }
+       
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDbContext db, IServiceProvider serviceProvider)
@@ -80,7 +108,9 @@ namespace BlzMON
                 ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
             });
 
-             app.UseAuthentication();
+            app.UseRequestLocalization();
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
