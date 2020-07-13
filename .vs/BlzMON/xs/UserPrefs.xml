@@ -1,26 +1,27 @@
 ﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/InitializerPage.razor">
     <Files>
-      <File FileName="Pages/InitializerPage.razor" Line="7" Column="14" />
-      <File FileName="Pages/DepartamentPage.razor" />
-      <File FileName="Startup.cs" Line="61" Column="42" />
+      <File FileName="Pages/InitializerPage.razor" Line="287" Column="43" />
+      <File FileName="Pages/OrderPage.razor" Line="254" Column="36" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Option id="ShowAllFiles" value="True" />
           <Node name="BlzMON" expanded="True">
             <Node name="BlzMON" expanded="True">
-              <Node name="Pages" expanded="True" />
-              <Node name="Shared" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Pages" expanded="True">
+                <Node name="InitializerPage.razor" selected="True" />
+              </Node>
             </Node>
-            <Node name="BlzMON.csproj" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.BlzMON PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.BlzMON PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,6 +5,7 @@
 @using System.Threading.Tasks
 @using BlazorInputFile
 @using Radzen
+@using Radzen.Blazor
 @using System.Data
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
@@ -280,7 +281,10 @@
                 init.CellPhone = initializer.CellPhone;
                 init.EmailAddress = initializer.EmailAddress;
                 init.PersonAddress = initializer.PersonAddress;
-
+                //init.Possition = initializer.Possition;
+                possitions = db.Possition.ToList();
+                educations = db.Education.ToList();
+                areas = db.Areaq.ToList();
                 await db.SaveChangesAsync();
             }
             else
@@ -305,6 +309,9 @@
     async Task Edit(Initializers rc)
     {
         initializer = rc;
+        possitions = db.Possition.ToList();
+        educations = db.Education.ToList();
+        areas = db.Areaq.ToList();
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
         ShowPopup = true;
     }

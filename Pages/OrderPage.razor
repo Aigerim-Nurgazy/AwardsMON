@@ -210,7 +210,17 @@
             // Is this an existing user?
             if (order.Id != 0)
             {
-                Orders secdep = await db.Order.FindAsync(order.Id);
+                Orders ord = await db.Order.FindAsync(order.Id);
+                ord.Person = order.Person;
+                ord.Award = order.Award;
+                ord.Possition = order.Possition;
+                ord.Areak = order.Areak;
+
+                possitions = db.Possition.ToList();
+                educations = db.Education.ToList();
+                areas = db.Areaq.ToList();
+                initializers = db.Initializers.ToList();
+                awards = db.Award.ToList();
 
                 //...IG dont forget this one
 
@@ -237,6 +247,11 @@
     }
     async Task Edit(Orders rc)
     {
+        possitions = db.Possition.ToList();
+        educations = db.Education.ToList();
+        areas = db.Areaq.ToList();
+        initializers = db.Initializers.ToList();
+        awards = db.Award.ToList();
         order = rc;
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
         ShowPopup = true;
