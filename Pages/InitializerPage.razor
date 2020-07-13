@@ -7,8 +7,13 @@
 @using Radzen
 @using Radzen.Blazor
 @using System.Data
-@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using Microsoft.AspNetCore.Localization;
+@using BlzMON.Controllers
+@using System.IO;
+
 @inject IViewLocalizer Localizer
+
 
 @inject UserManager<ApplicationUser> _userManager;
 @inject ApplicationDbContext db
@@ -167,16 +172,17 @@
             <td>Адрес</td>
             <td><input type="text" class="form-control" @bind="@initializer.PersonAddress" /></td>
         </tr>
-        @*<tr>
-                <td>Выберите документы</td>
-                <RadzenUpload Multiple="true" Url="upload/multiple" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Multiple files upload"))" />
-            </tr>
-            <tr>
-                <td>Загрузка... Подождите</td>
-                <RadzenCard Style="overflow:auto;">
-                    <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
-                </RadzenCard>
-            </tr>*@
+
+        <tr>
+            <td>Выберите документы</td>
+            <RadzenUpload Multiple="true" Url="InitializerPage/Multiple" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Загрузкa файлов"))" />
+        </tr>
+        <tr>
+            <td>Загрузка...</td>
+            <RadzenCard Style="overflow:auto;">
+                <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
+            </RadzenCard>
+        </tr>
 
 
         <tr>
@@ -360,5 +366,13 @@
         events.Add(DateTime.Now, $"{name} value changed to {value?.ToString(format)}");
         StateHasChanged();
     }
+    int progress;
+    string info;
+    void OnProgress(UploadProgressArgs args, string name)
+    {
+        this.info = $"%'{name}'/{args.Loaded}of {args.Total}bytes.";
+        this.progress = args.Progress;
+    }
+
 
 }

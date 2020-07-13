@@ -40,7 +40,7 @@
           "NuGet.CommandLine": "5.6.0",
           "NuGet.Frameworks": "5.6.0",
           "OrchardCore.Localization.Core": "1.0.0-beta1-3383",
-          "Radzen.Blazor": "2.10.15",
+          "Radzen.Blazor": "2.10.16",
           "System.Console": "4.3.1",
           "Microsoft.AspNetCore.Antiforgery.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
@@ -1744,7 +1744,7 @@
           "lib/netstandard2.0/OrchardCore.Localization.Core.dll": {}
         }
       },
-      "Radzen.Blazor/2.10.15": {
+      "Radzen.Blazor/2.10.16": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.4",
           "Microsoft.AspNetCore.Components.Web": "3.1.4",
@@ -1753,8 +1753,8 @@
         },
         "runtime": {
           "lib/netstandard2.1/Radzen.Blazor.dll": {
-            "assemblyVersion": "2.10.15.0",
-            "fileVersion": "2.10.15.0"
+            "assemblyVersion": "2.10.16.0",
+            "fileVersion": "2.10.16.0"
           }
         },
         "compile": {
@@ -5130,12 +5130,12 @@
       "path": "orchardcore.localization.core/1.0.0-beta1-3383",
       "hashPath": "orchardcore.localization.core.1.0.0-beta1-3383.nupkg.sha512"
     },
-    "Radzen.Blazor/2.10.15": {
+    "Radzen.Blazor/2.10.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-llGvRgKI8YDKrBtF7DdNt/9Y+TlSMpWIvd7yI4fxQ24axVniq4kSktp12KbZYXjotMnciDsZr73QxwC5K6SdbQ==",
-      "path": "radzen.blazor/2.10.15",
-      "hashPath": "radzen.blazor.2.10.15.nupkg.sha512"
+      "sha512": "sha512-xtaNHH/agIsNzJhAnnxnsa1cG9f/bKmfWO+rtveKlJ22Ilq2VxRjk4Vsg5J0gUC8Ivy1xzvNzy87khvVm/mU0g==",
+      "path": "radzen.blazor/2.10.16",
+      "hashPath": "radzen.blazor.2.10.16.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",

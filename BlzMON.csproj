@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-HospitalsBlz-D4BBCC44-761B-4FBF-BA99-99D3011CAB79</UserSecretsId>
+        <DisableRequestSizeLimit>true</DisableRequestSizeLimit>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +30,7 @@
     <PackageReference Include="System.Console" Version="4.3.1" />
     <PackageReference Include="NuGet.Frameworks" Version="5.6.0" />
     <PackageReference Include="MatBlazor" Version="2.6.2" />
-    <PackageReference Include="Radzen.Blazor" Version="2.10.15" />
+    <PackageReference Include="Radzen.Blazor" Version="2.10.16" />
         
     <PackageReference Include="BlazorInputFile" Version="0.2.0" />
     

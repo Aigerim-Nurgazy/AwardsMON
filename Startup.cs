@@ -20,7 +20,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
-
+using System.IO;
 namespace BlzMON
 {
     public class Startup
@@ -69,8 +69,7 @@ namespace BlzMON
             {
                 var supportedCultures = new List<CultureInfo>
             {
-                new CultureInfo("en-US"),
-                new CultureInfo("en"),
+               
                 new CultureInfo("ru-RU"),
                 new CultureInfo("ru")
             };

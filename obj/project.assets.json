@@ -1672,7 +1672,7 @@
           "lib/netstandard2.0/OrchardCore.Localization.Core.dll": {}
         }
       },
-      "Radzen.Blazor/2.10.15": {
+      "Radzen.Blazor/2.10.16": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.0",
@@ -5742,10 +5742,10 @@
         "orchardcore.localization.core.nuspec"
       ]
     },
-    "Radzen.Blazor/2.10.15": {
-      "sha512": "llGvRgKI8YDKrBtF7DdNt/9Y+TlSMpWIvd7yI4fxQ24axVniq4kSktp12KbZYXjotMnciDsZr73QxwC5K6SdbQ==",
+    "Radzen.Blazor/2.10.16": {
+      "sha512": "xtaNHH/agIsNzJhAnnxnsa1cG9f/bKmfWO+rtveKlJ22Ilq2VxRjk4Vsg5J0gUC8Ivy1xzvNzy87khvVm/mU0g==",
       "type": "package",
-      "path": "radzen.blazor/2.10.15",
+      "path": "radzen.blazor/2.10.16",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5758,7 +5758,7 @@
         "contentFiles/any/netstandard2.1/Properties/launchSettings.json",
         "icon.png",
         "lib/netstandard2.1/Radzen.Blazor.dll",
-        "radzen.blazor.2.10.15.nupkg.sha512",
+        "radzen.blazor.2.10.16.nupkg.sha512",
         "radzen.blazor.nuspec",
         "staticwebassets/Radzen.Blazor.js",
         "staticwebassets/css/dark-base.css",
@@ -10328,7 +10328,7 @@
       "NuGet.CommandLine >= 5.6.0",
       "NuGet.Frameworks >= 5.6.0",
       "OrchardCore.Localization.Core >= 1.0.0-beta1-3187",
-      "Radzen.Blazor >= 2.10.15",
+      "Radzen.Blazor >= 2.10.16",
       "System.Console >= 4.3.1"
     ]
   },
@@ -10443,7 +10443,7 @@
           },
           "Radzen.Blazor": {
             "target": "Package",
-            "version": "[2.10.15, )"
+            "version": "[2.10.16, )"
           },
           "System.Console": {
             "target": "Package",

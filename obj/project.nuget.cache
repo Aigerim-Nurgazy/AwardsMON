@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gXkBNEcz+8cdPnSk4gHgSB80wgh7gUaHVQbfXN48IxHiNiM0zCr0rzyJZJwcwlKFXl5sTEFCzUckyx57LpwkdQ==",
+  "dgSpecHash": "TT9wcgWrYLodm4d/exeLkJ8O8XcjIY952EZGQMXSdI7uoXM4/OjRmkCQ3OBGrLWX4Ko2tMXf09+N2C3DqSAbgg==",
   "success": true,
   "projectFilePath": "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj",
   "expectedPackageFiles": [
@@ -114,7 +114,7 @@
     "/Users/aigerim/.nuget/packages/nuget.frameworks/5.6.0/nuget.frameworks.5.6.0.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/orchardcore.localization.abstractions/1.0.0-beta1-3383/orchardcore.localization.abstractions.1.0.0-beta1-3383.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/orchardcore.localization.core/1.0.0-beta1-3383/orchardcore.localization.core.1.0.0-beta1-3383.nupkg.sha512",
-    "/Users/aigerim/.nuget/packages/radzen.blazor/2.10.15/radzen.blazor.2.10.15.nupkg.sha512",
+    "/Users/aigerim/.nuget/packages/radzen.blazor/2.10.16/radzen.blazor.2.10.16.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
