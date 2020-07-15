@@ -41,7 +41,7 @@ namespace BlzMON.Controllers
         {
             if(file != null && file.Length>0)
             {
-                var imagePath = @"|Upload";
+                var imagePath = @"/Upload";
                 var UploadPath = _environment.WebRootPath + imagePath;
                 if (!Directory.Exists(UploadPath))
                 {

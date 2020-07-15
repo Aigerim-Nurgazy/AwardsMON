@@ -1,27 +1,24 @@
 ﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UploadController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Pages/InitializerPage.razor" Line="373" Column="33" />
-      <File FileName="Controllers/UploadController.cs" Line="14" Column="29" />
-      <File FileName="Startup.cs" Line="119" Column="46" />
+      <File FileName="Pages/InitializerPage.razor" Line="178" Column="99" />
+      <File FileName="Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Option id="ShowAllFiles" value="True" />
           <Node name="BlzMON" expanded="True">
             <Node name="BlzMON" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="UploadController.cs" selected="True" />
-              </Node>
               <Node name="Pages" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.BlzMON PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.BlzMON PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

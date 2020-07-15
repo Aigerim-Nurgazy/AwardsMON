@@ -175,12 +175,12 @@
 
         <tr>
             <td>Выберите документы</td>
-            <RadzenUpload Multiple="true" Url="InitializerPage/Multiple" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Загрузкa файлов"))" />
+            <RadzenUpload Multiple="true" Url="InitializerPage/Multiple" ChooseText="Выбрать файлы" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Загрузкa файлов"))" />
         </tr>
         <tr>
             <td>Загрузка...</td>
             <RadzenCard Style="overflow:auto;">
-                <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
+                <RadzenProgressBar Value="@progress"  Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
             </RadzenCard>
         </tr>
 
