@@ -1,7 +1,10 @@
+*/netcoreapp3.1/*
 *.json
 *.caache
 *.xml
 /Migrations
+UserPrefs.xml
+BlzMON-Debug.json
 project.lock.json
 project.fragment.lock.json
 artifacts/

@@ -1,17 +1,15 @@
 ﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
-    <Files>
-      <File FileName="Pages/InitializerPage.razor" Line="178" Column="99" />
-      <File FileName="Startup.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BlzMON" expanded="True">
             <Node name="BlzMON" expanded="True">
-              <Node name="Pages" expanded="True" />
+              <Node name="Pages" expanded="True">
+                <Node name="InitializerPage.razor" selected="True" />
+              </Node>
+              <Node name="Shared" expanded="True" />
               <Node name="wwwroot" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

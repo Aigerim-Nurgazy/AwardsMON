@@ -20,7 +20,7 @@
 
 
 
-@if (ShowPopup == false)
+@if (!ShowPopup)
 {
     <div class="row">
         <div class="col-md-4"></div>
@@ -226,7 +226,7 @@
     // List<Documents> documents = new List<Documents>();
     // Initializers initializer = new Initializers();
 
-
+    
     private int CurrentValue { get; set; }
     public string itemValue { get; set; }
     public string item
@@ -246,7 +246,7 @@
             itemValue = value;
         }
     }
-
+    
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
     System.Security.Claims.ClaimsPrincipal CurrentUser;
@@ -343,8 +343,7 @@
     {
         CurrentUser = (await authenticationStateTask).User;
         objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
-
-        initializer = new Initializers();
+        //initializer = new Initializers();
         LoadData();
     }
     public void LoadData()

@@ -91,14 +91,35 @@
             <NavLink class="nav-link" href="OrderPage">
                 <span class="oi oi-book" aria-hidden="true"></span> Приказы
             </NavLink>
-
+        </li> *@
+    <AuthorizeView Roles="Manager">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="InitializerPage">
+                <span class="oi oi-person" aria-hidden="true"></span> Инициаторы
+            </NavLink>
         </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="SecondDepPage">
+                <span class="oi oi-flag" aria-hidden="true"></span> Департаменты
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="DepartamentPage">
+                <span class="oi oi-briefcase" aria-hidden="true"></span> Учреждения
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="userlist">
+                <span class="oi oi-people" aria-hidden="true"></span> Пользователи
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="OrderPage">
+                <span class="oi oi-book" aria-hidden="true"></span> Приказы
+            </NavLink>
+        </li>
+    </AuthorizeView>
 
-        <AuthorizeView Roles="Manager">
-
-
-        </AuthorizeView>
-        *@
     </ul>
 </div>
 
