@@ -1,21 +1,15 @@
-﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|BlzMON">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/OrdersPage.razor">
-    <Files>
-      <File FileName="Pages/OrdersPage.razor" Line="150" Column="49" />
-      <File FileName="Models/ApplicationUser.cs" Line="127" Column="11" />
-      <File FileName="Pages/InitializerPage.razor" Line="62" Column="1" />
-      <File FileName="Pages/OrderPage.razor" Line="1" Column="14" />
-    </Files>
+﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|Default">
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BlzMON" expanded="True">
             <Node name="BlzMON" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
-                <Node name="OrdersPage.razor" selected="True" />
+                <Node name="InitializerPage.razor" selected="True" />
               </Node>
+              <Node name="Shared" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
             </Node>
           </Node>
         </State>

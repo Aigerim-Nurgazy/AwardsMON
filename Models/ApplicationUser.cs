@@ -2,15 +2,16 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
 
-namespace BlzMON.Models
+    namespace BlzMON.Models
     {
         public class ApplicationUser : IdentityUser
         {
            // public int InitializerlsId { get; set; }
            // public Initializers Initializer { get; set; }
         }
+
+
     public class Initializers
     {
            [Key]
@@ -37,8 +38,6 @@ namespace BlzMON.Models
             public string EmailAddress { get; set; }
           //  [Required(ErrorMessage = "Адресс обязателен")]
             public string PersonAddress { get; set; }
-            public int AwardsId { get; set; }
-            public Awards Award { get; set; }
         }
         public class Regions
         {
@@ -77,7 +76,7 @@ namespace BlzMON.Models
            // [Required(ErrorMessage = "Адресс обязателен")]
             public string InitAddress { get; set; }
             //public DateTime CreateDate { get; set; }
-    }
+        }
 
         public class SecondDeps
         {
@@ -121,10 +120,19 @@ namespace BlzMON.Models
     {
         //[Required(ErrorMessage = "Поле обязательно")]
         public int Id { get; set; }
-        public string OrderName { get; set; }
-        public int OrderCode { get; set; }
-        public DateTime OrderDate { get; set; }
-        //public List<Initializers> InitiList { get; set; }
-   }
+        public int InitializersId { get; set; }
+        public Initializers Person { get; set; }
+       // public int ReagionId { get; set; }
+      //  public Regions Region { get; set; }
+        public int AreassId { get; set; }
+        public Areass Areak { get; set; }
+        public int AwardsId { get; set; }
+        public Awards Award { get; set; }
+        public int PossitionsId{get;set;} 
+        public Possitions Possition { get; set; }
+       
+       // public Posi=sition<PossInfo> posInfos { get; set; }
+   
 }
+    }
    

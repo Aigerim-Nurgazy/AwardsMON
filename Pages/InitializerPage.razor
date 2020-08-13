@@ -22,195 +22,193 @@
 
 @if (!ShowPopup)
 {
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h4>Список инициаторов</h4></div>
+        <div class="col-md-4"></div>
+    </div>
 
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><h4>Список инициаторов</h4></div>
-    <div class="col-md-4"></div>
-</div>
-
-<table class="table">
-    <tr>
-        <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
-        <td width="40%"></td>
-        <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
-    </tr>
-</table>
-
-
-<table class="table table-striped">
-    <thead>
+    <table class="table">
         <tr>
-            <th>ID</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Должность</th>
-            <th>Образование</th>
-            <th>Стаж работы</th>
-            <th>Область</th>
-            <th>Дата рождения</th>
-            <th>Телефон</th>
-            <th>Почта</th>
-            <th>Адрес</th>
-            <th>На награду</th>
-            <th></th>
+            <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
+            <td width="40%"></td>
+            <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
         </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in initializers)
-         {
-<tr>
-    <td>@item.Id</td>
-    <td>@item.PersonSurname</td>
-    <td>@item.PersonName</td>
-    <td>@item.PersonPatronymic</td>
-    <td>@item.Possition.PossName</td>
-    <td>@item.Education.EduName</td>
-    <td>@item.WorkExpierence</td>
-    <td>@item.Areak.AreaName</td>
-    <td>@item.DateOfBirth</td>
-    <td>@item.CellPhone</td>
-    <td>@item.EmailAddress</td>
-    <td>@item.PersonAddress</td>
-    <td>@item.Award.AwardName</td>
-    <td>
-        <!-- Edit the current forecast -->
-        <button class="btn btn-primary"
-                @onclick="(() => Edit(item))">
-            Редактировать
-        </button>
-    </td>
-</tr>            }
-    </tbody>
-</table>
+    </table>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Должность</th>
+                <th>Образование</th>
+                <th>Стаж работы</th>
+                <th>Область</th>
+                <th>Дата рождения</th>
+                <th>Телефон</th>
+                <th>Почта</th>
+                <th>Адрес</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in initializers)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.PersonSurname</td>
+                    <td>@item.PersonName</td>
+                    <td>@item.PersonPatronymic</td>
+                    <td>@item.Possition.PossName</td>
+                    <td>@item.Education.EduName</td>
+                    <td>@item.WorkExpierence</td>
+                    <td>@item.Areak.AreaName</td>
+                    <td>@item.DateOfBirth</td>
+                    <td>@item.CellPhone</td>
+                    <td>@item.EmailAddress</td>
+                    <td>@item.PersonAddress</td>
+                    <td>
+                        <!-- Edit the current forecast -->
+                        <button class="btn btn-primary"
+                                @onclick="(() => Edit(item))">
+                            Редактировать
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
 @if (ShowPopup)
 {
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><h4>Редактирование</h4></div>
-    <div class="col-md-4"></div>
-</div>
-                <table class="table">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h4>Редактирование</h4></div>
+        <div class="col-md-4"></div>
+    </div>
+    <table class="table">
 
 
-                    <tr>
-                        <td>Фамилия</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.PersonSurname" /></td>
-                    </tr>
+        <tr>
+            <td>Фамилия</td>
+            <td><input type="text" class="form-control" @bind="@initializer.PersonSurname" /></td>
+        </tr>
 
-                    <tr>
-                        <td>Имя</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.PersonName" /></td>
-                    </tr>
-                    <tr>
-                        <td>Отчество</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.PersonPatronymic" /></td>
-                    </tr>
+        <tr>
+            <td>Имя</td>
+            <td><input type="text" class="form-control" @bind="@initializer.PersonName" /></td>
+        </tr>
+        <tr>
+            <td>Отчество</td>
+            <td><input type="text" class="form-control" @bind="@initializer.PersonPatronymic" /></td>
+        </tr>
 
-                    <tr>
-                        <td>Должность</td>
-                        <td>
-                            <select class="form-control" @bind="@initializer.PossitionsId">
-                                @foreach (var cnt in possitions)
-                                {
-                                  <option value="@cnt.Id">@cnt.PossName</option>}
-                            </select>
-                        </td>
-                    </tr>
+        <tr>
+            <td>Должность</td>
+            <td>
+                <select class="form-control" @bind="@initializer.PossitionsId">
+                    @foreach (var cnt in possitions)
+                    {
+                        <option value="@cnt.Id">@cnt.PossName</option>
+                    }
+                </select>
+            </td>
+        </tr>
 
-                    <tr>
-                        <td>Образование</td>
-                        <td>
-                            <select class="form-control" @bind="@initializer.EducationsId">
-                                @foreach (var cnt in educations)
-                                {
-                                <option value="@cnt.Id">@cnt.EduName</option>}
-                            </select>
-                        </td>
-                    </tr>
+        <tr>
+            <td>Образование</td>
+            <td>
+                <select class="form-control" @bind="@initializer.EducationsId">
+                    @foreach (var cnt in educations)
+                    {
+                        <option value="@cnt.Id">@cnt.EduName</option>
+                    }
+                </select>
+            </td>
+        </tr>
 
-                    <tr>
-                        <td>Опыт</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.WorkExpierence" /></td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Область</td>
-                        <td>
-                            <select class="form-control" @bind="@initializer.AreassId">
-                                @foreach (var cnt in areas)
-                                {
-                                     <option value="@cnt.Id">@cnt.AreaName</option>}
-                            </select>
-                        </td>
-                    </tr>
+        <tr>
+            <td>Опыт</td>
+            <td><input type="text" class="form-control" @bind="@initializer.WorkExpierence" /></td>
+        </tr>
 
 
-                    <tr>
-                        <td>Дата рождения</td>
-                        <td><RadzenDatePicker @bind-Value="initializer.DateOfBirth" DateFormat="d" ShowTime="false" Change="@(args => Change(args, "DatePicker", "MM/dd/yyyy"))" /></td>
-
-                    </tr>
-                    <tr>
-                        <td>Телефон</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.CellPhone" /></td>
-                    </tr>
-
-                    <tr>
-                        <td>Почта</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.EmailAddress" /></td>
-                    </tr>
-                    <tr>
-                        <td>Адрес</td>
-                        <td><input type="text" class="form-control" @bind="@initializer.PersonAddress" /></td>
-                    </tr> 
-                      <tr>
-                        <td>На награду</td>
-                        <td>
-                            <select class="form-control" @bind="@initializer.AwardsId">
-                                @foreach (var cnt in awards)
-                                {
-                                  <option value="@cnt.Id">@cnt.AwardName</option>}
-                            </select>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Выберите документы</td>
-                        <RadzenUpload Multiple="true" Url="InitializerPage/Multiple" ChooseText="Выбрать файлы" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Загрузкa файлов"))" />
-                    </tr>
-                    <tr>
-                        <td>Загрузка...</td>
-                        <RadzenCard Style="overflow:auto;">
-                            <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
-                        </RadzenCard>
-                    </tr>
+        <tr>
+            <td>Область</td>
+            <td>
+                <select class="form-control" @bind="@initializer.AreassId">
+                    @foreach (var cnt in areas)
+                    {
+                        <option value="@cnt.Id">@cnt.AreaName</option>
+                    }
+                </select>
+            </td>
+        </tr>
 
 
-                    <tr>
-                        <td>
-                            @if (initializer.Id != 0)
-                            {<!-- Button to delete the forecast -->
-                                <button class="btn btn-danger" @onclick="Delete">
-                                    Удалить
-                                </button>                }
-                        </td>
-                        <td>
-                            <button class="btn btn-primary" @onclick="Save">
-                                Сохранить
-                            </button>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary" @onclick="ClosePopup">
-                                Назад
-                            </button>
-                        </td>
-                    </tr>
-                </table>}
+        <tr>
+            <td>Дата рождения</td>
+            <td><RadzenDatePicker @bind-Value="initializer.DateOfBirth" DateFormat="d" Change="@(args => Change(args, "DatePicker", "MM/dd/yyyy"))" /></td>
+
+        </tr>
+
+
+
+        <tr>
+            <td>Телефон</td>
+            <td><input type="text" class="form-control" @bind="@initializer.CellPhone" /></td>
+        </tr>
+
+        <tr>
+            <td>Почта</td>
+            <td><input type="text" class="form-control" @bind="@initializer.EmailAddress" /></td>
+        </tr>
+        <tr>
+            <td>Адрес</td>
+            <td><input type="text" class="form-control" @bind="@initializer.PersonAddress" /></td>
+        </tr>
+
+        <tr>
+            <td>Выберите документы</td>
+            <RadzenUpload Multiple="true" Url="InitializerPage/Multiple" ChooseText="Выбрать файлы" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Загрузкa файлов"))" />
+        </tr>
+        <tr>
+            <td>Загрузка...</td>
+            <RadzenCard Style="overflow:auto;">
+                <RadzenProgressBar Value="@progress"  Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
+            </RadzenCard>
+        </tr>
+
+
+        <tr>
+            <td>
+                @if (initializer.Id != 0)
+                {
+                    <!-- Button to delete the forecast -->
+                    <button class="btn btn-danger" @onclick="Delete">
+                        Удалить
+                    </button>
+                }
+            </td>
+            <td>
+                <button class="btn btn-primary" @onclick="Save">
+                    Сохранить
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-primary" @onclick="ClosePopup">
+                    Назад
+                </button>
+            </td>
+        </tr>
+    </table>
+
+}
 
 
 
@@ -223,13 +221,12 @@
     List<Possitions> possitions = new List<Possitions>();
     List<Educations> educations = new List<Educations>();
     List<Areass> areas = new List<Areass>();
-    List<Awards> awards = new List<Awards>();
     //List<Regions> regions = new List<Regions>();
     //List<Initializers> initializers = new List<Initializers>();
     // List<Documents> documents = new List<Documents>();
     // Initializers initializer = new Initializers();
 
-
+    
     private int CurrentValue { get; set; }
     public string itemValue { get; set; }
     public string item
@@ -249,7 +246,7 @@
             itemValue = value;
         }
     }
-
+    
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
     System.Security.Claims.ClaimsPrincipal CurrentUser;
@@ -265,7 +262,6 @@
         possitions = db.Possition.ToList();
         educations = db.Education.ToList();
         areas = db.Areaq.ToList();
-        awards = db.Award.ToList();
         //maay
         // initializers = db.Initializers.ToList();
         //regions = db.Region.ToList();
@@ -283,6 +279,7 @@
             {
                 Initializers init = await db.Initializers.FindAsync(initializer.Id);
                 //...IG dont forget this one
+
                 init.PersonName = initializer.PersonName;
                 init.PersonSurname = initializer.PersonSurname;
                 init.PersonPatronymic = initializer.PersonPatronymic;
@@ -294,7 +291,6 @@
                 possitions = db.Possition.ToList();
                 educations = db.Education.ToList();
                 areas = db.Areaq.ToList();
-                awards = db.Award.ToList();
                 await db.SaveChangesAsync();
             }
             else
@@ -316,13 +312,12 @@
             strError = ex.GetBaseException().Message;
         }
     }
-    void Edit(Initializers rc)
+    async Task Edit(Initializers rc)
     {
         initializer = rc;
         possitions = db.Possition.ToList();
         educations = db.Education.ToList();
         areas = db.Areaq.ToList();
-        awards = db.Award.ToList();
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
         ShowPopup = true;
     }
@@ -376,4 +371,7 @@
     {
         this.info = $"%'{name}'/{args.Loaded}of {args.Total}bytes.";
         this.progress = args.Progress;
-    } }
+    }
+
+
+}
