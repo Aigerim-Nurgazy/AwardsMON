@@ -1,4 +1,4 @@
-﻿@page "/OrderPage"
+﻿@page "/OrderPage/{orderId}"
 @using Microsoft.AspNetCore.Identity;
 @using BlzMON.Data
 @using BlzMON.Models
@@ -120,7 +120,7 @@
 
 @code { // OrderId is route parameter
             [Parameter]
-            public int OrderId { get; set; }
+            public string OrderId { get; set; }
 
             private int CurrentValue { get; set; }
             public string itemValue { get; set; }
@@ -248,4 +248,6 @@
                 await db.SaveChangesAsync();
                 departaments.Add(departament);
                 departament = new Departaments();
-            } }
+            } 
+    
+    }
