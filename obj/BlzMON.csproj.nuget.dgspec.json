@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\esept\\Source\\Repos\\AwardsMON2\\BlzMON.csproj": {}
+    "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj": {}
   },
   "projects": {
-    "C:\\Users\\esept\\Source\\Repos\\AwardsMON2\\BlzMON.csproj": {
+    "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\esept\\Source\\Repos\\AwardsMON2\\BlzMON.csproj",
+        "projectUniqueName": "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj",
         "projectName": "BlzMON",
-        "projectPath": "C:\\Users\\esept\\Source\\Repos\\AwardsMON2\\BlzMON.csproj",
-        "packagesPath": "C:\\Users\\esept\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\esept\\Source\\Repos\\AwardsMON2\\obj\\",
+        "projectPath": "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj",
+        "packagesPath": "/Users/aigerim/.nuget/packages/",
+        "outputPath": "/Users/aigerim/Downloads/PFT/BlzMON/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\esept\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/aigerim/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -135,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
         }
       }
     }
