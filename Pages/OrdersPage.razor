@@ -47,7 +47,7 @@
             {
                 <tr>
                     <td>@item.Id</td>
-                    <td @onclick="@(e=> NavigateToOrderPage(item.Id))">
+                    <td @onclick="@(e => NavigateToOrderPage(item.Id))">
                         @item.OrderName
                     </td>
                     @*<td><RadzenLink href="OrderPage?orderId=@item.Id" Text="@item.OrderName" /></td>*@
@@ -98,8 +98,26 @@
 
     </table>
 
+    @* List of initiators datagrid *@
 
-    @* List of initiators *@
+    <RadzenGrid Data="@initializers"
+                AllowFiltering="true" AllowPaging="true" AllowSorting="true" StartsWithText="Поиск" TItem="Initializers" ColumnWidth="200px">
+        <Columns>
+            <RadzenGridColumn TItem="Initializers" Property="Id" Title="ID" />
+            <RadzenGridColumn TItem="Initializers" Property="Areak.AreaName" Title="Область" />
+            <RadzenGridColumn TItem="Initializers" Property="PersonSurname" Title="ФИО" />
+            <RadzenGridColumn TItem="Initializers" Property="Possition.PossName" Title="Должность" />
+            <RadzenGridColumn TItem="Initializers" Property="Award.AwardName" Title="Награда" />
+            <RadzenGridColumn TItem="Initializers">
+                <Template Context="initializer">
+                    <RadzenButton Icon="delete" Click="@(args => Selected(initializer))" />
+                </Template>
+            </RadzenGridColumn>
+            
+        </Columns>
+    </RadzenGrid>
+
+    @* List of initiators table *@
 
     <table class="table table-striped">
         <thead>
@@ -115,17 +133,17 @@
         <tbody>
             @foreach (var item in initializers)
             {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Areak.AreaName</td>
-                <td>@item.PersonSurname @item.PersonName @item.PersonPatronymic</td>
-                <td>@item.Possition.PossName</td>
-                <td>@item.Award.AwardName</td>
-                <td>
-                    <input type="checkbox" />
-                    <!-- CheckBox -->
-                </td>
-            </tr>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Areak.AreaName</td>
+                    <td>@item.PersonSurname @item.PersonName @item.PersonPatronymic</td>
+                    <td>@item.Possition.PossName</td>
+                    <td>@item.Award.AwardName</td>
+                    <td>
+                        <input type="checkbox" />
+                        <!-- CheckBox -->
+                    </td>
+                </tr>
             }
 
             <tr>
@@ -306,5 +324,11 @@
     private void NavigateToOrderPage(int orderId)
     {
         navigationManager.NavigateTo("OrderPage/" + orderId);
+    }
+
+    // attach Init to Order
+    private void Selected(Initializers init)
+    {
+        navigationManager.NavigateTo("Test/" + init.Id);
     }
 }

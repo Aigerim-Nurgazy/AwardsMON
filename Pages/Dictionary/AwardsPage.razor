@@ -1,158 +1,1 @@
-﻿@page "/awardspage"
-
-@using Microsoft.AspNetCore.Identity;
-@using BlzMON.Data
-@using BlzMON.Models
-@using Radzen.Blazor;
-@inject UserManager<ApplicationUser> _userManager;
-
-@inject ApplicationDbContext db
-
-
-<h3>Награды</h3>
-<button class="btn btn-success" @onclick="AddNew">Добавить новый</button>
-<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
-            AllowSorting="true" Data="@сonclusions" TItem="Awards" ColumnWidth="150px">
-    <Columns>
-        <RadzenGridColumn TItem="Awards" Property="AwardName" Title="Награда"></RadzenGridColumn>
-
-        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
-        <RadzenGridColumn TItem="Awards" TextAlign="Radzen.TextAlign.Center" Width="60px">
-            <Template Context="сonclusion">
-                <RadzenButton Icon="edit" Click="@(args => Edit(сonclusion))" />
-            </Template>
-        </RadzenGridColumn>
-        <RadzenGridColumn TItem="Awards" TextAlign="Radzen.TextAlign.Center" Width="60px">
-            <Template Context="сonclusion">
-                <RadzenButton Icon="delete" Click="@(args => Delete(сonclusion))" />
-            </Template>
-        </RadzenGridColumn>
-
-    </Columns>
-</RadzenGrid>
-
-
-@if (ShowPopup)
-{
-    <div class="modal" tabindex="-1" style="display:block" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">@title</h3>
-                    <button type="button" class="close"
-                            @onclick="ClosePopup">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <span style="color:red">@strError</span>
-                    <table class="table">
-                       
-                        <tr>
-                            <td>Награда</td>
-                            <td><input type="text" class="form-control" @bind="@сonclusion.AwardName" /></td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <button class="btn btn-primary" @onclick="Save">
-                                    Сохранить
-                                </button>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-}
-
-
-@code {
-
-    private List<Awards> сonclusions = new List<Awards>();
-
-    private Awards сonclusion = new Awards();
-
-    [CascadingParameter]
-    private Task<AuthenticationState> authenticationStateTask { get; set; }
-    System.Security.Claims.ClaimsPrincipal CurrentUser;
-
-    ApplicationUser objUser;
-    string strError = "";
-    string title = "";
-    bool ShowPopup = false;
-
-
-    void AddNew()
-    {
-        сonclusion = new Awards();
-        сonclusion.Id = 0;
-        title = "Новоя запись";
-        ShowPopup = true;
-    }
-    async Task Save()
-    {
-        try
-        {
-            if (сonclusion.Id != 0)
-            {
-                Awards lt = await db.Award.FindAsync(сonclusion.Id);
-                lt.Id = сonclusion.Id;
-                lt.AwardName = сonclusion.AwardName;
-                await db.SaveChangesAsync();
-            }
-            else
-            {
-                db.Award.Add(сonclusion);
-                await db.SaveChangesAsync();
-            }
-
-            ShowPopup = false;
-            LoadData();
-        }
-        catch (Exception ex)
-        {
-            strError = ex.GetBaseException().Message;
-        }
-    }
-    async Task Edit(Awards lt)
-    {
-        title = "Редактирование";
-        сonclusion = lt;
-        ShowPopup = true;
-    }
-    async Task Delete(Awards lt)
-    {
-        ShowPopup = false;
-        var obj = await db.Award.FindAsync(lt.Id);
-        if (obj != null)
-        {
-            db.Award.Remove(obj);
-            await db.SaveChangesAsync();
-        }
-        LoadData();
-    }
-    void ClosePopup()
-    {
-        ShowPopup = false;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        // CurrentUser = (await authenticationStateTask).User;
-        // objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
-        LoadData();
-    }
-
-    public void LoadData()
-    {
-        сonclusion = new Awards();
-        сonclusions = db.Award.OrderBy(x => x.AwardName).ToList();
-
-    }
-
-
-}
+﻿@page "/awardspage"@using Microsoft.AspNetCore.Identity;@using BlzMON.Data@using BlzMON.Models@using Radzen.Blazor;@inject UserManager<ApplicationUser> _userManager;@inject ApplicationDbContext db<h3>Награды</h3><button class="btn btn-success" @onclick="AddNew">Добавить новый</button><RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"            AllowSorting="true" Data="@сonclusions" TItem="Awards" ColumnWidth="150px">    <Columns>        <RadzenGridColumn TItem="Awards" Property="AwardName" Title="Награда"></RadzenGridColumn>        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@        <RadzenGridColumn TItem="Awards" TextAlign="Radzen.TextAlign.Center" Width="60px">            <Template Context="сonclusion">                <RadzenButton Icon="edit" Click="@(args => Edit(сonclusion))" />            </Template>        </RadzenGridColumn>        <RadzenGridColumn TItem="Awards" TextAlign="Radzen.TextAlign.Center" Width="60px">            <Template Context="сonclusion">                <RadzenButton Icon="delete" Click="@(args => Delete(сonclusion))" />            </Template>        </RadzenGridColumn>    </Columns></RadzenGrid>@if (ShowPopup){    <div class="modal" tabindex="-1" style="display:block" role="dialog">        <div class="modal-dialog">            <div class="modal-content">                <div class="modal-header">                    <h3 class="modal-title">@title</h3>                    <button type="button" class="close"                            @onclick="ClosePopup">                        <span aria-hidden="true">X</span>                    </button>                </div>                <div class="modal-body">                    <span style="color:red">@strError</span>                    <table class="table">                                               <tr>                            <td>Награда</td>                            <td><input type="text" class="form-control" @bind="@сonclusion.AwardName" /></td>                        </tr>                        <tr>                            <td>                                <button class="btn btn-primary" @onclick="Save">                                    Сохранить                                </button>                            </td>                            <td></td>                        </tr>                    </table>                </div>            </div>        </div>    </div>}@code {    private List<Awards> сonclusions = new List<Awards>();    private Awards сonclusion = new Awards();    [CascadingParameter]    private Task<AuthenticationState> authenticationStateTask { get; set; }    System.Security.Claims.ClaimsPrincipal CurrentUser;    ApplicationUser objUser;    string strError = "";    string title = "";    bool ShowPopup = false;    void AddNew()    {        сonclusion = new Awards();        сonclusion.Id = 0;        title = "Новоя запись";        ShowPopup = true;    }    async Task Save()    {        try        {            if (сonclusion.Id != 0)            {                Awards lt = await db.Award.FindAsync(сonclusion.Id);                lt.Id = сonclusion.Id;                lt.AwardName = сonclusion.AwardName;                await db.SaveChangesAsync();            }            else            {                db.Award.Add(сonclusion);                await db.SaveChangesAsync();            }            ShowPopup = false;            LoadData();        }        catch (Exception ex)        {            strError = ex.GetBaseException().Message;        }    }    async Task Edit(Awards lt)    {        title = "Редактирование";        сonclusion = lt;        ShowPopup = true;    }    async Task Delete(Awards lt)    {        ShowPopup = false;        var obj = await db.Award.FindAsync(lt.Id);        if (obj != null)        {            db.Award.Remove(obj);            await db.SaveChangesAsync();        }        LoadData();    }    void ClosePopup()    {        ShowPopup = false;    }    protected override async Task OnInitializedAsync()    {        // CurrentUser = (await authenticationStateTask).User;        // objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);        LoadData();    }    public void LoadData()    {        сonclusion = new Awards();        сonclusions = db.Award.OrderBy(x => x.AwardName).ToList();    }}
