@@ -223,6 +223,7 @@
 
 
 @code {
+
     //
     public List<Initializers> initializers = new List<Initializers>();
 
@@ -240,6 +241,7 @@
     // Initializers initializer = new Initializers();
 
 
+    // for search
     private int CurrentValue { get; set; }
     public string itemValue { get; set; }
     public string item
@@ -366,9 +368,15 @@
     public void LoadData()
     {
 
-        // 
-        initializers = db.Initializers.OrderBy(x => x.PersonSurname).ToList();
-        
+        //
+        initializers = db.Initializers
+            .OrderBy(x => x.PersonSurname)
+            .Include(o => o.Possition)
+            .Include(o => o.Education)
+            .Include(o => o.Areak)
+            .Include(o => o.Award)
+            .ToList();
+
         //db.Order.Include(o => o.InitiList).ToList();
 
         // initializers2 initializer= db.Initializers.OrderBy(x => x.PersonName).ToList(); //double shit :)

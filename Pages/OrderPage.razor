@@ -9,245 +9,204 @@
 
 <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4"><h4>Приказ на награду @OrderId</h4></div>
+    <div class="col-md-4"><h4>Приказ от @order.OrderDate</h4></div>
     <div class="col-md-4"></div>
 </div>
-
-@*<table class="table">
-        <tr>
-            <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
-            <td width="40%"></td>
-            <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
-        </tr>
-    </table>*@
 
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Наименование</th>
-            <th>Контактное лицо</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Должность</th>
+            <th>Образование</th>
+            <th>Стаж работы</th>
+            <th>Область</th>
+            <th>Дата рождения</th>
             <th>Телефон</th>
             <th>Почта</th>
             <th>Адрес</th>
-
+            <th>На награду</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in departaments)
+        @foreach (var item in initializers)
         {
-<tr>
-    <td>@item.Id</td>
-    <td>@item.Name</td>
-    <td>@item.Person</td>
-    <td>@item.InitPhone</td>
-    <td>@item.InitEmail</td>
-    <td>@item.InitAddress</td>
-    <td>
-        <!-- Edit the current forecast -->
-        <button class="btn btn-primary"
-                @onclick="(() => Edit(item))">
-            Редактировать
-        </button>
-    </td>
-</tr>}
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.PersonSurname</td>
+                <td>@item.PersonName</td>
+                <td>@item.PersonPatronymic</td>
+                <td>@item.Possition.PossName</td>
+                <td>@item.Education.EduName</td>
+                <td>@item.WorkExpierence</td>
+                <td>@item.Areak.AreaName</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.CellPhone</td>
+                <td>@item.EmailAddress</td>
+                <td>@item.PersonAddress</td>
+                <td>@item.Award.AwardName</td>
+                <td>
+                    <!-- Edit the current forecast -->
+                    @*<button class="btn btn-primary"
+                            @onclick="(() => Edit(item))"
+                            >
+                        Редактировать
+                    </button>*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
 
-@if (ShowPopup)
-{
-<div class="modal" tabindex="-1" style="display:block" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Редактирование</h3>
-                <button type="button" class="close"
-                        @onclick="ClosePopup">
-                    <span aria-hidden="true">X</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <span style="color:red">@strError</span>
-                <table class="table">
-
-                    <tr>
-                        <td>Наименование</td>
-                        <td><input type="text" class="form-control" @bind="@departament.Name" /></td>
-                    </tr>
-                    <tr>
-                        <td>Контактное лицо</td>
-                        <td><input type="text" class="form-control" @bind="@departament.Person" /></td>
-                    </tr>
-                    <tr>
-                        <td>Номер</td>
-                        <td><input type="text" class="form-control" @bind="@departament.InitPhone" /></td>
-                    </tr>
-                    <tr>
-                        <td>Почта</td>
-                        <td><input type="text" class="form-control" @bind="@departament.InitEmail" /></td>
-                    </tr>
-                    <tr>
-                        <td>Адрес</td>
-                        <td><input type="text" class="form-control" @bind="@departament.InitAddress" /></td>
-                    </tr>
-
-
-                    <tr>
-                        <td>
-                            @if (departament.Id != 0)
-                            {<!-- Button to delete the forecast -->
-                                <button class="btn btn-danger" @onclick="Delete">
-                                    Удалить
-                                </button>}
-                        </td>
-                        <td>
-                            <button class="btn btn-primary" @onclick="Save">
-                                Сохранить
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-    </div>
-</div>}
-
-
 
 @code { // OrderId is route parameter
-            [Parameter]
-            public string OrderId { get; set; }
+    [Parameter]
+    public string orderId { get; set; }
 
-            private int CurrentValue { get; set; }
-            public string itemValue { get; set; }
-            public string item
+
+    //
+    public Orders order = new Orders();
+
+    // list of inits
+    public List<Initializers> initializers = new List<Initializers>();
+
+    // on page loaded
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentUser = (await authenticationStateTask).User;
+        objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
+
+        // fill inits
+        initializers = db.Initializers.Where(i=>i.OrderId == int.Parse(orderId)).OrderBy(x => x.PersonSurname).ToList();
+
+        // init order
+        order = db.Order.Find(int.Parse(orderId));
+
+    }
+
+    // brilliant code
+    private int CurrentValue { get; set; }
+    public string itemValue { get; set; }
+    public string item
+    {
+        get { return itemValue; }
+        set
+        {
+            CurrentValue = departaments.Count();
+            if (value.Length > 0)
             {
-                get { return itemValue; }
-                set
-                {
-                    CurrentValue = departaments.Count();
-                    if (value.Length > 0)
-                    {
-                        departaments = departaments2.Where(x => x.Person.ToLower().Contains(value)).ToList();//wtf
-                    }
-                    else
-                    {
-                        departaments = departaments2;
-                    }
-                    itemValue = value;
-                }
+                departaments = departaments2.Where(x => x.Person.ToLower().Contains(value)).ToList();//wtf
             }
-            private List<Departaments> departaments = new List<Departaments>();
-            private List<Departaments> departaments2;
-            private Departaments departament = new Departaments();
-
-            [CascadingParameter]
-            private Task<AuthenticationState> authenticationStateTask { get; set; }
-            System.Security.Claims.ClaimsPrincipal CurrentUser;
-
-            ApplicationUser objUser;
-            string strError = "";
-            bool ShowPopup = false;
-
-
-            void AddNew()
+            else
             {
-                departament = new Departaments();
-                //initializer.Code = "Test";   // What is it? double shit :0
-                departament.Id = 0;
-                ShowPopup = true;
+                departaments = departaments2;
             }
-            async Task Save()
+            itemValue = value;
+        }
+    }
+    private List<Departaments> departaments = new List<Departaments>();
+    private List<Departaments> departaments2;
+    private Departaments departament = new Departaments();
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    ApplicationUser objUser;
+    string strError = "";
+    bool ShowPopup = false;
+
+
+    void AddNew()
+    {
+        departament = new Departaments();
+        //initializer.Code = "Test";   // What is it? double shit :0
+        departament.Id = 0;
+        ShowPopup = true;
+    }
+    async Task Save()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (departament.Id != 0)
             {
-                try
-                {
-                    // Is this an existing user?
-                    if (departament.Id != 0)
-                    {
-                        Departaments depart = await db.Departaments.FindAsync(departament.Id);
+                Departaments depart = await db.Departaments.FindAsync(departament.Id);
 
-                        //...IG dont forget this one
-                        depart.Name = departament.Name;
-                        depart.Person = departament.Person;
-                        depart.InitPhone = departament.InitPhone;
-                        depart.InitEmail = departament.InitEmail;
-                        depart.InitAddress = departament.InitAddress;
-                        await db.SaveChangesAsync();
-                    }
-                    else
-                    {
-                        // int maxId = db.Departaments.Max(x => x.Id);
-                        //departament.Id = (maxId + 1);
-                        db.Departaments.Add(departament);
-                        await db.SaveChangesAsync();
-                    }
-
-                    // Close the Popup
-                    ShowPopup = false;
-                    // Refresh Users
-                    LoadData();
-                    departament = new Departaments();
-                }
-                catch (Exception ex)
-                {
-                    strError = ex.GetBaseException().Message;
-                }
+                //...IG dont forget this one
+                depart.Name = departament.Name;
+                depart.Person = departament.Person;
+                depart.InitPhone = departament.InitPhone;
+                depart.InitEmail = departament.InitEmail;
+                depart.InitAddress = departament.InitAddress;
+                await db.SaveChangesAsync();
             }
-            async Task Edit(Departaments rc)
+            else
             {
-                departament = rc;
-                //products = db.Products.Where(x => x.CategoryId == ).ToList();
-                ShowPopup = true;
-            }
-            async Task Delete()
-            {
-                // Close the Popup
-                ShowPopup = false;
-                // Get the user
-                var rc = await db.Departaments.FindAsync(departament.Id);
-                if (rc != null)
-                {
-                    db.Departaments.Remove(rc);
-                    await db.SaveChangesAsync();
-                }
-                LoadData();
-            }
-            void ClosePopup()
-            {
-                // Close the Popup
-                ShowPopup = false;
-            }
-
-            protected override async Task OnInitializedAsync()
-            {
-                CurrentUser = (await authenticationStateTask).User;
-                objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
-
-                departament = new Departaments();
-                LoadData();
-
-                // Inititalize on page loaded
-
-            }
-
-            public void LoadData()
-            {
-                departaments = db.Departaments.OrderBy(x => x.Person).ToList();
-                // initializers2 initializer= db.Initializers.OrderBy(x => x.PersonName).ToList(); double shit :)
-            }
-
-
-
-            private async Task Insert()
-            {
+                // int maxId = db.Departaments.Max(x => x.Id);
+                //departament.Id = (maxId + 1);
                 db.Departaments.Add(departament);
                 await db.SaveChangesAsync();
-                departaments.Add(departament);
-                departament = new Departaments();
-            } 
-    
+            }
+
+            // Close the Popup
+            ShowPopup = false;
+            // Refresh Users
+            LoadData();
+            departament = new Departaments();
+        }
+        catch (Exception ex)
+        {
+            strError = ex.GetBaseException().Message;
+        }
     }
+    async Task Edit(Departaments rc)
+    {
+        departament = rc;
+        //products = db.Products.Where(x => x.CategoryId == ).ToList();
+        ShowPopup = true;
+    }
+    async Task Delete()
+    {
+        // Close the Popup
+        ShowPopup = false;
+        // Get the user
+        var rc = await db.Departaments.FindAsync(departament.Id);
+        if (rc != null)
+        {
+            db.Departaments.Remove(rc);
+            await db.SaveChangesAsync();
+        }
+        LoadData();
+    }
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+
+
+    public void LoadData()
+    {
+        departaments = db.Departaments.OrderBy(x => x.Person).ToList();
+        // initializers2 initializer= db.Initializers.OrderBy(x => x.PersonName).ToList(); double shit :)
+    }
+
+
+
+    private async Task Insert()
+    {
+        db.Departaments.Add(departament);
+        await db.SaveChangesAsync();
+        departaments.Add(departament);
+        departament = new Departaments();
+    }
+
+}
