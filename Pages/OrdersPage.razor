@@ -105,7 +105,7 @@
         <Columns>
             <RadzenGridColumn TItem="Initializers" Property="Id" Title="ID" />
             <RadzenGridColumn TItem="Initializers" Property="Areak.AreaName" Title="Область" />
-            <RadzenGridColumn TItem="Initializers" Property="PersonSurname" Title="ФИО" />
+            <RadzenGridColumn TItem="Initializers" Property="GetFullName" Title="ФИО" />
             <RadzenGridColumn TItem="Initializers" Property="Possition.PossName" Title="Должность" />
             <RadzenGridColumn TItem="Initializers" Property="Award.AwardName" Title="Награда" />
             <RadzenGridColumn TItem="Initializers">
@@ -136,7 +136,7 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.Areak.AreaName</td>
-                    <td>@item.PersonSurname @item.PersonName @item.PersonPatronymic</td>
+                    <td>@item.GetFullName</td>
                     <td>@item.Possition.PossName</td>
                     <td>@item.Award.AwardName</td>
                     <td>

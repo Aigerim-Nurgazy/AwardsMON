@@ -100,21 +100,21 @@
 
 
         <tr>
-            <td>Фамилия</td>
+            <td class="text-center font-weight-bold">Фамилия</td>
             <td><input type="text" class="form-control" @bind="@initializer.PersonSurname" /></td>
         </tr>
 
         <tr>
-            <td>Имя</td>
+            <td class="text-center font-weight-bold">Имя</td>
             <td><input type="text" class="form-control" @bind="@initializer.PersonName" /></td>
         </tr>
         <tr>
-            <td>Отчество</td>
+            <td class="text-center font-weight-bold">Отчество</td>
             <td><input type="text" class="form-control" @bind="@initializer.PersonPatronymic" /></td>
         </tr>
 
         <tr>
-            <td>Должность</td>
+            <td class="text-center font-weight-bold">Должность</td>
             <td>
                 <select class="form-control" @bind="@initializer.PossitionsId">
                     @foreach (var cnt in possitions)
@@ -126,7 +126,7 @@
         </tr>
 
         <tr>
-            <td>Образование</td>
+            <td class="text-center font-weight-bold">Образование</td>
             <td>
                 <select class="form-control" @bind="@initializer.EducationsId">
                     @foreach (var cnt in educations)
@@ -138,13 +138,13 @@
         </tr>
 
         <tr>
-            <td>Опыт</td>
+            <td class="text-center font-weight-bold">Опыт</td>
             <td><input type="text" class="form-control" @bind="@initializer.WorkExpierence" /></td>
         </tr>
 
 
         <tr>
-            <td>Область</td>
+            <td class="text-center font-weight-bold">Область</td>
             <td>
                 <select class="form-control" @bind="@initializer.AreassId">
                     @foreach (var cnt in areas)
@@ -157,25 +157,25 @@
 
 
         <tr>
-            <td>Дата рождения</td>
+            <td class="text-center font-weight-bold">Дата рождения</td>
             <td><RadzenDatePicker @bind-Value="initializer.DateOfBirth" DateFormat="d" ShowTime="false" Change="@(args => Change(args, "DatePicker", "MM/dd/yyyy"))" /></td>
 
         </tr>
         <tr>
-            <td>Телефон</td>
+            <td class="text-center font-weight-bold">Телефон</td>
             <td><input type="text" class="form-control" @bind="@initializer.CellPhone" /></td>
         </tr>
 
         <tr>
-            <td>Почта</td>
+            <td class="text-center font-weight-bold">Почта</td>
             <td><input type="text" class="form-control" @bind="@initializer.EmailAddress" /></td>
         </tr>
         <tr>
-            <td>Адрес</td>
+            <td class="text-center font-weight-bold">Адрес</td>
             <td><input type="text" class="form-control" @bind="@initializer.PersonAddress" /></td>
         </tr>
         <tr>
-            <td>На награду</td>
+            <td class="text-center font-weight-bold">На награду</td>
             <td>
                 <select class="form-control" @bind="@initializer.AwardsId">
                     @foreach (var cnt in awards)
@@ -185,17 +185,75 @@
                 </select>
             </td>
         </tr>
+        <tr>
+            <td></td>
+            <td class="text-success">
+                Для выбора нескольких файлов удерживайте клавищу CTRL
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold">Личное заявление</td>
+            <td class="text-center">
+                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleA" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />
+                <br />
+                <tr>
+                    <td class="text-left col-5 text-muted">
+                        @fileNamesA
+                    </td>
+                </tr>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold">Представление руководителя<br /> образовательной организации</td>
+            <td class="text-center">
+                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleB" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "B"))" />
+                <br />
+                <p class="text-left text-muted">
+                    @fileNamesB
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold">
+                Копия трудовой книжки
+            </td>
+            <td class="text-center">
+                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleC" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "C"))" />
+                <br />
+                <p class="text-left text-muted">
+                    @fileNamesC
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold">
+                Копии наград
+            </td>
+            <td class="text-center">
+                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleD" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "D"))" />
+                <br />
+                <p class="text-left text-muted">
+                    @fileNamesD
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center font-weight-bold">Выписка из решения педагогического<br /> или ученого совета</td>
+            <td class="text-center">
+                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleE" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "E"))" />
+                <br />
+                <p class="text-left text-muted">
+                    @fileNamesE
+                </p>
+            </td>
+        </tr>
 
-        <tr>
-            <td>Выберите документы</td>
-            <RadzenUpload Multiple="true" Url="InitializerPage/Multiple" ChooseText="Выбрать файлы" Style="margin-bottom: 20px;" Progress="@((args) => OnProgress(args, "Загрузкa файлов"))" />
-        </tr>
-        <tr>
-            <td>Загрузка...</td>
-            <RadzenCard Style="overflow:auto;">
-                <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
-            </RadzenCard>
-        </tr>
+        @*<tr>
+                <td>Загрузка...</td>
+                <RadzenCard Style="overflow:auto;">
+                    <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
+                </RadzenCard>
+            </tr>*@
 
 
         <tr>
@@ -217,12 +275,47 @@
                 </button>
             </td>
         </tr>
+
+
+
     </table>
+
+    <br />
+    <br />
+    <br />
+
+    <div>
+        <ul>
+            <b>
+                При подаче электронной заявки на регистрацию
+                должны быть в обязательном порядке прикреплены
+                следующие документы в сканированном варианте или в форме фотокопии
+            </b>
+            <li>Личное заявление</li>
+            <li>Представление руководителя образовательной  организации</li>
+            <li>
+                Копия трудовой книжки, заверенная печатью отдела кадров
+                государственного органа,
+                где обсуждалась кандидатура для награждения
+            </li>
+            <li>
+                Копии наград, заверенные печатью отдела кадров
+                государственного органа,
+                где обсуждалась кандидатура для награждения
+            </li>
+            <li>Выписка из решения педагогического или ученого совета</li>
+        </ul>
+    </div>
+    <br />
+    <br />
+    <br />
 }
 
 
 
 @code {
+    //
+    public string[] fileNames = new string[5];
 
     //
     public List<Initializers> initializers = new List<Initializers>();
@@ -261,6 +354,33 @@
             itemValue = value;
         }
     }
+
+
+    public string fileNamesA = "";
+    public string fileNamesB = "";
+    public string fileNamesC = "";
+    public string fileNamesD = "";
+    public string fileNamesE = "";
+
+    // Uploading files
+    void OnProgress(UploadProgressArgs args, string fileNamesType)
+    {
+        string fileNames = "";
+
+        if (args.Progress == 100)
+        {
+            foreach (var file in args.Files)
+            {
+                fileNames += file.Name + ", ";
+            }
+        }
+        if (fileNamesType == "A") fileNamesA = fileNames;
+        if (fileNamesType == "B") fileNamesB = fileNames;
+        if (fileNamesType == "C") fileNamesC = fileNames;
+        if (fileNamesType == "D") fileNamesD = fileNames;
+        if (fileNamesType == "E") fileNamesE = fileNames;
+    }
+
 
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
@@ -393,11 +513,11 @@
     }
 
     // Файл
-    int progress;
-    string info;
-    void OnProgress(UploadProgressArgs args, string name)
-    {
-        this.info = $"%'{name}'/{args.Loaded}of {args.Total}bytes.";
-        this.progress = args.Progress;
-    }
+    //int progress;
+    //string info;
+    //void OnProgress(UploadProgressArgs args, string name)
+    //{
+    //    this.info = $"%'{name}'/{args.Loaded}of {args.Total}bytes.";
+    //    this.progress = args.Progress;
+    //}
 }
