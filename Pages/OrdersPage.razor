@@ -1,5 +1,239 @@
-﻿<h3>Component1</h3>
+﻿@page "/OrdersPage"
+@using Microsoft.AspNetCore.Identity;
+@using BlzMON.Data
+@using BlzMON.Models
+@using Radzen
+@using Radzen.Blazor
+@using System.Data
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Collections.Generic;
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
 
-@code {
+@namespace BlzMON.Pages
 
+@inject UserManager<ApplicationUser> _userManager;
+@inject ApplicationDbContext db
+@inject IViewLocalizer Localizer
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+@if (!ShowPopup)
+{
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Приказы</h4></div>
+    <div class="col-md-4"></div>
+</div>
+                <table class="table">
+                    <tr>
+                        <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
+                        <td width="40%"></td>
+                        <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+                    </tr>
+                </table>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Приказ </th>
+                                            <th>Номер приказа</th>
+                                            <th>Дата</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in orders)
+                                        {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td @onclick="@(e=> NavigateToOrderPage(item.Id))">
+                                @item.OrderName
+                            </td>
+                            @*<td><RadzenLink href="OrderPage?orderId=@item.Id" Text="@item.OrderName" /></td>*@
+                            <td>@item.OrderCode</td>
+                            <td>@item.OrderDate</td>
+                            @*<td>@foreach (var wer in  item.InitiList)
+                                 {
+                                   @wer.PersonName
+                                 }
+                                </td>*@
+                            <td>
+                                <!-- Edit the current forecast -->
+                                <button class="btn btn-primary"
+                                        @onclick="(() => Edit(item))">
+                                    Редактировать
+                                </button>
+                            </td>
+                        </tr>
 }
+                                    </tbody>
+                                </table>
+}
+@if (ShowPopup)
+{
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Редактирование</h4></div>
+    <div class="col-md-4"></div>
+</div>
+                <table class="table">
+
+                    <tr>
+                        <td>Приказ</td>
+                        <td><input type="text" class="form-control" @bind="@order.OrderName" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Номер приказа</td>
+                        <td><input type="text" class="form-control" @bind="@order.OrderCode" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Дата приказа</td>
+                        <td><RadzenDatePicker @bind-Value="order.OrderDate" DateFormat="d" ShowTime="false" Utc="false" Change="@(args => Change(args, "DatePicker", "MM/dd/yyyy"))" /></td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (order.Id != 0)
+                            {<!-- Button to delete the forecast -->
+                                                    <button class="btn btn-danger" @onclick="Delete">
+                                                        Удалить
+                                                    </button>}
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" @onclick="Save">
+                                Сохранить
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+}
+@code { private int CurrentValue { get; set; }
+    public string itemValue { get; set; }
+    public int a;
+    public string item
+    {
+        get { return itemValue; }
+        set
+        {
+            CurrentValue = orders.Count();
+            if (value.Length > 0)
+            {
+                orders = orders2.Where(x => x.OrderName.ToLower().Contains(value)).ToList();//wtf
+            }
+            else
+            {
+                orders = orders2;
+            }
+            itemValue = value;
+        }
+    }
+    private List<Orders> orders = new List<Orders>();
+    private List<Orders> orders2 = new List<Orders>();
+    private Orders order = new Orders();
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+
+    ApplicationUser objUser;
+    string strError = "";
+    bool ShowPopup = false;
+    void AddNew()
+    {
+        order = new Orders();
+        order.Id = 0;
+        ShowPopup = true;
+        //regions = db.Region.ToList();
+    }
+    async Task Save()
+    {
+        try
+        {
+            // Is this an existing user?
+            if (order.Id != 0)
+            {
+                Orders ord = await db.Order.FindAsync(order.Id);
+                ord.OrderName = order.OrderName;
+                ord.OrderCode = order.OrderCode;
+                ord.OrderDate = order.OrderDate;
+                ord.InitiList = order.InitiList;
+                //...IG dont forget this one
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                //  int maxId = db.Order.Max(x => x.Id);
+                //  order.Id = (maxId + 1);
+                db.Order.Add(order);
+                await db.SaveChangesAsync();
+            }
+            // Close the Popup
+            ShowPopup = false;
+            // Refresh Users
+            LoadData();
+            order = new Orders();
+        }
+        catch (Exception ex)
+        {
+            strError = ex.GetBaseException().Message;
+        }
+    }
+    void Edit(Orders rc)
+    {
+        order = rc;
+        //products = db.Products.Where(x => x.CategoryId == ).ToList();
+        ShowPopup = true;
+    }
+    async Task Delete()
+    {
+        // Close the Popup
+        ShowPopup = false;
+        // Get the user
+        var rc = await db.Order.FindAsync(order.Id);
+        if (rc != null)
+        {
+            db.Order.Remove(rc);
+            await db.SaveChangesAsync();
+        }
+        LoadData();
+    }
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentUser = (await authenticationStateTask).User;
+        objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
+        order = new Orders();
+        LoadData();
+    }
+    public void LoadData()
+    {
+        orders = db.Order.Include(o => o.InitiList).OrderBy(x => x.OrderName).ToList();
+
+    }
+    private async Task Insert()
+    {
+        db.Order.Add(order);
+        await db.SaveChangesAsync();
+        orders.Add(order);
+        order = new Orders();
+
+    }
+    Dictionary<DateTime, string> events = new Dictionary<DateTime, string>();
+    void Change(DateTime? value, string name, string format)
+    {
+        events.Add(DateTime.Now, $"{name} value changed to {value?.ToString(format)}");
+        StateHasChanged();
+    }
+
+    // Method to navigate order page without refreshing page
+    private void NavigateToOrderPage(int orderId)
+    {
+        navigationManager.NavigateTo("OrderPage/" + orderId);
+    } }

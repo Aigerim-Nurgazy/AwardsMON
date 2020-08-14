@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj": {}
+    "/Users/aigerim/Desktop/BlzMON/BlzMON.csproj": {}
   },
   "projects": {
-    "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj": {
+    "/Users/aigerim/Desktop/BlzMON/BlzMON.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj",
+        "projectUniqueName": "/Users/aigerim/Desktop/BlzMON/BlzMON.csproj",
         "projectName": "BlzMON",
-        "projectPath": "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj",
+        "projectPath": "/Users/aigerim/Desktop/BlzMON/BlzMON.csproj",
         "packagesPath": "/Users/aigerim/.nuget/packages/",
-        "outputPath": "/Users/aigerim/Downloads/PFT/BlzMON/obj/",
+        "outputPath": "/Users/aigerim/Desktop/BlzMON/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/aigerim/.config/NuGet/NuGet.Config"
+          "/Users/aigerim/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -43,10 +43,6 @@
               "target": "Package",
               "version": "[0.2.0, )"
             },
-            "Console": {
-              "target": "Package",
-              "version": "[1.0.4, )"
-            },
             "CsvHelper": {
               "target": "Package",
               "version": "[15.0.5, )"
@@ -57,35 +53,39 @@
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.7, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.5, )"
+              "version": "[3.1.7, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.1.4, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -107,11 +107,11 @@
             },
             "OrchardCore.Localization.Core": {
               "target": "Package",
-              "version": "[1.0.0-beta1-3187, )"
+              "version": "[1.0.0-rc2-13450, )"
             },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[2.10.16, )"
+              "version": "[2.11.8, )"
             },
             "System.Console": {
               "target": "Package",
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
         }
       }
     }
