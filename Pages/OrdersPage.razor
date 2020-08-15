@@ -113,7 +113,11 @@
                     <RadzenButton Icon="delete" Click="@(args => Selected(initializer))" />
                 </Template>
             </RadzenGridColumn>
-            
+            <RadzenGridColumn TItem="Initializers">
+                <Template Context="initializer">
+                    <RadzenCheckBox @bind-Value="@CheckBox1Value" Style="margin-bottom: 20px" TValue="bool" Change="@(args => Change(args, "CheckBox1 CheckBox"))" />
+                </Template>
+            </RadzenGridColumn>
         </Columns>
     </RadzenGrid>
 
@@ -330,5 +334,15 @@
     private void Selected(Initializers init)
     {
         navigationManager.NavigateTo("Test/" + init.Id);
+    }
+    bool CheckBox1Value;
+    bool? CheckBox2Value;
+    bool? CheckBox3Value = true;
+
+
+    void Change(bool? value, string name)
+    {
+        events.Add(DateTime.Now, $"{name} value changed to {value}");
+        StateHasChanged();
     }
 }
