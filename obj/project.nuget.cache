@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7Cn0pgjsDLbifMflBi8/QAtJ9qFgQkLdvfnZ4Nci1aVvUtRxGKCH3I9r7fZLDlyE6OuEz1FXE82eb8jGQT/BeQ==",
+  "dgSpecHash": "a4Ee6dbTIWiOBnjzeXuKhE3a73AhT+y4Xy3xeuxMg1VOIdzxEHhy3CnFtOf5NfbvyD6ylGQxcgJsv1XPQPqKKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\esept\\Source\\Repos\\AwardsMON2\\BlzMON.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\esept\\.nuget\\packages\\blazordownloadfile\\2.1.1\\blazordownloadfile.2.1.1.nupkg.sha512",
     "C:\\Users\\esept\\.nuget\\packages\\blazorinputfile\\0.2.0\\blazorinputfile.0.2.0.nupkg.sha512",
     "C:\\Users\\esept\\.nuget\\packages\\csvhelper\\15.0.5\\csvhelper.15.0.5.nupkg.sha512",
     "C:\\Users\\esept\\.nuget\\packages\\matblazor\\2.6.2\\matblazor.2.6.2.nupkg.sha512",

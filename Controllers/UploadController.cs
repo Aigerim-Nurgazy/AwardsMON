@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -22,8 +24,11 @@ namespace BlzMON.Controllers
 
         // to upload several files 
         [HttpPost("InitializerPage/MultipleA")]
-        public IActionResult Multiple(IFormFile[] files, string name)
+        public IActionResult Multiple(string filesA, IFormFile[] files)
         {
+            PrintObj(files[0] + "!!!");
+            Debug.Print(filesA + "!!!");
+
             try
             {
                 foreach (var file in files)
@@ -60,7 +65,15 @@ namespace BlzMON.Controllers
             } 
         }
 
-
+        private void PrintObj(object obj)
+        {
+            Type t = obj.GetType(); // Where obj is object whose properties you need.
+            PropertyInfo[] pi = t.GetProperties();
+            foreach (PropertyInfo p in pi)
+            {
+                Debug.Print(p.Name + " : " + p.GetType());
+            }
+        }
 
 
         // GET: api/values

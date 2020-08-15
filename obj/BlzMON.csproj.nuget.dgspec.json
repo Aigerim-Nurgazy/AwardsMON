@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "BlazorDownloadFile": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "BlazorInputFile": {
               "target": "Package",
               "version": "[0.2.0, )"

@@ -1,0 +1,7 @@
+System.AggregateException: "Some services are not able to be constructed 
+(Error while validating the service descriptor 
+'ServiceType: BlzMON.Services.PostFiles 
+Lifetime: Singleton 
+ImplementationType: BlzMON.Services.PostFiles': 
+Cannot consume scoped service 'BlzMON.Data.ApplicationDbContext' 
+from singleton 'BlzMON.Services.PostFiles'.)"

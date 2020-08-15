@@ -17,10 +17,12 @@
 @using Microsoft.AspNetCore.Identity;
 @using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 @using Microsoft.EntityFrameworkCore;
+@using BlazorInputFile
 
 @inject IViewLocalizer Localizer
 @inject UserManager<ApplicationUser> _userManager;
 @inject ApplicationDbContext db
+@inject BlzMON.Services.PostFiles postFiles
 
 @if (!ShowPopup)
 {
@@ -33,60 +35,96 @@
 
     <table class="table">
         <tr>
-            <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
-            <td width="40%"></td>
-            <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+            <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
         </tr>
     </table>
 
+    @* List of initiators datagrid *@
+    @*<RadzenGrid Data="@initializers"
+                    AllowFiltering="true" AllowPaging="true" AllowSorting="true" StartsWithText="Поиск" TItem="Initializers" ColumnWidth="200px">
+            <Columns>
+                <RadzenGridColumn Width="90px" TextAlign="TextAlign.Center" TItem="Initializers" Property="Id" Title="ID" />
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Фамилия</th>
-                <th>Имя</th>
-                <th>Отчество</th>
-                <th>Должность</th>
-                <th>Образование</th>
-                <th>Стаж работы</th>
-                <th>Область</th>
-                <th>Дата рождения</th>
-                <th>Телефон</th>
-                <th>Почта</th>
-                <th>Адрес</th>
-                <th>На награду</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in initializers)
-            {
+
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="GetFullName" Title="ФИО" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Possition.PossName" Title="Должность" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Education.EduName" Title="Образование" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="WorkExpierence" Title="Опыт" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="DateOfBirth" Title="Дата рождения" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="CellPhone" Title="Телефон" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="EmailAddress" Title="E-почта" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="PersonAddress" Title="Адрес" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Award.AwardName" Title="Награда" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Orders.OrderName" Title="Приказ" />
+
+
+                <RadzenGridColumn Width="60px" TextAlign="TextAlign.Center"  TItem="Initializers">
+                    <Template Context="initializer">
+                        <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light"  Click="@(args => Edit(initializer))" />
+                    </Template>
+                </RadzenGridColumn>
+            </Columns>
+        </RadzenGrid>*@
+
+    <div class="overflow-auto">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.PersonSurname</td>
-                    <td>@item.PersonName</td>
-                    <td>@item.PersonPatronymic</td>
-                    <td>@item.Possition.PossName</td>
-                    <td>@item.Education.EduName</td>
-                    <td>@item.WorkExpierence</td>
-                    <td>@item.Areak.AreaName</td>
-                    <td>@item.DateOfBirth</td>
-                    <td>@item.CellPhone</td>
-                    <td>@item.EmailAddress</td>
-                    <td>@item.PersonAddress</td>
-                    <td>@item.Award.AwardName</td>
-                    <td>
-                        <!-- Edit the current forecast -->
-                        <button class="btn btn-primary"
-                                @onclick="(() => Edit(item))">
-                            Редактировать
-                        </button>
-                    </td>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">ФИО</th>
+                    <th class="text-center">Должность</th>
+                    <th class="text-center">Образование</th>
+                    <th class="text-center">Стаж работы</th>
+                    <th class="text-center">Область</th>
+                    <th class="text-center">Дата рождения</th>
+                    <th class="text-center">Телефон</th>
+                    <th class="text-center">Почта</th>
+                    <th class="text-center">Адрес</th>
+                    <th class="text-center">На награду</th>
+                    <th class="text-center">Приказ</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in initializers)
+                {
+                    <tr>
+                        <td class="text-center">@item.Id</td>
+                        <td class="text-center">@item.PersonSurname<br>@item.PersonName<br />@item.PersonPatronymic</td>
+                        <td class="text-center">@item.Possition.PossName</td>
+                        <td class="text-center">@item.Education.EduName</td>
+                        <td class="text-center">@item.WorkExpierence</td>
+                        <td class="text-center">@item.Areak.AreaName</td>
+                        <td class="text-center">@item.DateOfBirth</td>
+                        <td class="text-center">@item.CellPhone</td>
+                        <td class="text-center">@item.EmailAddress</td>
+                        <td class="text-center">@item.PersonAddress</td>
+                        <td class="text-center">@item.Award.AwardName</td>
+                        <td class="text-center">
+                            @if (item.Orders != null)
+                            {@item.Orders.OrderName}
+                        </td>
+                        <td>
+                            <RadzenDropDown TValue="string" AllowFiltering="false" 
+                                            Context="item" Placeholder="Файлы" 
+                                            Data="@GetFileNames(item)" Style="width:170px;"
+                                            TextProperty="Name" ValueProperty="Id" />
+                        </td>
+
+                        <td class="text-center">
+                            <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Secondary" Click="@(() => Edit(item))" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
 }
 
 @if (ShowPopup)
@@ -194,58 +232,81 @@
         <tr>
             <td class="text-center font-weight-bold">Личное заявление</td>
             <td class="text-center">
-                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleA" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />
+                @*<RadzenUpload Multiple="true" Url="InitializerPage/MultipleA" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />*@
+                @*<br />*@
+
+                <InputFile OnChange="@((args) => HandleSelection(args, "A"))" Multiple="true" />
                 <br />
-                <tr>
-                    <td class="text-left col-5 text-muted">
-                        @fileNamesA
-                    </td>
-                </tr>
+        <tr>
+            <td class="text-left col-5 text-success">
+                @fileNamesA
             </td>
+        </tr>
+        </td>
         </tr>
         <tr>
             <td class="text-center font-weight-bold">Представление руководителя<br /> образовательной организации</td>
             <td class="text-center">
-                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleB" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "B"))" />
+                @*<RadzenUpload Multiple="true" Url="InitializerPage/MultipleB" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />*@
+                @*<br />*@
+
+                <InputFile OnChange="@((args) => HandleSelection(args, "B"))" Multiple="true" />
                 <br />
-                <p class="text-left text-muted">
-                    @fileNamesB
-                </p>
+        <tr>
+            <td class="text-left col-5 text-success">
+                @fileNamesB
             </td>
+        </tr>
+        </td>
         </tr>
         <tr>
             <td class="text-center font-weight-bold">
                 Копия трудовой книжки
             </td>
             <td class="text-center">
-                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleC" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "C"))" />
+                @*<RadzenUpload Multiple="true" Url="InitializerPage/MultipleC" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />*@
+                @*<br />*@
+
+                <InputFile OnChange="@((args) => HandleSelection(args, "C"))" Multiple="true" />
                 <br />
-                <p class="text-left text-muted">
-                    @fileNamesC
-                </p>
+        <tr>
+            <td class="text-left col-5 text-success">
+                @fileNamesC
             </td>
+        </tr>
+        </td>
         </tr>
         <tr>
             <td class="text-center font-weight-bold">
                 Копии наград
             </td>
             <td class="text-center">
-                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleD" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "D"))" />
+                @*<RadzenUpload Multiple="true" Url="InitializerPage/MultipleD" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />*@
+                @*<br />*@
+
+                <InputFile OnChange="@((args) => HandleSelection(args, "D"))" Multiple="true" />
                 <br />
-                <p class="text-left text-muted">
-                    @fileNamesD
-                </p>
+        <tr>
+            <td class="text-left col-5 text-success">
+                @fileNamesD
             </td>
+        </tr>
+        </td>
         </tr>
         <tr>
             <td class="text-center font-weight-bold">Выписка из решения педагогического<br /> или ученого совета</td>
             <td class="text-center">
-                <RadzenUpload Multiple="true" Url="InitializerPage/MultipleE" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "E"))" />
+                @*<RadzenUpload Multiple="true" Url="InitializerPage/MultipleE" ChooseText="Выберите файлы" Progress="@((args) => OnProgress(args, "A"))" />*@
+                @*<br />*@
+
+                <InputFile OnChange="@((args) => HandleSelection(args, "E"))" Multiple="true" />
                 <br />
-                <p class="text-left text-muted">
-                    @fileNamesE
-                </p>
+        <tr>
+            <td class="text-left col-5 text-success">
+                @fileNamesE
             </td>
+        </tr>
+        </td>
         </tr>
 
         @*<tr>
@@ -254,31 +315,28 @@
                     <RadzenProgressBar Value="@progress" Unit="@info" Vissible="@(progress>0)" Style="margin-bottom:20px;"></RadzenProgressBar>
                 </RadzenCard>
             </tr>*@
-
-
-        <tr>
-            <td>
-                @if (initializer.Id != 0)
-                {<!-- Button to delete the forecast -->
-                    <button class="btn btn-danger" @onclick="Delete">
-                        Удалить
-                    </button>}
-            </td>
-            <td>
-                <button class="btn btn-primary" @onclick="Save">
-                    Сохранить
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-primary" @onclick="ClosePopup">
-                    Назад
-                </button>
-            </td>
-        </tr>
-
-
-
     </table>
+
+
+    <div class="d-flex justify-content-center">
+        <div class="p-1">
+            <button class="btn btn-primary" @onclick="Save">
+                Сохранить
+            </button>
+        </div>
+        <div class="p-1">
+            @if (initializer.Id != 0)
+            {<!-- Button to delete the forecast -->
+                <button class="btn btn-danger" @onclick="Delete">
+                    Удалить
+                </button>}
+        </div>
+        <div class="p-1">
+            <button class="btn btn-light" @onclick="ClosePopup">
+                Назад
+            </button>
+        </div>
+    </div>
 
     <br />
     <br />
@@ -311,19 +369,42 @@
     <br />
 }
 
-
-
 @code {
-    //
-    public string[] fileNames = new string[5];
+
+    // files types A, B, C, D, E
+    public IFileListEntry[][] allFiles = new IFileListEntry[5][];
+
+
+    public string fileNamesA = "";
+    public string fileNamesB = "";
+    public string fileNamesC = "";
+    public string fileNamesD = "";
+    public string fileNamesE = "";
+
+    // Initialize all files array and display files names
+    void HandleSelection(IFileListEntry[] files, string fileTypeName)
+    {
+
+        string fileNames = "";
+
+        foreach (var file in files)
+        {
+            fileNames += file.Name + ", ";
+        }
+
+        if (fileTypeName == "A") { allFiles[0] = files; fileNamesA = fileNames; }
+        if (fileTypeName == "B") { allFiles[1] = files; fileNamesB = fileNames; }
+        if (fileTypeName == "C") { allFiles[2] = files; fileNamesC = fileNames; }
+        if (fileTypeName == "D") { allFiles[3] = files; fileNamesD = fileNames; }
+        if (fileTypeName == "E") { allFiles[4] = files; fileNamesE = fileNames; }
+    }
+
 
     //
     public List<Initializers> initializers = new List<Initializers>();
-
-    public List<Initializers> initializers2 = new List<Initializers>();
     public Initializers initializer = new Initializers();
 
-
+    // Where to use? can remove?
     List<Possitions> possitions = new List<Possitions>();
     List<Educations> educations = new List<Educations>();
     List<Areass> areas = new List<Areass>();
@@ -334,63 +415,18 @@
     // Initializers initializer = new Initializers();
 
 
-    // for search
-    private int CurrentValue { get; set; }
-    public string itemValue { get; set; }
-    public string item
-    {
-        get { return itemValue; }
-        set
-        {
-            CurrentValue = initializers.Count();
-            if (value.Length > 0)
-            {
-                initializers = initializers2.Where(x => x.PersonSurname.ToLower().Contains(value)).ToList();
-            }
-            else
-            {
-                initializers = initializers2;
-            }
-            itemValue = value;
-        }
-    }
-
-
-    public string fileNamesA = "";
-    public string fileNamesB = "";
-    public string fileNamesC = "";
-    public string fileNamesD = "";
-    public string fileNamesE = "";
-
-    // Uploading files
-    void OnProgress(UploadProgressArgs args, string fileNamesType)
-    {
-        string fileNames = "";
-
-        if (args.Progress == 100)
-        {
-            foreach (var file in args.Files)
-            {
-                fileNames += file.Name + ", ";
-            }
-        }
-        if (fileNamesType == "A") fileNamesA = fileNames;
-        if (fileNamesType == "B") fileNamesB = fileNames;
-        if (fileNamesType == "C") fileNamesC = fileNames;
-        if (fileNamesType == "D") fileNamesD = fileNames;
-        if (fileNamesType == "E") fileNamesE = fileNames;
-    }
-
-
+    // Auth
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
     System.Security.Claims.ClaimsPrincipal CurrentUser;
 
+    // What is it?
     ApplicationUser objUser;
     string strError = "";
+    // what popup?
     bool ShowPopup = false;
 
-
+    // why use it?
     void AddNew()
     {
         initializer = new Initializers();
@@ -405,16 +441,23 @@
         initializer.Id = 0;
         ShowPopup = true;
 
+        fileNamesA = "";
+        fileNamesB = "";
+        fileNamesC = "";
+        fileNamesD = "";
+        fileNamesE = "";
     }
+
     async Task Save()
     {
+        // where validation?
         try
         {
             // Is this an existing user?
             if (initializer.Id != 0)
             {
+                // why so?
                 Initializers init = await db.Initializers.FindAsync(initializer.Id);
-                //...IG dont forget this one
                 init.PersonName = initializer.PersonName;
                 init.PersonSurname = initializer.PersonSurname;
                 init.PersonPatronymic = initializer.PersonPatronymic;
@@ -422,7 +465,7 @@
                 init.CellPhone = initializer.CellPhone;
                 init.EmailAddress = initializer.EmailAddress;
                 init.PersonAddress = initializer.PersonAddress;
-                //init.Possition = initializer.Possition;
+                init.Possition = initializer.Possition;
                 possitions = db.Possition.ToList();
                 educations = db.Education.ToList();
                 areas = db.Areaq.ToList();
@@ -437,6 +480,13 @@
                 await db.SaveChangesAsync();
             }
 
+            // Upload files and in server update Initializer
+            SaveFiles(allFiles[0], initializer.Id, "заявление");
+            SaveFiles(allFiles[1], initializer.Id, "представление");
+            SaveFiles(allFiles[2], initializer.Id, "трудовая");
+            SaveFiles(allFiles[3], initializer.Id, "награда");
+            SaveFiles(allFiles[4], initializer.Id, "выписка");
+
             // Close the Popup
             ShowPopup = false;
             // Refresh Users
@@ -446,8 +496,56 @@
         catch (Exception ex)
         {
             strError = ex.GetBaseException().Message;
+            System.Diagnostics.Debug.Print(strError);
         }
     }
+
+
+    // to upload files
+    async void SaveFiles(IFileListEntry[] files, int initializatorId, string fileTypeName)
+    {
+
+        if (files == null) return;
+
+        // save files names
+        string filesNames = "";
+
+        foreach (var file in files)
+        {
+            Random rnd = new Random();
+            string filename = fileTypeName + "_" + rnd.Next(1, 10000) + Path.GetExtension(file.Name);
+
+            //
+            await postFiles.UploadAsync(file, filename, initializatorId, fileTypeName);
+
+            // add file name
+            filesNames += filename + ";";
+        }
+    }
+
+    public class FileName
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    int fileNamesId = 0;
+    public List<FileName> GetFileNames(Initializers init) {
+
+        List<FileName> fileNames = new List<FileName> {
+            new FileName{ Id = fileNamesId+0, Name = init.FilesNamesZayavleniye},
+            new FileName{ Id = fileNamesId+1, Name = init.FilesNamesPredstavleniye},
+            new FileName{ Id = fileNamesId+2, Name = init.FilesNamesTrudovaya},
+            new FileName{ Id = fileNamesId+3, Name = init.FilesNamesNagrady},
+            new FileName{ Id = fileNamesId+4, Name = init.FilesNamesVypyska}
+         };
+        fileNamesId += 5;
+        System.Diagnostics.Debug.Print(init.FilesNamesZayavleniye);
+        return fileNames;
+    }
+
+
+    // what is it? where editing?
     void Edit(Initializers rc)
     {
         initializer = rc;
@@ -458,6 +556,8 @@
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
         ShowPopup = true;
     }
+
+    // to delete
     async Task Delete()
     {
         // Close the Popup
@@ -471,38 +571,36 @@
         }
         LoadData();
     }
-    void ClosePopup()
-    {
-        // Close the Popup
-        ShowPopup = false;
-    }
+
+    // when page loaded
     protected override async Task OnInitializedAsync()
     {
+        // why getting user?
         CurrentUser = (await authenticationStateTask).User;
         objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
-        //initializer = new Initializers();
+
+        // what data loading?
         LoadData();
     }
 
-    // Список кандидатов
+    // loading Initiators
     public void LoadData()
     {
 
-        //
+        // loading Initiators
         initializers = db.Initializers
             .OrderBy(x => x.PersonSurname)
             .Include(o => o.Possition)
             .Include(o => o.Education)
             .Include(o => o.Areak)
             .Include(o => o.Award)
+            .Include(o => o.Orders)
             .ToList();
 
-        //db.Order.Include(o => o.InitiList).ToList();
-
-        // initializers2 initializer= db.Initializers.OrderBy(x => x.PersonName).ToList(); //double shit :)
     }
 
 
+    // What data?
     // Дата
     Dictionary<DateTime, string> events = new Dictionary<DateTime, string>();
 
@@ -512,12 +610,13 @@
         StateHasChanged();
     }
 
-    // Файл
-    //int progress;
-    //string info;
-    //void OnProgress(UploadProgressArgs args, string name)
-    //{
-    //    this.info = $"%'{name}'/{args.Loaded}of {args.Total}bytes.";
-    //    this.progress = args.Progress;
-    //}
+
+    // close popup
+    void ClosePopup()
+    {
+        // Close the Popup
+        ShowPopup = false;
+    }
+
+
 }
