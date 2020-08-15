@@ -60,11 +60,11 @@ namespace BlzMON.Models
         public string PersonAddress { get; set; }
 
         // files names
-        public string FilesNamesZayavleniye { get; set; }
-        public string FilesNamesPredstavleniye { get; set; }
-        public string FilesNamesTrudovaya { get; set; }
-        public string FilesNamesNagrady { get; set; }
-        public string FilesNamesVypyska { get; set; }
+        public string FilesNamesZayavleniye { get; set; } = "";
+        public string FilesNamesPredstavleniye { get; set; } = "";
+        public string FilesNamesTrudovaya { get; set; } = "";
+        public string FilesNamesNagrady { get; set; } = "";
+        public string FilesNamesVypyska { get; set; } = "";
 
 
         // Награда

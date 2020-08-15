@@ -62,14 +62,14 @@ namespace BlzMON.Services
                 }
                 Debug.Print(path);
 
-                // Save file names
+                // Add file names with ";" to parse later
                 Initializers initializer = db.Initializers.Find(initializatorId);
 
-                if (fileTypeName.Contains("заявление")) initializer.FilesNamesZayavleniye = filename;
-                if (fileTypeName.Contains("представление")) initializer.FilesNamesPredstavleniye = filename;
-                if (fileTypeName.Contains("трудовая")) initializer.FilesNamesTrudovaya = filename;
-                if (fileTypeName.Contains("награда")) initializer.FilesNamesNagrady = filename;
-                if (fileTypeName.Contains("выписка")) initializer.FilesNamesVypyska = filename;
+                if (fileTypeName.Contains("заявление")) initializer.FilesNamesZayavleniye += filename + ";";
+                if (fileTypeName.Contains("представление")) initializer.FilesNamesPredstavleniye += filename + ";";
+                if (fileTypeName.Contains("трудовая")) initializer.FilesNamesTrudovaya += filename + ";";
+                if (fileTypeName.Contains("награда")) initializer.FilesNamesNagrady += filename + ";";
+                if (fileTypeName.Contains("выписка")) initializer.FilesNamesVypyska += filename + ";";
 
                 Debug.Print(fileTypeName);
                 Debug.Print(initializer.FilesNamesZayavleniye);

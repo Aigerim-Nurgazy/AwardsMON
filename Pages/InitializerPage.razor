@@ -24,108 +24,6 @@
 @inject ApplicationDbContext db
 @inject BlzMON.Services.PostFiles postFiles
 
-@if (!ShowPopup)
-{
-
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"><h4>Список инициаторов</h4></div>
-        <div class="col-md-4"></div>
-    </div>
-
-    <table class="table">
-        <tr>
-            <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
-        </tr>
-    </table>
-
-    @* List of initiators datagrid *@
-    @*<RadzenGrid Data="@initializers"
-                    AllowFiltering="true" AllowPaging="true" AllowSorting="true" StartsWithText="Поиск" TItem="Initializers" ColumnWidth="200px">
-            <Columns>
-                <RadzenGridColumn Width="90px" TextAlign="TextAlign.Center" TItem="Initializers" Property="Id" Title="ID" />
-
-
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="GetFullName" Title="ФИО" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Possition.PossName" Title="Должность" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Education.EduName" Title="Образование" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="WorkExpierence" Title="Опыт" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="DateOfBirth" Title="Дата рождения" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="CellPhone" Title="Телефон" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="EmailAddress" Title="E-почта" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="PersonAddress" Title="Адрес" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Award.AwardName" Title="Награда" />
-                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Orders.OrderName" Title="Приказ" />
-
-
-                <RadzenGridColumn Width="60px" TextAlign="TextAlign.Center"  TItem="Initializers">
-                    <Template Context="initializer">
-                        <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light"  Click="@(args => Edit(initializer))" />
-                    </Template>
-                </RadzenGridColumn>
-            </Columns>
-        </RadzenGrid>*@
-
-    <div class="overflow-auto">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="text-center">ID</th>
-                    <th class="text-center">ФИО</th>
-                    <th class="text-center">Должность</th>
-                    <th class="text-center">Образование</th>
-                    <th class="text-center">Стаж работы</th>
-                    <th class="text-center">Область</th>
-                    <th class="text-center">Дата рождения</th>
-                    <th class="text-center">Телефон</th>
-                    <th class="text-center">Почта</th>
-                    <th class="text-center">Адрес</th>
-                    <th class="text-center">На награду</th>
-                    <th class="text-center">Приказ</th>
-                    <th class="text-center"></th>
-                    <th class="text-center"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in initializers)
-                {
-                    <tr>
-                        <td class="text-center">@item.Id</td>
-                        <td class="text-center">@item.PersonSurname<br>@item.PersonName<br />@item.PersonPatronymic</td>
-                        <td class="text-center">@item.Possition.PossName</td>
-                        <td class="text-center">@item.Education.EduName</td>
-                        <td class="text-center">@item.WorkExpierence</td>
-                        <td class="text-center">@item.Areak.AreaName</td>
-                        <td class="text-center">@item.DateOfBirth</td>
-                        <td class="text-center">@item.CellPhone</td>
-                        <td class="text-center">@item.EmailAddress</td>
-                        <td class="text-center">@item.PersonAddress</td>
-                        <td class="text-center">@item.Award.AwardName</td>
-                        <td class="text-center">
-                            @if (item.Orders != null)
-                            {@item.Orders.OrderName}
-                        </td>
-                        <td>
-                            <RadzenDropDown TValue="string" AllowFiltering="false" 
-                                            Context="item" Placeholder="Файлы" 
-                                            Data="@GetFileNames(item)" Style="width:170px;"
-                                            TextProperty="Name" ValueProperty="Id" />
-                        </td>
-
-                        <td class="text-center">
-                            <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Secondary" Click="@(() => Edit(item))" />
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-
-
-    </div>
-}
 
 @if (ShowPopup)
 {
@@ -369,12 +267,303 @@
     <br />
 }
 
+
+@if (!ShowPopup)
+{
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h4>Список инициаторов</h4></div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
+        </tr>
+    </table>
+
+    @* List of initiators datagrid *@
+    @*<RadzenGrid Data="@initializers"
+                    AllowFiltering="true" AllowPaging="true" AllowSorting="true" StartsWithText="Поиск" TItem="Initializers" ColumnWidth="200px">
+            <Columns>
+                <RadzenGridColumn Width="90px" TextAlign="TextAlign.Center" TItem="Initializers" Property="Id" Title="ID" />
+
+
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="GetFullName" Title="ФИО" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Possition.PossName" Title="Должность" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Education.EduName" Title="Образование" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="WorkExpierence" Title="Опыт" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="DateOfBirth" Title="Дата рождения" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="CellPhone" Title="Телефон" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="EmailAddress" Title="E-почта" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="PersonAddress" Title="Адрес" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Award.AwardName" Title="Награда" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Orders.OrderName" Title="Приказ" />
+
+
+                <RadzenGridColumn Width="60px" TextAlign="TextAlign.Center"  TItem="Initializers">
+                    <Template Context="initializer">
+                        <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light"  Click="@(args => Edit(initializer))" />
+                    </Template>
+                </RadzenGridColumn>
+            </Columns>
+        </RadzenGrid>*@
+
+    <div class="overflow-auto">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">ФИО</th>
+                    <th class="text-center">Должность</th>
+                    @*<th class="text-center">Образование</th>*@
+                    @*<th class="text-center">Стаж работы</th>*@
+                    @*<th class="text-center">Область</th>*@
+                    @*<th class="text-center">Дата рождения</th>*@
+                    @*<th class="text-center">Телефон</th>*@
+                    @*<th class="text-center">Почта</th>*@
+                    @*<th class="text-center">Адрес</th>*@
+                    <th class="text-center">На награду</th>
+                    <th class="text-center">Приказ</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in initializers)
+                {
+                    <tr>
+                        <td class="text-center">@item.Id</td>
+                        <td class="text-center text-secondary" @onclick="@(()=>ShowDetailsDialog(item))">@item.PersonSurname @item.PersonName @item.PersonPatronymic</td>
+                        <td class="text-center">@item.Possition.PossName</td>
+                        @*<td class="text-center">@item.Education.EduName</td>*@
+                        @*<td class="text-center">@item.WorkExpierence</td>*@
+                        @*<td class="text-center">@item.Areak.AreaName</td>*@
+                        @*<td class="text-center">@item.DateOfBirth</td>*@
+                        @*<td class="text-center">@item.CellPhone</td>*@
+                        @*<td class="text-center">@item.EmailAddress</td>*@
+                        @*<td class="text-center">@item.PersonAddress</td>*@
+                        <td class="text-center">@item.Award.AwardName</td>
+                        <td class="text-center">
+                            @if (item.Orders != null)
+                            {@item.Orders.OrderName}
+                        </td>
+                        <td class="text-center">
+                            <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Secondary" Click="@(() => Edit(item))" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
+}
+
+@if (isShowDetailsDialog)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @*<div class="modal-header">
+                        <h3 class="modal-title">@showDetailsInitializer.GetFullName</h3>
+                        <button type="button" class="close" @onclick="@(() => isShowDetailsDialog = false)">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>*@
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="p-2">Инициатор</p>
+                    </div>
+                    <div>
+                        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@(() => isShowDetailsDialog = false)" />
+                    </div>
+                </div>
+
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b class="font-weight-bold">ФИО</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.GetFullName
+                            </p>
+                        </div>
+                        @*<div class="col-1">
+                                <b>Id</b><br />
+                                <span class="p-2" style="color:#000">
+                                    @showDetailsInitializer.Id
+                                </span>
+                            </div>*@
+                        <div class="col-4">
+                            <b>Дата рождения</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.DateOfBirth.ToString("d")
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-5">
+                            <b class="font-weight-bold">Должность</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Possition.PossName
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <b>Образование</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Education.EduName
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-5">
+                            <b class="font-weight-bold">Опыт</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.WorkExpierence
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <b>Область</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Areak.AreaName
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-5">
+                            <b class="font-weight-bold">Телефон</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.CellPhone
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <b>E-почта</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.EmailAddress
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col">
+                            <b class="font-weight-bold">Адрес</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.PersonAddress
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-5">
+                            <b class="font-weight-bold">На награду</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Award.AwardName
+                            </p>
+                        </div>
+                        <div class="col-5">
+                            <b>Приказ</b><br />
+                            <p class="p-2" style="color:#000">
+                                @if (showDetailsInitializer.Orders != null)
+                                {@showDetailsInitializer.Orders.OrderName}
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-5">
+                            <b class="font-weight-bold">Файлы</b><br />
+                            <p class="p-2" style="color:#000">
+                                @if (showDetailsInitializer.FilesNamesZayavleniye != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesZayavleniye.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesPredstavleniye != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesPredstavleniye.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesNagrady != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesNagrady.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesTrudovaya != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesTrudovaya.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesVypyska != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesVypyska.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <p></p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+
 @code {
 
     // files types A, B, C, D, E
     public IFileListEntry[][] allFiles = new IFileListEntry[5][];
 
-
+    // selected files names
     public string fileNamesA = "";
     public string fileNamesB = "";
     public string fileNamesC = "";
@@ -441,6 +630,7 @@
         initializer.Id = 0;
         ShowPopup = true;
 
+        // new selected files names
         fileNamesA = "";
         fileNamesB = "";
         fileNamesC = "";
@@ -470,6 +660,9 @@
                 educations = db.Education.ToList();
                 areas = db.Areaq.ToList();
                 awards = db.Award.ToList();
+
+                // forgot this?
+                db.Initializers.Update(initializer);
                 await db.SaveChangesAsync();
             }
             else
@@ -507,41 +700,14 @@
 
         if (files == null) return;
 
-        // save files names
-        string filesNames = "";
-
         foreach (var file in files)
         {
             Random rnd = new Random();
             string filename = fileTypeName + "_" + rnd.Next(1, 10000) + Path.GetExtension(file.Name);
 
-            //
+            // upload one file
             await postFiles.UploadAsync(file, filename, initializatorId, fileTypeName);
-
-            // add file name
-            filesNames += filename + ";";
         }
-    }
-
-    public class FileName
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-
-    int fileNamesId = 0;
-    public List<FileName> GetFileNames(Initializers init) {
-
-        List<FileName> fileNames = new List<FileName> {
-            new FileName{ Id = fileNamesId+0, Name = init.FilesNamesZayavleniye},
-            new FileName{ Id = fileNamesId+1, Name = init.FilesNamesPredstavleniye},
-            new FileName{ Id = fileNamesId+2, Name = init.FilesNamesTrudovaya},
-            new FileName{ Id = fileNamesId+3, Name = init.FilesNamesNagrady},
-            new FileName{ Id = fileNamesId+4, Name = init.FilesNamesVypyska}
-         };
-        fileNamesId += 5;
-        System.Diagnostics.Debug.Print(init.FilesNamesZayavleniye);
-        return fileNames;
     }
 
 
@@ -554,7 +720,27 @@
         areas = db.Areaq.ToList();
         awards = db.Award.ToList();
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
+
+        fileNamesA = rc.FilesNamesZayavleniye;
+        fileNamesB = rc.FilesNamesPredstavleniye;
+        fileNamesC = rc.FilesNamesTrudovaya;
+        fileNamesD = rc.FilesNamesNagrady;
+        fileNamesE = rc.FilesNamesVypyska;
+
         ShowPopup = true;
+    }
+
+    // Details dialog
+    bool isShowDetailsDialog = false;
+    Initializers showDetailsInitializer = new Initializers();
+
+    void ShowDetailsDialog(Initializers initializer)
+    {
+        isShowDetailsDialog = true;
+
+        // get from database, becouse file names will updated after upload
+        showDetailsInitializer = db.Initializers.Find(initializer.Id);
+        // showDetailsInitializer = initializer;
     }
 
     // to delete
