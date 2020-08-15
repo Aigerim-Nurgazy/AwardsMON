@@ -19,16 +19,18 @@ namespace BlzMON.Controllers
         {
             _environment = environment;
         }
-        [HttpPost("InitializerPage/Multiple")]
-        public IActionResult Multiple(IFormFile[] files)
+
+        // to upload several files 
+        [HttpPost("InitializerPage/MultipleA")]
+        public IActionResult Multiple(IFormFile[] files, string name)
         {
             try
             {
                 foreach (var file in files)
                 {
                     UploadFile(file);
-                    
                 }
+
                 return StatusCode(500);
                 
             }
@@ -37,7 +39,9 @@ namespace BlzMON.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        public async Task UploadFile(IFormFile file)
+
+        // to save file
+        private async Task UploadFile(IFormFile file)
         {
             if(file != null && file.Length>0)
             {

@@ -29,6 +29,8 @@ namespace BlzMON.Models
         //public int Pin { get; set; }
         public string PersonPatronymic { get; set; }
 
+        public string GetFullName { get { return PersonSurname + " " + PersonName + " " + PersonPatronymic; } }
+
         public int PossitionsId { get; set; }
 
         public Possitions Possition { get; set; }
