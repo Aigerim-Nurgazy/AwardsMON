@@ -1,159 +1,1 @@
-﻿@page "/possitionpage"
-
-@using Microsoft.AspNetCore.Identity;
-@using BlzMON.Data
-@using BlzMON.Models
-@using Radzen.Blazor;
-@using System.Threading.Tasks; 
-@inject UserManager<ApplicationUser> _userManager;
-
-@inject ApplicationDbContext db
-
-
-<h3>Должности</h3>
-<button class="btn btn-success" @onclick="AddNew">Добавить новый</button>
-<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
-            AllowSorting="true" Data="@сonclusions" TItem="Possitions" ColumnWidth="150px">
-    <Columns>
-        <RadzenGridColumn TItem="Possitions" Property="PossName" Title="Должность"></RadzenGridColumn>
-
-        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
-        <RadzenGridColumn TItem="Possitions" TextAlign="Radzen.TextAlign.Center" Width="60px">
-            <Template Context="сonclusion">
-                <RadzenButton Icon="edit" Click="@(args => Edit(сonclusion))" />
-            </Template>
-        </RadzenGridColumn>
-        <RadzenGridColumn TItem="Possitions" TextAlign="Radzen.TextAlign.Center" Width="60px">
-            <Template Context="сonclusion">
-                <RadzenButton Icon="delete" Click="@(args => Delete(сonclusion))" />
-            </Template>
-        </RadzenGridColumn>
-    
-    </Columns>
-</RadzenGrid>
-
-
-@if (ShowPopup)
-{
-    <div class="modal" tabindex="-1" style="display:block" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">@title</h3>
-                    <button type="button" class="close"
-                            @onclick="ClosePopup">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <span style="color:red">@strError</span>
-                    <table class="table">
-                      
-                        <tr>
-                            <td>Должность</td>
-                            <td><input type="text" class="form-control" @bind="@сonclusion.PossName" /></td>
-                        </tr>
-                    
-                        <tr>
-                            <td>
-                                <button class="btn btn-primary" @onclick="Save">
-                                    Сохранить
-                                </button>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-}
-
-
-@code {
-
-    private List<Possitions> сonclusions = new List<Possitions>();
-
-    private Possitions сonclusion = new Possitions();
-
-    [CascadingParameter]
-    private Task<AuthenticationState> authenticationStateTask { get; set; }
-    System.Security.Claims.ClaimsPrincipal CurrentUser;
-
-    ApplicationUser objUser;
-    string strError = "";
-    string title = "";
-    bool ShowPopup = false;
-
-
-    void AddNew()
-    {
-        сonclusion = new Possitions();
-        сonclusion.Id = 0;
-        title = "Новоя запись";
-        ShowPopup = true;
-    }
-    async Task Save()
-    {
-        try
-        {
-            if (сonclusion.Id != 0)
-            {
-                Possitions lt = await db.Possition.FindAsync(сonclusion.Id);
-                lt.Id = сonclusion.Id;
-                lt.PossName = сonclusion.PossName;
-                await db.SaveChangesAsync();
-            }
-            else
-            {
-                db.Possition.Add(сonclusion);
-                await db.SaveChangesAsync();
-            }
-
-            ShowPopup = false;
-            LoadData();
-        }
-        catch (Exception ex)
-        {
-            strError = ex.GetBaseException().Message;
-        }
-    }
-    async Task Edit(Possitions lt)
-    {
-        title = "Редактирование";
-        сonclusion = lt;
-        ShowPopup = true;
-    }
-    async Task Delete(Possitions lt)
-    {
-        ShowPopup = false;
-        var obj = await db.Possition.FindAsync(lt.Id);
-        if (obj != null)
-        {
-            db.Possition.Remove(obj);
-            await db.SaveChangesAsync();
-        }
-        LoadData();
-    }
-    void ClosePopup()
-    {
-        ShowPopup = false;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        // CurrentUser = (await authenticationStateTask).User;
-        // objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
-        LoadData();
-    }
-
-    public void LoadData()
-    {
-        сonclusion = new Possitions();
-        сonclusions = db.Possition.OrderBy(x => x.PossName).ToList();
-
-    }
-
-
-}
+﻿@page "/possitionpage"@using Microsoft.AspNetCore.Identity;@using BlzMON.Data@using BlzMON.Models@using Radzen.Blazor;@using System.Threading.Tasks;@inject UserManager<ApplicationUser> _userManager;@inject ApplicationDbContext db<div class="row">    <div class="col-md-4"></div>    <div class="col-md-4"><h4>Должности</h4></div>    <div class="col-md-4"></div></div><table class="table">    <tr>        <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>    </tr></table><RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4" AllowSorting="true" Data="@сonclusions" TItem="Possitions" ColumnWidth="150px">    <Columns>        <RadzenGridColumn TItem="Possitions" Property="PossName" Title="Должность"></RadzenGridColumn>        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@        <RadzenGridColumn TItem="Possitions" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="40px">            <Template Context="сonclusion">                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(сonclusion))" />            </Template>        </RadzenGridColumn>        <RadzenGridColumn TItem="Possitions" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="40px">            <Template Context="сonclusion">                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Delete(сonclusion))" />            </Template>        </RadzenGridColumn>    </Columns></RadzenGrid>@if (ShowPopup){    <div class="modal" tabindex="-1" style="display:block" role="dialog">        <div class="modal-dialog">            <div class="modal-content p-4">                <div class="d-flex justify-content-between">                    <div>                        <p class="p-2">@title</p>                    </div>                    <div>                        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@ClosePopup" />                    </div>                </div>                <br />                <div class="form-group">                    <label for="e1" class="p-2 font-weight-bold">Должность</label>                    <input type="text" class="form-control" id="e1" @bind="@сonclusion.PossName" placeholder="Должность">                </div>                <br />                <div class="d-flex justify-content-center p-1">                    <button class="btn btn-sm btn-primary" @onclick="Save">                        Сохранить                    </button>                </div>            </div>        </div>    </div>}@code { private List<Possitions> сonclusions = new List<Possitions>();    private Possitions сonclusion = new Possitions();    [CascadingParameter]    private Task<AuthenticationState> authenticationStateTask { get; set; }    System.Security.Claims.ClaimsPrincipal CurrentUser;    ApplicationUser objUser;    string strError = "";    string title = "";    bool ShowPopup = false;    void AddNew()    {        сonclusion = new Possitions();        сonclusion.Id = 0;        title = "Новоя запись";        ShowPopup = true;    }    async Task Save()    {        try        {            if (сonclusion.Id != 0)            {                Possitions lt = await db.Possition.FindAsync(сonclusion.Id);                lt.Id = сonclusion.Id;                lt.PossName = сonclusion.PossName;                await db.SaveChangesAsync();            }            else            {                db.Possition.Add(сonclusion);                await db.SaveChangesAsync();            }            ShowPopup = false;            LoadData();        }        catch (Exception ex)        {            strError = ex.GetBaseException().Message;        }    }    async Task Edit(Possitions lt)    {        title = "Редактирование";        сonclusion = lt;        ShowPopup = true;    }    async Task Delete(Possitions lt)    {        ShowPopup = false;        var obj = await db.Possition.FindAsync(lt.Id);        if (obj != null)        {            db.Possition.Remove(obj);            await db.SaveChangesAsync();        }        LoadData();    }    void ClosePopup()    {        ShowPopup = false;    }    protected override async Task OnInitializedAsync()    {        // CurrentUser = (await authenticationStateTask).User;        // objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);        LoadData();    }    public void LoadData()    {        сonclusion = new Possitions();        сonclusions = db.Possition.OrderBy(x => x.PossName).ToList();    }}

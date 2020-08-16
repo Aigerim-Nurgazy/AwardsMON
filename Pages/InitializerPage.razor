@@ -49,17 +49,6 @@
             <td><input type="text" class="form-control" @bind="@initializer.PersonPatronymic" /></td>
         </tr>
 
-        <tr>
-            <td class="text-center font-weight-bold">Должность</td>
-            <td>
-                <select class="form-control" @bind="@initializer.PossitionsId">
-                    @foreach (var cnt in possitions)
-                    {
-                        <option value="@cnt.Id">@cnt.PossName</option>
-                    }
-                </select>
-            </td>
-        </tr>
 
         <tr>
             <td class="text-center font-weight-bold">Образование</td>
@@ -74,6 +63,19 @@
         </tr>
 
         <tr>
+            <td class="text-center font-weight-bold">Должность</td>
+            <td>
+                <select class="form-control" @bind="@initializer.PossitionsId">
+                    @foreach (var cnt in possitions)
+                    {
+                        <option value="@cnt.Id">@cnt.PossName</option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+
+        <tr>
             <td class="text-center font-weight-bold">Опыт</td>
             <td><input type="text" class="form-control" @bind="@initializer.WorkExpierence" /></td>
         </tr>
@@ -82,7 +84,7 @@
         <tr>
             <td class="text-center font-weight-bold">Область</td>
             <td>
-                <select class="form-control" @bind="@initializer.AreassId">
+                <select class="form-control" @bind="@initializer.AreassId" @onclick="@(() => regions = db.Region.Where(r=>r.AreassId==initializer.AreassId).ToList())">
                     @foreach (var cnt in areas)
                     {
                         <option value="@cnt.Id">@cnt.AreaName</option>
@@ -91,6 +93,17 @@
             </td>
         </tr>
 
+        <tr>
+            <td class="text-center font-weight-bold">Район</td>
+            <td>
+                <select class="form-control" @bind="@initializer.RegionsId">
+                    @foreach (var cnt in regions)
+                    {
+                        <option value="@cnt.Id">@cnt.RegName</option>
+                    }
+                </select>
+            </td>
+        </tr>
 
         <tr>
             <td class="text-center font-weight-bold">Дата рождения</td>
@@ -367,8 +380,8 @@
 @if (isShowDetailsDialog)
 {
     <div class="modal" tabindex="-1" style="display:block" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-5">
                 @*<div class="modal-header">
                         <h3 class="modal-title">@showDetailsInitializer.GetFullName</h3>
                         <button type="button" class="close" @onclick="@(() => isShowDetailsDialog = false)">
@@ -386,7 +399,7 @@
                 </div>
 
 
-                <div class="modal-body">
+                <div class="modal-body p-2">
 
                     <div class="row">
                         <div class="col-6">
@@ -396,11 +409,11 @@
                             </p>
                         </div>
                         @*<div class="col-1">
-                                <b>Id</b><br />
-                                <span class="p-2" style="color:#000">
-                                    @showDetailsInitializer.Id
-                                </span>
-                            </div>*@
+                <b>Id</b><br />
+                <span class="p-2" style="color:#000">
+                    @showDetailsInitializer.Id
+                </span>
+            </div>*@
                         <div class="col-4">
                             <b>Дата рождения</b><br />
                             <p class="p-2" style="color:#000">
@@ -411,14 +424,8 @@
                     <hr />
 
                     <div class="row">
-                        <div class="col-5">
-                            <b class="font-weight-bold">Должность</b><br />
-                            <p class="p-2" style="color:#000">
-                                @showDetailsInitializer.Possition.PossName
-                            </p>
-                        </div>
-                        <div class="col-5">
-                            <b>Образование</b><br />
+                        <div class="col-8">
+                            <b class="font-weight-bold">Образование</b><br />
                             <p class="p-2" style="color:#000">
                                 @showDetailsInitializer.Education.EduName
                             </p>
@@ -427,29 +434,45 @@
                     <hr />
 
                     <div class="row">
-                        <div class="col-5">
-                            <b class="font-weight-bold">Опыт</b><br />
+                        <div class="col-6">
+                            <b class="font-weight-bold">Должность</b><br />
                             <p class="p-2" style="color:#000">
-                                @showDetailsInitializer.WorkExpierence
+                                @showDetailsInitializer.Possition.PossName
                             </p>
                         </div>
-                        <div class="col-5">
-                            <b>Область</b><br />
+                        <div class="col-4">
+                            <b>Опыт</b><br />
                             <p class="p-2" style="color:#000">
-                                @showDetailsInitializer.Areak.AreaName
+                                @showDetailsInitializer.WorkExpierence
                             </p>
                         </div>
                     </div>
                     <hr />
 
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-6">
+                            <b>Область</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Areak.AreaName
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <b>Район</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Region.RegName
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
                             <b class="font-weight-bold">Телефон</b><br />
                             <p class="p-2" style="color:#000">
                                 @showDetailsInitializer.CellPhone
                             </p>
                         </div>
-                        <div class="col-5">
+                        <div class="col-4">
                             <b>E-почта</b><br />
                             <p class="p-2" style="color:#000">
                                 @showDetailsInitializer.EmailAddress
@@ -459,7 +482,7 @@
                     <hr />
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-8">
                             <b class="font-weight-bold">Адрес</b><br />
                             <p class="p-2" style="color:#000">
                                 @showDetailsInitializer.PersonAddress
@@ -469,13 +492,13 @@
                     <hr />
 
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-6">
                             <b class="font-weight-bold">На награду</b><br />
                             <p class="p-2" style="color:#000">
                                 @showDetailsInitializer.Award.AwardName
                             </p>
                         </div>
-                        <div class="col-5">
+                        <div class="col-4">
                             <b>Приказ</b><br />
                             <p class="p-2" style="color:#000">
                                 @if (showDetailsInitializer.Orders != null)
@@ -486,7 +509,7 @@
                     <hr />
 
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-6">
                             <b class="font-weight-bold">Файлы</b><br />
                             <p class="p-2" style="color:#000">
                                 @if (showDetailsInitializer.FilesNamesZayavleniye != null)
@@ -597,6 +620,7 @@
     List<Possitions> possitions = new List<Possitions>();
     List<Educations> educations = new List<Educations>();
     List<Areass> areas = new List<Areass>();
+    List<Regions> regions = new List<Regions>();
     List<Awards> awards = new List<Awards>();
     //List<Regions> regions = new List<Regions>();
     //List<Initializers> initializers = new List<Initializers>();
@@ -623,6 +647,9 @@
         educations = db.Education.ToList();
         areas = db.Areaq.ToList();
         awards = db.Award.ToList();
+        regions = db.Region.ToList();
+        // hide this lists!
+
         //maay...
         // initializers = db.Initializers.ToList();
         //regions = db.Region.ToList();
@@ -660,6 +687,8 @@
                 educations = db.Education.ToList();
                 areas = db.Areaq.ToList();
                 awards = db.Award.ToList();
+                regions = db.Region.ToList();
+                // hide this lists!
 
                 // forgot this?
                 db.Initializers.Update(initializer);
@@ -719,6 +748,9 @@
         educations = db.Education.ToList();
         areas = db.Areaq.ToList();
         awards = db.Award.ToList();
+        regions = db.Region.ToList();
+        // hide this lists!
+
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
 
         fileNamesA = rc.FilesNamesZayavleniye;
@@ -779,6 +811,7 @@
             .Include(o => o.Possition)
             .Include(o => o.Education)
             .Include(o => o.Areak)
+            .Include(o => o.Region)
             .Include(o => o.Award)
             .Include(o => o.Orders)
             .ToList();

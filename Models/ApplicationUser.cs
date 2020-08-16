@@ -43,8 +43,10 @@ namespace BlzMON.Models
         public string WorkExpierence { get; set; }
 
         public int AreassId { get; set; }
-
         public Areass Areak { get; set; }
+
+        public int RegionsId { get; set; }
+        public Regions Region { get; set; }
 
         // public int DocumentsId { get; set; }
         //  public Documents Documents { get; set; }
@@ -102,7 +104,10 @@ namespace BlzMON.Models
     {
         public int Id { get; set; }
         // [Required(ErrorMessage = "Поле обязательно")]
-        public string RegName { get; set; }
+        public string RegName { get; set; } 
+
+        public int AreassId { get; set; }
+        public Areass Areass { get; set; }
     }
 
     public class Areass
@@ -110,6 +115,8 @@ namespace BlzMON.Models
         public int Id { get; set; }
         // [Required(ErrorMessage = "Поле обязательно")]
         public string AreaName { get; set; }
+
+        public List<Regions> Regions { get; set; }
     }
 
     public class Possitions
