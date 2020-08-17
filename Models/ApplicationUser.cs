@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlzMON.Models
     {
@@ -42,8 +43,10 @@ namespace BlzMON.Models
         public string WorkExpierence { get; set; }
 
         public int AreassId { get; set; }
-
         public Areass Areak { get; set; }
+
+        public int RegionsId { get; set; }
+        public Regions Region { get; set; }
 
         // public int DocumentsId { get; set; }
         //  public Documents Documents { get; set; }
@@ -58,6 +61,14 @@ namespace BlzMON.Models
         //  [Required(ErrorMessage = "Адресс обязателен")]
         public string PersonAddress { get; set; }
 
+        // files names
+        public string FilesNamesZayavleniye { get; set; } = "";
+        public string FilesNamesPredstavleniye { get; set; } = "";
+        public string FilesNamesTrudovaya { get; set; } = "";
+        public string FilesNamesNagrady { get; set; } = "";
+        public string FilesNamesVypyska { get; set; } = "";
+
+
         // Награда
         public int AwardsId { get; set; }
         public Awards Award { get; set; }
@@ -66,6 +77,7 @@ namespace BlzMON.Models
         public int OrderId { get; set; }
         public Orders Orders { get; set; }
     }
+
 
     // Приказы
     public class Orders
@@ -92,7 +104,10 @@ namespace BlzMON.Models
     {
         public int Id { get; set; }
         // [Required(ErrorMessage = "Поле обязательно")]
-        public string RegName { get; set; }
+        public string RegName { get; set; } 
+
+        public int AreassId { get; set; }
+        public Areass Areass { get; set; }
     }
 
     public class Areass
@@ -100,6 +115,8 @@ namespace BlzMON.Models
         public int Id { get; set; }
         // [Required(ErrorMessage = "Поле обязательно")]
         public string AreaName { get; set; }
+
+        public List<Regions> Regions { get; set; }
     }
 
     public class Possitions

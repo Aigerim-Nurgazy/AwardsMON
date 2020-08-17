@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{C78E7A80-54B7-4F15-9781-D07F0E7B3EFC}|BlzMON">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/OrdersPage.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/DepartamentPage.razor">
     <Files>
-      <File FileName="Pages/OrderPage.razor" Line="1" Column="1" />
-      <File FileName="Pages/OrdersPage.razor" Line="1" Column="1" />
+      <File FileName="Pages/SecondDepPage.razor" Line="176" Column="10" IsPinned="True" />
+      <File FileName="Pages/DepartamentPage.razor" Line="185" Column="25" />
+      <File FileName="Models/ApplicationUser.cs" Line="139" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,10 +13,8 @@
               <Node name="Models" expanded="True" />
               <Node name="Pages" expanded="True">
                 <Node name="Dictionary" expanded="True" />
-                <Node name="OrdersPage.razor" selected="True" />
+                <Node name="DepartamentPage.razor" selected="True" />
               </Node>
-              <Node name="Shared" expanded="True" />
-              <Node name="wwwroot" expanded="True" />
             </Node>
           </Node>
         </State>

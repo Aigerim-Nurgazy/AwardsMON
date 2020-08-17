@@ -686,6 +686,7 @@ C:/Users/esept/Downloads/BlzMON(1)/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.genrunt
 /Users/aigerim/Desktop/BlzMON/bin/Debug/netcoreapp3.1/System.IdentityModel.Tokens.Jwt.dll
 /Users/aigerim/Desktop/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/OrdersPage.razor.g.cs
 /Users/aigerim/Desktop/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/OrdersPage.razor.g.cs
+<<<<<<< HEAD
 C:/Users/esept/Source/Repos/AwardsMON2/bin/Debug/netcoreapp3.1/appsettings.Development.json
 C:/Users/esept/Source/Repos/AwardsMON2/bin/Debug/netcoreapp3.1/appsettings.json
 C:/Users/esept/Source/Repos/AwardsMON2/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
@@ -915,3 +916,7 @@ C:/Users/esept/Source/Repos/AwardsMON2/obj/Debug/netcoreapp3.1/staticwebassets/B
 C:/Users/esept/Source/Repos/AwardsMON2/obj/Debug/netcoreapp3.1/BlzMON.dll
 C:/Users/esept/Source/Repos/AwardsMON2/obj/Debug/netcoreapp3.1/BlzMON.pdb
 C:/Users/esept/Source/Repos/AwardsMON2/obj/Debug/netcoreapp3.1/BlzMON.genruntimeconfig.cache
+=======
+C:/Users/esept/Source/Repos/AwardsMON2/bin/Debug/netcoreapp3.1/BlazorDownloadFile.dll
+>>>>>>> cc85e9de22b8a4db5f79ea65c194218abd20c65a
+/Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/BlazorDownloadFile.dll

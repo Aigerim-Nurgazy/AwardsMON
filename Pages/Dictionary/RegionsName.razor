@@ -1,158 +1,1 @@
-﻿@page "/regionpage"
-
-@using Microsoft.AspNetCore.Identity;
-@using BlzMON.Data
-@using BlzMON.Models
-@using Radzen.Blazor;
-@inject UserManager<ApplicationUser> _userManager;
-
-@inject ApplicationDbContext db
-
-
-<h3>Награды</h3>
-<button class="btn btn-success" @onclick="AddNew">Добавить новый</button>
-<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
-            AllowSorting="true" Data="@сonclusions" TItem="Regions" ColumnWidth="150px">
-    <Columns>
-         <RadzenGridColumn TItem="Regions" Property="RegName" Title="Район"></RadzenGridColumn>
-
-        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
-        <RadzenGridColumn TItem="Regions" TextAlign="Radzen.TextAlign.Center" Width="60px">
-            <Template Context="сonclusion">
-                <RadzenButton Icon="edit" Click="@(args => Edit(сonclusion))" />
-            </Template>
-        </RadzenGridColumn>
-        <RadzenGridColumn TItem="Regions" TextAlign="Radzen.TextAlign.Center" Width="60px">
-            <Template Context="сonclusion">
-                <RadzenButton Icon="delete" Click="@(args => Delete(сonclusion))" />
-            </Template>
-        </RadzenGridColumn>
-
-    </Columns>
-</RadzenGrid>
-
-
-@if (ShowPopup)
-{
-    <div class="modal" tabindex="-1" style="display:block" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">@title</h3>
-                    <button type="button" class="close"
-                            @onclick="ClosePopup">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <span style="color:red">@strError</span>
-                    <table class="table">
-                
-                        <tr>
-                            <td>Район</td>
-                            <td><input type="text" class="form-control" @bind="@сonclusion.RegName" /></td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <button class="btn btn-primary" @onclick="Save">
-                                    Сохранить
-                                </button>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-}
-
-
-@code {
-
-    private List<Regions> сonclusions = new List<Regions>();
-
-    private Regions сonclusion = new Regions();
-
-    [CascadingParameter]
-    private Task<AuthenticationState> authenticationStateTask { get; set; }
-    System.Security.Claims.ClaimsPrincipal CurrentUser;
-
-    ApplicationUser objUser;
-    string strError = "";
-    string title = "";
-    bool ShowPopup = false;
-
-
-    void AddNew()
-    {
-        сonclusion = new Regions();
-        сonclusion.Id = 0;
-        title = "Новая запись";
-        ShowPopup = true;
-    }
-    async Task Save()
-    {
-        try
-        {
-            if (сonclusion.Id != 0)
-            {
-                Regions lt = await db.Region.FindAsync(сonclusion.Id);
-                lt.Id = сonclusion.Id;
-                lt.RegName = сonclusion.RegName;
-                await db.SaveChangesAsync();
-            }
-            else
-            {
-                db.Region.Add(сonclusion);
-                await db.SaveChangesAsync();
-            }
-
-            ShowPopup = false;
-            LoadData();
-        }
-        catch (Exception ex)
-        {
-            strError = ex.GetBaseException().Message;
-        }
-    }
-    async Task Edit(Regions lt)
-    {
-        title = "Редактирование";
-        сonclusion = lt;
-        ShowPopup = true;
-    }
-    async Task Delete(Regions lt)
-    {
-        ShowPopup = false;
-        var obj = await db.Region.FindAsync(lt.Id);
-        if (obj != null)
-        {
-            db.Region.Remove(obj);
-            await db.SaveChangesAsync();
-        }
-        LoadData();
-    }
-    void ClosePopup()
-    {
-        ShowPopup = false;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        // CurrentUser = (await authenticationStateTask).User;
-        // objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);
-        LoadData();
-    }
-
-    public void LoadData()
-    {
-        сonclusion = new Regions();
-        сonclusions = db.Region.OrderBy(x => x.RegName).ToList();
-
-    }
-
-
-}
+﻿@page "/regionpage"@using Microsoft.AspNetCore.Identity;@using BlzMON.Data@using BlzMON.Models@using Radzen.Blazor;@inject UserManager<ApplicationUser> _userManager;@inject ApplicationDbContext db<div class="row">    <div class="col-md-4"></div>    <div class="col-md-4"><h4>Районы</h4></div>    <div class="col-md-4"></div></div><table class="table">    <tr>        <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>    </tr></table><RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4" AllowSorting="true" Data="@сonclusions" TItem="Regions" ColumnWidth="150px">    <Columns>        <RadzenGridColumn TItem="Regions" Property="RegName" Title="Район"></RadzenGridColumn>        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@        <RadzenGridColumn TItem="Regions" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="40px">            <Template Context="сonclusion">                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(сonclusion))" />            </Template>        </RadzenGridColumn>        <RadzenGridColumn TItem="Regions" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="40px">            <Template Context="сonclusion">                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Delete(сonclusion))" />            </Template>        </RadzenGridColumn>    </Columns></RadzenGrid>@if (ShowPopup){<div class="modal" tabindex="-1" style="display:block" role="dialog">    <div class="modal-dialog">        <div class="modal-content p-4">            <div class="d-flex justify-content-between">                <div>                    <p class="p-2">@title</p>                </div>                <div>                    <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@ClosePopup" />                </div>            </div>            <br />            <div class="form-group">                <label for="e1" class="p-2 font-weight-bold">Регион</label>                <input type="text" class="form-control" id="e1" @bind="@сonclusion.RegName" placeholder="Регион">            </div>            <br />            <div class="d-flex justify-content-center p-1">                <button class="btn btn-sm btn-primary" @onclick="Save">                    Сохранить                </button>            </div>        </div>    </div></div>}@code { private List<Regions> сonclusions = new List<Regions>();    private Regions сonclusion = new Regions();    [CascadingParameter]    private Task<AuthenticationState> authenticationStateTask { get; set; }    System.Security.Claims.ClaimsPrincipal CurrentUser;    ApplicationUser objUser;    string strError = "";    string title = "";    bool ShowPopup = false;    void AddNew()    {        сonclusion = new Regions();        сonclusion.Id = 0;        title = "Новая запись";        ShowPopup = true;    }    async Task Save()    {        try        {            if (сonclusion.Id != 0)            {                Regions lt = await db.Region.FindAsync(сonclusion.Id);                lt.Id = сonclusion.Id;                lt.RegName = сonclusion.RegName;                await db.SaveChangesAsync();            }            else            {                db.Region.Add(сonclusion);                await db.SaveChangesAsync();            }            ShowPopup = false;            LoadData();        }        catch (Exception ex)        {            strError = ex.GetBaseException().Message;        }    }    async Task Edit(Regions lt)    {        title = "Редактирование";        сonclusion = lt;        ShowPopup = true;    }    async Task Delete(Regions lt)    {        ShowPopup = false;        var obj = await db.Region.FindAsync(lt.Id);        if (obj != null)        {            db.Region.Remove(obj);            await db.SaveChangesAsync();        }        LoadData();    }    void ClosePopup()    {        ShowPopup = false;    }    protected override async Task OnInitializedAsync()    {        // CurrentUser = (await authenticationStateTask).User;        // objUser = await _userManager.FindByNameAsync(CurrentUser.Identity.Name);        LoadData();    }    public void LoadData()    {        сonclusion = new Regions();        сonclusions = db.Region.OrderBy(x => x.RegName).ToList();    }}

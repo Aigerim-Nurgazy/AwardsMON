@@ -11,22 +11,32 @@
 @inject ApplicationDbContext db
 
 
-<h3>Образование</h3>
-<button class="btn btn-success" @onclick="AddNew">Добавить новый</button>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Образование</h4></div>
+    <div class="col-md-4"></div>
+</div>
+
+<table class="table">
+    <tr>
+        <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
+    </tr>
+</table>
+
 <RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
             AllowSorting="true" Data="@сonclusions" TItem="Educations" ColumnWidth="150px">
     <Columns>
         <RadzenGridColumn TItem="Educations" Property="EduName" Title="Образование"></RadzenGridColumn>
 
         @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
-        <RadzenGridColumn TItem="Educations" TextAlign="Radzen.TextAlign.Center" Width="60px">
+        <RadzenGridColumn TItem="Educations" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="40px">
             <Template Context="сonclusion">
-                <RadzenButton Icon="edit" Click="@(args => Edit(сonclusion))" />
+                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(сonclusion))" />
             </Template>
         </RadzenGridColumn>
-        <RadzenGridColumn TItem="Educations" TextAlign="Radzen.TextAlign.Center" Width="60px">
+        <RadzenGridColumn TItem="Educations" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="40px">
             <Template Context="сonclusion">
-                <RadzenButton Icon="delete" Click="@(args => Delete(сonclusion))" />
+                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Delete(сonclusion))" />
             </Template>
         </RadzenGridColumn>
 
@@ -36,34 +46,33 @@
 
 @if (ShowPopup)
 {
+
     <div class="modal" tabindex="-1" style="display:block" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">@title</h3>
-                    <button type="button" class="close"
-                            @onclick="ClosePopup">
-                        <span aria-hidden="true">X</span>
-                    </button>
+            <div class="modal-content p-4">
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="p-2">@title</p>
+                    </div>
+                    <div>
+                        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@ClosePopup" />
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <span style="color:red">@strError</span>
-                    <table class="table">
+                <br />
 
-                        <tr>
-                            <td>Должность</td>
-                            <td><input type="text" class="form-control" @bind="@сonclusion.EduName" /></td>
-                        </tr>
+                <div class="form-group">
+                    <label for="e1" class="p-2 font-weight-bold">Образование</label>
+                    <input type="text" class="form-control" id="e1" @bind="@сonclusion.EduName" placeholder="Образование">
+                </div>
 
-                        <tr>
-                            <td>
-                                <button class="btn btn-primary" @onclick="Save">
-                                    Сохранить
-                                </button>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </table>
+                <br />
+
+
+                <div class="d-flex justify-content-center p-1">
+                    <button class="btn btn-sm btn-primary" @onclick="Save">
+                        Сохранить
+                    </button>
                 </div>
             </div>
 

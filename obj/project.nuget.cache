@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "t/1tyNGZ6vxvPXXaenUJO6KrEUJZQRJLI4qamsfP9PExsIrW90MJdkh0pbpUoQ8XWIu/QJFz9z8XLft8hm+l8w==",
+  "dgSpecHash": "mltseNDaSvcABux7+Znl7iHY8inlA2Sw8Fd4ternk4mzbOz4OqBwun5ntMKy8QObtebY7yXScKzkzst/4RbpIQ==",
   "success": true,
   "projectFilePath": "/Users/aigerim/Downloads/PFT/BlzMON/BlzMON.csproj",
   "expectedPackageFiles": [
+    "/Users/aigerim/.nuget/packages/blazordownloadfile/2.1.1/blazordownloadfile.2.1.1.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/blazorinputfile/0.2.0/blazorinputfile.0.2.0.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/csvhelper/15.0.5/csvhelper.15.0.5.nupkg.sha512",
     "/Users/aigerim/.nuget/packages/matblazor/2.6.2/matblazor.2.6.2.nupkg.sha512",

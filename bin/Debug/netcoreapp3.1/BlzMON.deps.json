@@ -10,7 +10,7 @@
       "NETCOREAPP",
       "NETCOREAPP3_1"
     ],
-    "languageVersion": "",
+    "languageVersion": "8.0",
     "platform": "",
     "allowUnsafe": false,
     "warningsAsErrors": false,
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "BlzMON/1.0.0": {
         "dependencies": {
+          "BlazorDownloadFile": "2.1.1",
           "BlazorInputFile": "0.2.0",
           "CsvHelper": "15.0.5",
           "MatBlazor": "2.6.2",
@@ -305,6 +306,21 @@
         },
         "compile": {
           "BlzMON.dll": {}
+        }
+      },
+      "BlazorDownloadFile/2.1.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.4",
+          "Microsoft.AspNetCore.Components.Web": "3.1.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/BlazorDownloadFile.dll": {
+            "assemblyVersion": "2.1.0.1",
+            "fileVersion": "2.1.0.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/BlazorDownloadFile.dll": {}
         }
       },
       "BlazorInputFile/0.2.0": {
@@ -3788,6 +3804,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BlazorDownloadFile/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y6Q7wioUIygO2FQuZchfkcT0ifyy5isGKGWCj2oMu3mta8GG4NG5EI3BXIzmstGWjP6K+Hu33ayETDlnWn3SsQ==",
+      "path": "blazordownloadfile/2.1.1",
+      "hashPath": "blazordownloadfile.2.1.1.nupkg.sha512"
     },
     "BlazorInputFile/0.2.0": {
       "type": "package",
