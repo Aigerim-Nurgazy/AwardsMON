@@ -18,21 +18,21 @@
 @inject IViewLocalizer Localizer
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Приказы</h4></div>
+    <div class="col-md-4"></div>
+</div>
+
+<table class="table">
+    <tr>
+        <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
+    </tr>
+</table>
+
 <!-- List of Orders -->
 @if (!ShowPopup)
 {
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"><h4>Приказы</h4></div>
-        <div class="col-md-4"></div>
-    </div>
-
-    <table class="table">
-        <tr>
-            <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
-        </tr>
-    </table>
-
     <RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
                 AllowSorting="true" Data="@orders" TItem="Orders" ColumnWidth="150px">
         <Columns>
@@ -52,7 +52,7 @@
             </RadzenGridColumn>
             <RadzenGridColumn Width="30px" TItem="Orders" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center">
                 <Template Context="сonclusion">
-                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(сonclusion))" />
+                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Delete(сonclusion.Id))" />
                 </Template>
             </RadzenGridColumn>
         </Columns>
@@ -492,12 +492,12 @@
         ShowPopup = true; //open edit popup
     }
 
-    async Task Delete()
+    async Task Delete(int orderId)
     {
         // Close the Popup
         ShowPopup = false;
         // Get the user
-        var rc = await db.Order.FindAsync(order.Id);
+        var rc = await db.Order.FindAsync(orderId);
 
         if (rc != null)
         {
