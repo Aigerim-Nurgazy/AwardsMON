@@ -437,8 +437,6 @@
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.dll
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.pdb
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/BlzMON.genruntimeconfig.cache
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/OrdersPage.razor.g.cs
-/Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/OrdersPage.razor.g.cs
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/OrderPage.razor.g.cs
 /Users/aigerim/Downloads/PFT/BlzMON/obj/Debug/netcoreapp3.1/Razor/Pages/OrderPage.razor.g.cs
 /Users/aigerim/Downloads/PFT/BlzMON/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.JsonWebTokens.dll

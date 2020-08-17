@@ -17,6 +17,8 @@
 @inject ApplicationDbContext db
 @inject IViewLocalizer Localizer
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+
+<!-- List of Orders -->
 @if (!ShowPopup)
 {
     <div class="row">
@@ -24,54 +26,41 @@
         <div class="col-md-4"><h4>Приказы</h4></div>
         <div class="col-md-4"></div>
     </div>
+
     <table class="table">
         <tr>
-            <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
-            <td width="40%"></td>
-            <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+            <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
         </tr>
     </table>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Приказ </th>
-                <th>Номер приказа</th>
-                <th>Дата</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in orders)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td @onclick="@(e => NavigateToOrderPage(item.Id))">
-                        @item.OrderName
-                    </td>
-                    @*<td><RadzenLink href="OrderPage?orderId=@item.Id" Text="@item.OrderName" /></td>*@
-                    <td>@item.OrderCode</td>
-                    <td>@item.OrderDate</td>
-                    @*<td>@foreach (var wer in  item.InitiList)
-                            {
-                            @wer.PersonName
-                            }
-                        </td>*@
-                    <td>
-                        <!-- Edit the current forecast -->
-                        <button class="btn btn-primary"
-                                @onclick="(() => Edit(item))">
-                            Редактировать
-                        </button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+
+    <RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
+                AllowSorting="true" Data="@orders" TItem="Orders" ColumnWidth="150px">
+        <Columns>
+            <RadzenGridColumn Width="30px" TItem="Orders" Property="Id" Title="Id"></RadzenGridColumn>
+            @*<RadzenGridColumn TItem="Orders" Property="OrderName" Title="Название"></RadzenGridColumn>*@
+            <RadzenGridColumn TItem="Orders" Property="OrderName" Title="Название" Filterable="true" Sortable="true" TextAlign="TextAlign.Center">
+                <Template Context="order">
+                    <span class="text-secondary" @onclick="@(() => NavigateToOrderPage(order.Id))">@order.OrderName</span>
+                </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn Width="70px" TItem="Orders" Property="OrderDate" Title="Дата"></RadzenGridColumn>
+            <RadzenGridColumn Width="30px" TItem="Orders" Property="OrderCode" Title="Код"></RadzenGridColumn>
+            <RadzenGridColumn Width="30px" TItem="Orders" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center">
+                <Template Context="сonclusion">
+                    <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(сonclusion))" />
+                </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn Width="30px" TItem="Orders" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center">
+                <Template Context="сonclusion">
+                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(сonclusion))" />
+                </Template>
+            </RadzenGridColumn>
+        </Columns>
+    </RadzenGrid>
 }
 
 
+<!-- Editing or adding new Order -->
 @if (ShowPopup)
 {
     <div class="row">
@@ -79,95 +68,307 @@
         <div class="col-md-4"><h4>Редактирование</h4></div>
         <div class="col-md-4"></div>
     </div>
-    <table class="table">
 
+    <table class="table">
         <tr>
-            <td>Приказ</td>
+            <td class="text-center font-weight-bold">Приказ</td>
             <td><input type="text" class="form-control" @bind="@order.OrderName" /></td>
         </tr>
-
         <tr>
-            <td>Номер приказа</td>
-            <td><input type="text" class="form-control" @bind="@order.OrderCode" /></td>
+            <td class="text-center font-weight-bold">Номер приказа</td>
+            <td><input type="text" class="form-control col-5" @bind="@order.OrderCode" /></td>
         </tr>
-
         <tr>
-            <td>Дата приказа</td>
+            <td class="text-center font-weight-bold">Дата приказа</td>
             <td><RadzenDatePicker @bind-Value="order.OrderDate" DateFormat="d" ShowTime="false" Utc="false" Change="@(args => Change(args, "DatePicker", "MM/dd/yyyy"))" /></td>
         </tr>
-
     </table>
+
+    <div class="d-flex justify-content-center">
+        <div class="p-1">
+            <button class="btn btn-primary" @onclick="Save">
+                Сохранить
+            </button>
+        </div>
+        <div class="p-1">
+            <button class="btn btn-light" @onclick="ClosePopup">
+                Назад
+            </button>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
 
     @* List of initiators datagrid *@
 
     <RadzenGrid Data="@initializers"
                 AllowFiltering="true" AllowPaging="true" AllowSorting="true" StartsWithText="Поиск" TItem="Initializers" ColumnWidth="200px">
         <Columns>
-            <RadzenGridColumn TItem="Initializers" Property="Id" Title="ID" />
-            <RadzenGridColumn TItem="Initializers" Property="Areak.AreaName" Title="Область" />
-            <RadzenGridColumn TItem="Initializers" Property="GetFullName" Title="ФИО" />
-            <RadzenGridColumn TItem="Initializers" Property="Possition.PossName" Title="Должность" />
-            <RadzenGridColumn TItem="Initializers" Property="Award.AwardName" Title="Награда" />
-            <RadzenGridColumn TItem="Initializers">
+            <RadzenGridColumn Width="70px" TextAlign="TextAlign.Center" TItem="Initializers" Property="Id" Title="ID" />
+
+            @*<RadzenGridColumn Width="110px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />*@
+            <RadzenGridColumn Width="150px" Filterable="true" Sortable="true" TextAlign="TextAlign.Center" Property="GetFullName" Title="ФИО" TItem="Initializers">
                 <Template Context="initializer">
-                    <RadzenButton Icon="delete" Click="@(args => Selected(initializer))" />
+                    <span class="text-secondary" @onclick="@(() => ShowDetailsDialog(initializer))">@initializer.GetFullName</span>
+                    @*<RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" />*@
                 </Template>
             </RadzenGridColumn>
+            @*<RadzenGridColumn Width="150px"TItem="Initializers" Context="initializer" Property="GetFullName" Title="ФИО" />*@
+            <RadzenGridColumn Width="170px" TItem="Initializers" Property="Possition.PossName" Title="Должность" />
+            @*<RadzenGridColumn Width="150px" TItem="Initializers" Property="Education.EduName" Title="Образование" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="WorkExpierence" Title="Опыт" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="Areak.AreaName" Title="Область" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="DateOfBirth" Title="Дата рождения" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="CellPhone" Title="Телефон" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="EmailAddress" Title="E-почта" />
+                <RadzenGridColumn Width="150px" TItem="Initializers" Property="PersonAddress" Title="Адрес" />*@
+            <RadzenGridColumn Width="170px" TItem="Initializers" Property="Award.AwardName" Title="Награда" />
+            @*<RadzenGridColumn Width="150px" TItem="Initializers" Property="Orders.OrderName" Title="Приказ" />*@
+
+            <RadzenGridColumn Width="150px" Filterable="false" Sortable="false" Title="Включть/Исключить" TextAlign="TextAlign.Center" TItem="Initializers">
+                <Template Context="initializer">
+                    @* If Init attached to this order //but this Init can be only in one Order *@
+                    @if (order.Id > 0 && initializer.OrdersId == order.Id)
+                    {
+                        <input type="checkbox" checked class="form-control-lg" @onclick="@(() => AttachInitToOrder(initializer))" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="form-control-lg" @onclick="@(() => AttachInitToOrder(initializer))" />
+                    }
+
+                    @*<RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(() => AttachInitToOrder(initializer))" />*@
+                </Template>
+            </RadzenGridColumn>
+<<<<<<< HEAD
             <RadzenGridColumn TItem="Initializers">
                 <Template Context="initializer">
                     <RadzenCheckBox @bind-Value="@CheckBox1Value" Style="margin-bottom: 20px" TValue="bool" Change="@(args => Change(args, "CheckBox1 CheckBox"))" />
                 </Template>
             </RadzenGridColumn>
+=======
+>>>>>>> ee96438... Order page
         </Columns>
     </RadzenGrid>
 
-    @* List of initiators table *@
+    <br />
+    <br />
+    <br />
+    <br />
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Область</th>
-                <th>ФИО</th>
-                <th>Должность</th>
-                <th>Награда</th>
-                <th>Одобрение</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in initializers)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Areak.AreaName</td>
-                    <td>@item.GetFullName</td>
-                    <td>@item.Possition.PossName</td>
-                    <td>@item.Award.AwardName</td>
-                    <td>
-                        <input type="checkbox" />
-                        <!-- CheckBox -->
-                    </td>
-                </tr>
-            }
-
-            <tr>
-                <td>
-                    @if (order.Id != 0)
-                    {<!-- Button to delete the forecast -->
-                        <button class="btn btn-danger" @onclick="Delete">
-                            Удалить
-                        </button>
-                    }
-                </td>
-                <td>
-                    <button class="btn btn-primary" @onclick="Save">
-                        Сохранить
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        Для включения инициаторов в приказ, выберите их в таблице и поставтье галочку.<br />
+        Для завершения нажмите кнопку <i>Сохранить</i>
+    </div>
+    <br />
 }
+
+<!-- Show details about Initializer -->
+@if (isShowDetailsDialog)
+{
+    <div class="modal" tabindex="-1" style="display:block" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-5">
+                @*<div class="modal-header">
+                        <h3 class="modal-title">@showDetailsInitializer.GetFullName</h3>
+                        <button type="button" class="close" @onclick="@(() => isShowDetailsDialog = false)">
+                            <span aria-hidden="true">X</span>
+                        </button>
+                    </div>*@
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="p-2">Инициатор</p>
+                    </div>
+                    <div>
+                        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@(() => isShowDetailsDialog = false)" />
+                    </div>
+                </div>
+
+
+                <div class="modal-body p-2">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b class="font-weight-bold">ФИО</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.GetFullName
+                            </p>
+                        </div>
+                        @*<div class="col-1">
+                                <b>Id</b><br />
+                                <span class="p-2" style="color:#000">
+                                    @showDetailsInitializer.Id
+                                </span>
+                            </div>*@
+                        <div class="col-4">
+                            <b>Дата рождения</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.DateOfBirth.ToString("d")
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-8">
+                            <b class="font-weight-bold">Образование</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Education.EduName
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b class="font-weight-bold">Должность</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Possition.PossName
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <b>Опыт</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.WorkExpierence
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b>Область</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Areak.AreaName
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <b>Район</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Region.RegName
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b class="font-weight-bold">Телефон</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.CellPhone
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <b>E-почта</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.EmailAddress
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-8">
+                            <b class="font-weight-bold">Адрес</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.PersonAddress
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b class="font-weight-bold">На награду</b><br />
+                            <p class="p-2" style="color:#000">
+                                @showDetailsInitializer.Award.AwardName
+                            </p>
+                        </div>
+                        <div class="col-4">
+                            <b>Приказ</b><br />
+                            <p class="p-2" style="color:#000">
+                                @if (showDetailsInitializer.Orders != null)
+                                {@showDetailsInitializer.Orders.OrderName}
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <b class="font-weight-bold">Файлы</b><br />
+                            <p class="p-2" style="color:#000">
+                                @if (showDetailsInitializer.FilesNamesZayavleniye != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesZayavleniye.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesPredstavleniye != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesPredstavleniye.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesNagrady != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesNagrady.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesTrudovaya != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesTrudovaya.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                                @if (showDetailsInitializer.FilesNamesVypyska != null)
+                                {
+                                    @foreach (string fileName in showDetailsInitializer.FilesNamesVypyska.Split(";"))
+                                    {
+                                        <a class="p-1" href="ReadFile/ReadFile?i=@showDetailsInitializer.Id&f=@fileName" target="_blank">
+                                            @fileName
+                                        </a>
+                                    }
+                                    <br />
+                                }
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <p></p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
 
 @code {
 
@@ -229,6 +430,7 @@
             .Include(o => o.Education)
             .Include(o => o.Areak)
             .Include(o => o.Award)
+            .Include(o => o.Region)
             .ToList();
     }
 
@@ -236,6 +438,8 @@
     {
         order = new Orders();
         order.Id = 0;
+        order.OrderDate = DateTime.Now;
+
         ShowPopup = true;
         //regions = db.Region.ToList();
     }
@@ -261,6 +465,21 @@
                 db.Order.Add(order);//Set in DB new order
                 await db.SaveChangesAsync();
             }
+
+            // attaching Inits to Orders
+            foreach (int initId in attachedInits)
+            {
+                // find init and change order id
+                Initializers init = db.Initializers.Find(initId);
+                init.OrdersId = order.Id;
+                // update
+                db.Initializers.Update(init);
+
+
+                System.Diagnostics.Debug.Print(init.GetFullName);
+            }
+            await db.SaveChangesAsync();
+
             // Close the Popup
             ShowPopup = false;
             // Refresh Users
@@ -276,7 +495,9 @@
     {
         order = rc;//load data
                    //products = db.Products.Where(x => x.CategoryId == ).ToList();
-        ShowPopup = true;//open edit popup
+
+        order.OrderDate = DateTime.Now;
+        ShowPopup = true; //open edit popup
     }
 
     async Task Delete()
@@ -285,6 +506,7 @@
         ShowPopup = false;
         // Get the user
         var rc = await db.Order.FindAsync(order.Id);
+
         if (rc != null)
         {
             db.Order.Remove(rc);
@@ -330,11 +552,38 @@
         navigationManager.NavigateTo("OrderPage/" + orderId);
     }
 
-    // attach Init to Order
-    private void Selected(Initializers init)
+
+    // attach or deattach Init to Order
+    List<int> attachedInits = new List<int>();
+
+    private void AttachInitToOrder(Initializers init)
     {
-        navigationManager.NavigateTo("Test/" + init.Id);
+        if (!attachedInits.Contains(init.Id))
+        {
+            // add Init id to array, to use in Save
+            attachedInits.Add(init.Id);
+        }
+        else
+        {
+            // remove Init id from array
+            attachedInits.Remove(init.Id);
+        }
     }
+
+
+    // Details dialog
+    bool isShowDetailsDialog = false;
+    Initializers showDetailsInitializer = new Initializers();
+
+    void ShowDetailsDialog(Initializers initializer)
+    {
+        isShowDetailsDialog = true;
+
+        // get from database, becouse file names will updated after upload
+        showDetailsInitializer = db.Initializers.Find(initializer.Id);
+        // showDetailsInitializer = initializer;
+    }
+<<<<<<< HEAD
     bool CheckBox1Value;
     bool? CheckBox2Value;
     bool? CheckBox3Value = true;
@@ -345,4 +594,8 @@
         events.Add(DateTime.Now, $"{name} value changed to {value}");
         StateHasChanged();
     }
+=======
+
+
+>>>>>>> ee96438... Order page
 }
