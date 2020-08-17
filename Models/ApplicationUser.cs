@@ -74,7 +74,7 @@ namespace BlzMON.Models
         public Awards Award { get; set; }
 
         // Приказ
-        public int OrderId { get; set; }
+        public int? OrdersId { get; set; }
         public Orders Orders { get; set; }
     }
 

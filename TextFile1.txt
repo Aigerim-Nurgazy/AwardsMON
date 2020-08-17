@@ -5,3 +5,201 @@ Lifetime: Singleton
 ImplementationType: BlzMON.Services.PostFiles': 
 Cannot consume scoped service 'BlzMON.Data.ApplicationDbContext' 
 from singleton 'BlzMON.Services.PostFiles'.)"
+
+
+
+    <!--<div class="overflow-auto">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">id</th>
+                    <th class="text-center">фио</th>
+                    <th class="text-center">должность</th>
+                    <th class="text-center">образование</th>
+                    <th class="text-center">стаж работы</th>
+                    <th class="text-center">область</th>
+                    <th class="text-center">дата рождения</th>
+                    <th class="text-center">телефон</th>
+                    <th class="text-center">почта</th>
+                    <th class="text-center">адрес</th>-->
+                    <th class="text-center">на награду</th>
+                    <th class="text-center">приказ</th>
+                    <th class="text-center"></th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in initializers)
+                {
+                    <tr>
+                        <td class="text-center">@item.id</td>
+                        <td class="text-center text-secondary" @onclick="@(()=>showdetailsdialog(item))">@item.personsurname @item.personname @item.personpatronymic</td>
+                        <td class="text-center">@item.possition.possname</td>
+                        <td class="text-center">@item.education.eduname</td>
+                        <td class="text-center">@item.workexpierence</td>
+                        <td class="text-center">@item.areak.areaname</td>
+                        <td class="text-center">@item.dateofbirth</td>
+                        <td class="text-center">@item.cellphone</td>
+                        <td class="text-center">@item.emailaddress</td>
+                        <td class="text-center">@item.personaddress</td>
+                        <td class="text-center">@item.award.awardname</td>
+                        <td class="text-center">
+                            @if (item.orders != null)
+                            {@item.orders.ordername}
+                        </td>
+                        <td class="text-center">
+                            <radzenbutton icon="edit" buttonstyle="buttonstyle.secondary" click="@(() => edit(item))" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    
+    @* List of initiators table *@
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Область</th>
+                <th>ФИО</th>
+                <th>Должность</th>
+                <th>Награда</th>
+                <th>Одобрение</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in initializers)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Areak.AreaName</td>
+                    <td>@item.GetFullName</td>
+                    <td>@item.Possition.PossName</td>
+                    <td>@item.Award.AwardName</td>
+                    <td>
+                        <input type="checkbox" />
+                        <!-- CheckBox -->
+                    </td>
+                </tr>
+            }
+
+            <tr>
+                <td>
+                    @if (order.Id != 0)
+                    {<!-- Button to delete the forecast -->
+                        <button class="btn btn-danger" @onclick="Delete">
+                            Удалить
+                        </button>
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-primary" @onclick="Save">
+                        Сохранить
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    
+    <table class="table">
+        <tr>
+            <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
+            <td width="40%"></td>
+            <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+        </tr>
+    </table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Приказ </th>
+                <th>Номер приказа</th>
+                <th>Дата</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in orders)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td @onclick="@(e => NavigateToOrderPage(item.Id))">
+                        @item.OrderName
+                    </td>
+                    @*<td><RadzenLink href="OrderPage?orderId=@item.Id" Text="@item.OrderName" /></td>*@
+                    <td>@item.OrderCode</td>
+                    <td>@item.OrderDate</td>
+                    @*<td>@foreach (var wer in  item.InitiList)
+                            {
+                            @wer.PersonName
+                            }
+                        </td>*@
+                    <td>
+                        <!-- Edit the current forecast -->
+                        <button class="btn btn-primary"
+                                @onclick="(() => Edit(item))">
+                            Редактировать
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Должность</th>
+            <th>Образование</th>
+            <th>Стаж работы</th>
+            <th>Область</th>
+            <th>Дата рождения</th>
+            <th>Телефон</th>
+            <th>Почта</th>
+            <th>Адрес</th>
+            <th>На награду</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in initializers)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.PersonSurname</td>
+                <td>@item.PersonName</td>
+                <td>@item.PersonPatronymic</td>
+                <td>@item.Possition.PossName</td>
+                <td>@item.Education.EduName</td>
+                <td>@item.WorkExpierence</td>
+                <td>@item.Areak.AreaName</td>
+                <td>@item.DateOfBirth</td>
+                <td>@item.CellPhone</td>
+                <td>@item.EmailAddress</td>
+                <td>@item.PersonAddress</td>
+                <td>@item.Award.AwardName</td>
+                <td>
+                    <!-- Edit the current forecast -->
+                    <button class="btn btn-primary"
+                                @onclick="(() => Edit(item))"
+                                >
+                            Редактировать
+                        </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
