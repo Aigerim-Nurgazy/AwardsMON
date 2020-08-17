@@ -7,35 +7,38 @@
 
 
 
-<h3>Пользователи</h3>
-<button class="btn btn-success" @onclick="AddNewUser">Добавить новый</button>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Наименование</th>
-            <th>Учреждения</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in users)
-        {
-            <tr>
-                <td>@item.UserName</td>
-                <td>@item.</td>
-                <td>
-                    <!-- Edit the current forecast -->
-                    <button class="btn btn-primary"
-                            @onclick="(() => EditUser(item))">
-                        Редактировать
-                    </button>
-                </td>
-            </tr>
-        }
-    </tbody>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"><h4>Пользователи</h4></div>
+    <div class="col-md-4"></div>
+</div>
+
+<table class="table">
+    <tr>
+        <td><button class="btn btn-success" @onclick="AddNewUser">Добавить</button></td>
+    </tr>
 </table>
+
+<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4" AllowSorting="true" Data="@users" TItem="ApplicationUser" ColumnWidth="150px">
+    <Columns>
+        <RadzenGridColumn TItem="ApplicationUser" Property="UserName" Title="Имя " />
+        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
+        <RadzenGridColumn TItem="ApplicationUser" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="60px">
+            <Template Context="user">
+                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(() => EditUser(user))" />
+            </Template>
+        </RadzenGridColumn>
+
+
+    </Columns>
+</RadzenGrid>
+
+
 @if (ShowPopup)
 {
+
+
     <!-- This is the popup to create or edit a user -->
     <div class="modal" tabindex="-1" style="display:block" role="dialog">
         <div class="modal-dialog">
@@ -71,7 +74,7 @@
                     <br />
                     <input class="form-control" type="password" placeholder="Password" @bind="objUser.PasswordHash" />
                     <br />
-                    
+
                     <br /><br />
                     <!-- Button to save the user -->
                     <button class="btn btn-primary" @onclick="SaveUser">
@@ -92,7 +95,7 @@
         </div>
     </div>
 }
- 
+
 @code {
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
@@ -160,8 +163,8 @@
                 // is not the default value
                 if (objUser.PasswordHash != "*****")
                 {
-                    var resetToken =await _userManager.GeneratePasswordResetTokenAsync(user);
-                    var passworduser =await _userManager.ResetPasswordAsync(
+                    var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var passworduser = await _userManager.ResetPasswordAsync(
                             user,
                             resetToken,
                             objUser.PasswordHash);
@@ -169,7 +172,7 @@
                     {
                         if (passworduser.Errors.FirstOrDefault() != null)
                         {
-                            strError =passworduser.Errors.FirstOrDefault().Description;
+                            strError = passworduser.Errors.FirstOrDefault().Description;
                         }
                         else
                         {
@@ -205,14 +208,14 @@
                 {
                     UserName = objUser.UserName,
                     Email = objUser.Email,
-                   // InitializerlsId = InitializerId
+                    // InitializerlsId = InitializerId
                 };
                 var CreateResult = await _userManager.CreateAsync(NewUser, objUser.PasswordHash);
                 if (!CreateResult.Succeeded)
                 {
                     if (CreateResult.Errors.FirstOrDefault() != null)
                     {
-                        strError =CreateResult.Errors.FirstOrDefault().Description;
+                        strError = CreateResult.Errors.FirstOrDefault().Description;
                     }
                     else
                     {

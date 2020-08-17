@@ -18,21 +18,22 @@
 @inject IViewLocalizer Localizer
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 
-<div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4"><h4>Приказы</h4></div>
-    <div class="col-md-4"></div>
-</div>
-
-<table class="table">
-    <tr>
-        <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
-    </tr>
-</table>
 
 <!-- List of Orders -->
 @if (!ShowPopup)
 {
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h4>Приказы</h4></div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
+        </tr>
+    </table>
+
     <RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4"
                 AllowSorting="true" Data="@orders" TItem="Orders" ColumnWidth="150px">
         <Columns>

@@ -3,128 +3,107 @@
 @using Microsoft.AspNetCore.Identity;
 @using BlzMON.Data
 @using BlzMON.Models
+@using Radzen
+@using Radzen.Blazor
+@using System.Data
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Collections.Generic;
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
 @inject UserManager<ApplicationUser> _userManager;
-
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 @inject ApplicationDbContext db
 
 
 
 <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4"><h4>Список  Департаментов</h4></div>
+    <div class="col-md-4"><h4>Департаменты</h4></div>
     <div class="col-md-4"></div>
 </div>
 
 <table class="table">
     <tr>
-        <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
-        <td width="40%"></td>
-        <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+        <td><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
     </tr>
 </table>
 
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Наименование</th>
-            <th>Контактное лицо</th>
-            <th>Телефон</th>
-            <th>Почта</th>
-            <th>Адрес</th>
+<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4" AllowSorting="true" Data="@seconddeps" TItem="SecondDeps" ColumnWidth="150px">
+    <Columns>
+        <RadzenGridColumn TItem="SecondDeps" Property="Id" Title="ID" Width="40px" />
+        <RadzenGridColumn TItem="SecondDeps" Property="DepName" Title="Наименование " />
+        <RadzenGridColumn TItem="SecondDeps" Property="DepPhone" Title="Телефон " Width="100px" />
+        <RadzenGridColumn TItem="SecondDeps" Property="DepEmail" Title="Почта " Width="100px" />
+        <RadzenGridColumn TItem="SecondDeps" Property="DepAddress" Title="Адрес " Width="100px" />
+        <RadzenGridColumn TItem="SecondDeps" Property="Person" Title="Контактное лицо" />
 
+        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
+        <RadzenGridColumn TItem="SecondDeps" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="60px">
+            <Template Context="seconddep">
+                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(seconddep))" />
+            </Template>
+        </RadzenGridColumn>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in seconddeps)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.DepName</td>
-                <td>@item.Person</td>
-                <td>@item.DepPhone</td>
-                <td>@item.DepEmail</td>
-                <td>@item.DepAddress</td>
-                <td>
-                    <!-- Edit the current forecast -->
-                    <button class="btn btn-primary"
-                            @onclick="(() => Edit(item))">
-                        Редактировать
-                    </button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+        <RadzenGridColumn TItem="SecondDeps" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="60px">
+            <Template Context="seconddep">
+                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Delete(seconddep))" />
+            </Template>
+        </RadzenGridColumn>
 
+    </Columns>
+</RadzenGrid>
 
 @if (ShowPopup)
 {
     <div class="modal" tabindex="-1" style="display:block" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Редактирование</h3>
-                    <button type="button" class="close"
-                            @onclick="ClosePopup">
-                        <span aria-hidden="true">X</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <span style="color:red">@strError</span>
-                    <table class="table">
-                        <tr>
-                            <td>Наименование</td>
-                            <td><input type="text" class="form-control" @bind="@seconddep.DepName" /></td>
-                        </tr>
-                    
-                        <tr>
-                            <td>Контактное лицо</td>
-                            <td><input type="text" class="form-control" @bind="@seconddep.Person" /></td>
-                        </tr>
-                        <tr>
-                            <td>Телефон</td>
-                            <td><input type="text" class="form-control" @bind="@seconddep.DepPhone" /></td>
-                        </tr>
-                        <tr>
-                            <td>Почта</td>
-                            <td><input type="text" class="form-control" @bind="@seconddep.DepEmail" /></td>
-                        </tr>
-                        <tr>
-                            <td>Адрес</td>
-                            <td><input type="text" class="form-control" @bind="@seconddep.DepAddress" /></td>
-                        </tr>
+            <div class="modal-content p-4">
 
-                        <tr>
-                            <td>
-                                @if (seconddep.Id != 0)
-                                {
-                                    <!-- Button to delete the forecast -->
-                                    <button class="btn btn-danger" @onclick="Delete">
-                                        Удалить
-                                    </button>
-                                }
-                            </td>
-                            <td>
-                                <button class="btn btn-primary" @onclick="Save">
-                                    Сохранить
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="p-2">@title</p>
+                    </div>
+                    <div>
+                        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@ClosePopup" />
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <label for="e1" class="p-2 font-weight-bold">Наименование департамента</label>
+                    <input type="text" class="form-control" id="e1" @bind="@seconddep.DepName">
+
+                    <label for="e1" class="p-2 font-weight-bold"> Телефон департамента </label>
+                    <input type="text" class="form-control" id="e1" @bind="@seconddep.DepPhone">
+
+                    <label for="e1" class="p-2 font-weight-bold">Почта департамента</label>
+                    <input type="text" class="form-control" id="e1" @bind="@seconddep.DepEmail">
+
+                    <label for="e1" class="p-2 font-weight-bold">Адрес департамента</label>
+                    <input type="text" class="form-control" id="e1" @bind="@seconddep.DepAddress">
+
+                    <label for="e1" class="p-2 font-weight-bold">Контактное лицо</label>
+                    <input type="text" class="form-control" id="e1" @bind="@seconddep.Person">
+                </div>
+
+                <br />
+
+
+                <div class="d-flex justify-content-center p-1">
+                    <button class="btn btn-sm btn-primary" @onclick="Save">
+                        Сохранить
+                    </button>
                 </div>
             </div>
 
         </div>
-    </div>
-}
-
+    </div>}
 
 
 @code {
+
     private int CurrentValue { get; set; }
     public string itemValue { get; set; }
     public string item
@@ -146,7 +125,7 @@
     }
     private List<SecondDeps> seconddeps = new List<SecondDeps>();
     private List<SecondDeps> seconddeps2;
-    private SecondDeps seconddep= new SecondDeps();
+    private SecondDeps seconddep = new SecondDeps();
 
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
@@ -154,6 +133,7 @@
 
     ApplicationUser objUser;
     string strError = "";
+    string title = "";
     bool ShowPopup = false;
 
 
@@ -162,6 +142,7 @@
         seconddep = new SecondDeps();
         //initializer.Code = "Test";   // What is it? double shit :0
         seconddep.Id = 0;
+        title = "Новая запись";
         ShowPopup = true;
     }
     async Task Save()
@@ -199,25 +180,28 @@
             strError = ex.GetBaseException().Message;
         }
     }
-    async Task Edit(SecondDeps rc)
+    async Task Edit(SecondDeps secdep)
     {
-        seconddep = rc;
+        seconddep = secdep;
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
+
+        title = "Редактирование";
         ShowPopup = true;
     }
-    async Task Delete()
+    async Task Delete(SecondDeps secdep)
     {
         // Close the Popup
         ShowPopup = false;
         // Get the user
-        var rc = await db.SecondDep.FindAsync(seconddep.Id);
-        if (rc != null)
+        var obj = await db.SecondDep.FindAsync(secdep.Id);
+        if (obj != null)
         {
-            db.SecondDep.Remove(rc);
+            db.SecondDep.Remove(obj);
             await db.SaveChangesAsync();
         }
         LoadData();
     }
+
     void ClosePopup()
     {
         // Close the Popup
@@ -251,6 +235,21 @@
         seconddeps.Add(seconddep);
         seconddep = new SecondDeps();
     }
+    Dictionary<DateTime, string> events = new Dictionary<DateTime, string>();
+    void Change(DateTime? value, string name, string format)
+    {
+        events.Add(DateTime.Now, $"{name} value changed to {value?.ToString(format)}");
+        StateHasChanged();
+    }
+    bool CheckBox1Value;
+    bool? CheckBox2Value;
+    bool? CheckBox3Value = true;
 
+
+    void Change(bool? value, string name)
+    {
+        events.Add(DateTime.Now, $"{name} value changed to {value}");
+        StateHasChanged();
+    }
 
 }

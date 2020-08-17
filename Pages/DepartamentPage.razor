@@ -2,128 +2,101 @@
 @using Microsoft.AspNetCore.Identity;
 @using BlzMON.Data
 @using BlzMON.Models
+@using Radzen
+@using Radzen.Blazor
+@using System.Data
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Collections.Generic;
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
 @inject UserManager<ApplicationUser> _userManager;
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 @inject ApplicationDbContext db
 
 
 
 <div class="row">
     <div class="col-md-4"></div>
-    <div class="col-md-4"><h4>Список  Учреждений</h4></div>
+    <div class="col-md-4"><h4>Учреждения</h4></div>
     <div class="col-md-4"></div>
 </div>
 
 <table class="table">
     <tr>
-        <td width="30%"><input @bind-value="@item" placeholder="Поиск" class="form-control" @bind-value:event="oninput" /></td>
-        <td width="40%"></td>
-        <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить новый</button></td>
+        <td width="30%"><button class="btn btn-success" @onclick="AddNew">Добавить</button></td>
     </tr>
 </table>
 
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Наименование</th>
-            <th>Контактное лицо</th>
-            <th>Телефон</th>
-            <th>Почта</th>
-            <th>Адрес</th>
+<RadzenGrid AllowFiltering="true" FilterCaseSensitivity="Radzen.FilterCaseSensitivity.CaseInsensitive" AllowPaging="true" PageSize="4" AllowSorting="true" Data="@departaments" TItem="Departaments" ColumnWidth="150px">
+    <Columns>
+        <RadzenGridColumn TItem="Departaments" Property="Id" Title="ID" Width="40px" />
+        <RadzenGridColumn TItem="Departaments" Property="Name" Title="Наименование " />
+        <RadzenGridColumn TItem="Departaments" Property="InitPhone" Title="Телефон " Width="100px" />
+        <RadzenGridColumn TItem="Departaments" Property="InitEmail" Title="Почта учреждения" Width="100px" />
+        <RadzenGridColumn TItem="Departaments" Property="InitAddress" Title="Адрес учреждения" Width="100px" />
+        <RadzenGridColumn TItem="Departaments" Property="Person" Title="Контактное лицо" />
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in departaments)
-        {
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Person</td>
-            <td>@item.InitPhone</td>
-            <td>@item.InitEmail</td>
-            <td>@item.InitAddress</td>
-            <td>
-                <!-- Edit the current forecast -->
-                <button class="btn btn-primary"
-                        @onclick="(() => Edit(item))">
-                    Редактировать
-                </button>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+        @*<RadzenGridColumn TItem="IdentityRole" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">*@
+        <RadzenGridColumn TItem="Departaments" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="60px">
+            <Template Context="seconddep">
+                <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Click="@(args => Edit(departament))" />
+            </Template>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="Departaments" Filterable="false" Sortable="false" TextAlign="Radzen.TextAlign.Center" Width="60px">
+            <Template Context="seconddep">
+                <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Light" Click="@(args => Delete(departament))" />
+            </Template>
+        </RadzenGridColumn>
 
+    </Columns>
+</RadzenGrid>
 
 @if (ShowPopup)
 {
     <div class="modal" tabindex="-1" style="display:block" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Редактирование</h3>
-                    <button type="button" class="close"
-                            @onclick="ClosePopup">
-                        <span aria-hidden="true">X</span>
-                    </button>
+            <div class="modal-content p-4">
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="p-2">@title</p>
+                    </div>
+                    <div>
+                        <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Click="@ClosePopup" />
+                    </div>
+
                 </div>
-                <div class="modal-body">
-                    <span style="color:red">@strError</span>
-                    <table class="table">
-                      
-                        <tr>
-                            <td>Наименование</td>
-                            <td><input type="text" class="form-control" @bind="@departament.Name" /></td>
-                        </tr>
-                        <tr>
-                            <td>Контактное лицо</td>
-                            <td><input type="text" class="form-control" @bind="@departament.Person" /></td>
-                        </tr>
-                        <tr>
-                            <td>Номер</td>
-                            <td><input type="text" class="form-control" @bind="@departament.InitPhone" /></td>
-                        </tr>
-                        <tr>
-                            <td>Почта</td>
-                            <td><input type="text" class="form-control" @bind="@departament.InitEmail" /></td>
-                        </tr>
-                        <tr>
-                            <td>Адрес</td>
-                            <td><input type="text" class="form-control" @bind="@departament.InitAddress" /></td>
-                        </tr>
-                     
-                    
-                        <tr>
-                            <td>
-                                @if (departament.Id != 0)
-                                {
-                                    <!-- Button to delete the forecast -->
-                                    <button class="btn btn-danger" @onclick="Delete">
-                                        Удалить
-                                    </button>
-                                }
-                            </td>
-                            <td>
-                                <button class="btn btn-primary" @onclick="Save">
-                                    Сохранить
-                                </button>
-                            </td>
-                        </tr>
-                    </table>
+                <br />
+                <div class="form-group">
+                    <label for="e1" class="p-2 font-weight-bold">Наименование департамента</label>
+                    <input type="text" class="form-control" id="e1" @bind="@departament.Name">
+                    <label for="e1" class="p-2 font-weight-bold"> Телефон департамента </label>
+                    <input type="text" class="form-control" id="e1" @bind="@departament.InitPhone">
+                    <label for="e1" class="p-2 font-weight-bold">Почта департамента</label>
+                    <input type="text" class="form-control" id="e1" @bind="@departament.InitEmail">
+                    <label for="e1" class="p-2 font-weight-bold">Адрес департамента</label>
+                    <input type="text" class="form-control" id="e1" @bind="@departament.InitAddress">
+                    <label for="e1" class="p-2 font-weight-bold">Контактное лицо</label>
+                    <input type="text" class="form-control" id="e1" @bind="@departament.Person">
+
+                </div>
+                <br />
+                <div class="d-flex justify-content-center p-1">
+                    <button class="btn btn-sm btn-primary" @onclick="Save">
+                        Сохранить
+                    </button>
                 </div>
             </div>
 
+
         </div>
-    </div>
-}
+    </div>}
 
 
 
-@code {
-    private int CurrentValue { get; set; }
+@code { private int CurrentValue { get; set; }
     public string itemValue { get; set; }
     public string item
     {
@@ -152,6 +125,7 @@
 
     ApplicationUser objUser;
     string strError = "";
+    string title = "";
     bool ShowPopup = false;
 
 
@@ -177,11 +151,12 @@
                 depart.InitPhone = departament.InitPhone;
                 depart.InitEmail = departament.InitEmail;
                 depart.InitAddress = departament.InitAddress;
+                depart.Person = departament.Person;
                 await db.SaveChangesAsync();
             }
             else
             {
-               // int maxId = db.Departaments.Max(x => x.Id);
+                // int maxId = db.Departaments.Max(x => x.Id);
                 //departament.Id = (maxId + 1);
                 db.Departaments.Add(departament);
                 await db.SaveChangesAsync();
@@ -198,21 +173,21 @@
             strError = ex.GetBaseException().Message;
         }
     }
-    async Task Edit(Departaments rc)
+    async Task Edit(Departaments depart)
     {
-        departament = rc;
+        departament = depart;
         //products = db.Products.Where(x => x.CategoryId == ).ToList();
         ShowPopup = true;
     }
-    async Task Delete()
+    async Task Delete(Departaments depart)
     {
         // Close the Popup
         ShowPopup = false;
         // Get the user
-        var rc = await db.Departaments.FindAsync(departament.Id);
-        if (rc != null)
+        var obj = await db.Departaments.FindAsync(departament.Id);
+        if (obj != null)
         {
-            db.Departaments.Remove(rc);
+            db.Departaments.Remove(obj);
             await db.SaveChangesAsync();
         }
         LoadData();
@@ -246,6 +221,5 @@
         await db.SaveChangesAsync();
         departaments.Add(departament);
         departament = new Departaments();
-    }
-
+    } 
 }
